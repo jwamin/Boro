@@ -12,7 +12,58 @@
 		3D09FB27211E1F6300B3C495 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3D09FB25211E1F6300B3C495 /* Main.storyboard */; };
 		3D09FB29211E1F6500B3C495 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3D09FB28211E1F6500B3C495 /* Assets.xcassets */; };
 		3D09FB2C211E1F6500B3C495 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3D09FB2A211E1F6500B3C495 /* LaunchScreen.storyboard */; };
+		3D09FB34211E1F7A00B3C495 /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D09FB33211E1F7A00B3C495 /* Location.swift */; };
+		3D09FB3B211E2CC500B3C495 /* Interface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3D09FB39211E2CC500B3C495 /* Interface.storyboard */; };
+		3D09FB3D211E2CC600B3C495 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3D09FB3C211E2CC600B3C495 /* Assets.xcassets */; };
+		3D09FB44211E2CC600B3C495 /* Boro WK Extension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 3D09FB43211E2CC600B3C495 /* Boro WK Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		3D09FB49211E2CC600B3C495 /* InterfaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D09FB48211E2CC600B3C495 /* InterfaceController.swift */; };
+		3D09FB4B211E2CC600B3C495 /* ExtensionDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D09FB4A211E2CC600B3C495 /* ExtensionDelegate.swift */; };
+		3D09FB4D211E2CC600B3C495 /* ComplicationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D09FB4C211E2CC600B3C495 /* ComplicationController.swift */; };
+		3D09FB4F211E2CC700B3C495 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3D09FB4E211E2CC700B3C495 /* Assets.xcassets */; };
+		3D09FB53211E2CC700B3C495 /* Boro WK.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = 3D09FB37211E2CC500B3C495 /* Boro WK.app */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		3D09FB45211E2CC600B3C495 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 3D09FB16211E1F6300B3C495 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 3D09FB42211E2CC600B3C495;
+			remoteInfo = "Boro WK Extension";
+		};
+		3D09FB51211E2CC700B3C495 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 3D09FB16211E1F6300B3C495 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 3D09FB36211E2CC500B3C495;
+			remoteInfo = "Boro WK";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		3D09FB57211E2CC700B3C495 /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				3D09FB44211E2CC600B3C495 /* Boro WK Extension.appex in Embed App Extensions */,
+			);
+			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3D09FB5B211E2CC700B3C495 /* Embed Watch Content */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "$(CONTENTS_FOLDER_PATH)/Watch";
+			dstSubfolderSpec = 16;
+			files = (
+				3D09FB53211E2CC700B3C495 /* Boro WK.app in Embed Watch Content */,
+			);
+			name = "Embed Watch Content";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		3D09FB1E211E1F6300B3C495 /* Boro.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Boro.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -22,10 +73,29 @@
 		3D09FB28211E1F6500B3C495 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		3D09FB2B211E1F6500B3C495 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		3D09FB2D211E1F6500B3C495 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3D09FB33211E1F7A00B3C495 /* Location.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
+		3D09FB37211E2CC500B3C495 /* Boro WK.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Boro WK.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		3D09FB3A211E2CC500B3C495 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Interface.storyboard; sourceTree = "<group>"; };
+		3D09FB3C211E2CC600B3C495 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		3D09FB3E211E2CC600B3C495 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3D09FB43211E2CC600B3C495 /* Boro WK Extension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "Boro WK Extension.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
+		3D09FB48211E2CC600B3C495 /* InterfaceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InterfaceController.swift; sourceTree = "<group>"; };
+		3D09FB4A211E2CC600B3C495 /* ExtensionDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionDelegate.swift; sourceTree = "<group>"; };
+		3D09FB4C211E2CC600B3C495 /* ComplicationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComplicationController.swift; sourceTree = "<group>"; };
+		3D09FB4E211E2CC700B3C495 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		3D09FB50211E2CC700B3C495 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3D09FB5C211E2E7D00B3C495 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		3D09FB1B211E1F6300B3C495 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3D09FB40211E2CC600B3C495 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -38,7 +108,10 @@
 		3D09FB15211E1F6300B3C495 = {
 			isa = PBXGroup;
 			children = (
+				3D09FB5C211E2E7D00B3C495 /* README.md */,
 				3D09FB20211E1F6300B3C495 /* Boro */,
+				3D09FB38211E2CC500B3C495 /* Boro WK */,
+				3D09FB47211E2CC600B3C495 /* Boro WK Extension */,
 				3D09FB1F211E1F6300B3C495 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -47,6 +120,8 @@
 			isa = PBXGroup;
 			children = (
 				3D09FB1E211E1F6300B3C495 /* Boro.app */,
+				3D09FB37211E2CC500B3C495 /* Boro WK.app */,
+				3D09FB43211E2CC600B3C495 /* Boro WK Extension.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -56,12 +131,35 @@
 			children = (
 				3D09FB21211E1F6300B3C495 /* AppDelegate.swift */,
 				3D09FB23211E1F6300B3C495 /* ViewController.swift */,
+				3D09FB33211E1F7A00B3C495 /* Location.swift */,
 				3D09FB25211E1F6300B3C495 /* Main.storyboard */,
 				3D09FB28211E1F6500B3C495 /* Assets.xcassets */,
 				3D09FB2A211E1F6500B3C495 /* LaunchScreen.storyboard */,
 				3D09FB2D211E1F6500B3C495 /* Info.plist */,
 			);
 			path = Boro;
+			sourceTree = "<group>";
+		};
+		3D09FB38211E2CC500B3C495 /* Boro WK */ = {
+			isa = PBXGroup;
+			children = (
+				3D09FB39211E2CC500B3C495 /* Interface.storyboard */,
+				3D09FB3C211E2CC600B3C495 /* Assets.xcassets */,
+				3D09FB3E211E2CC600B3C495 /* Info.plist */,
+			);
+			path = "Boro WK";
+			sourceTree = "<group>";
+		};
+		3D09FB47211E2CC600B3C495 /* Boro WK Extension */ = {
+			isa = PBXGroup;
+			children = (
+				3D09FB48211E2CC600B3C495 /* InterfaceController.swift */,
+				3D09FB4A211E2CC600B3C495 /* ExtensionDelegate.swift */,
+				3D09FB4C211E2CC600B3C495 /* ComplicationController.swift */,
+				3D09FB4E211E2CC700B3C495 /* Assets.xcassets */,
+				3D09FB50211E2CC700B3C495 /* Info.plist */,
+			);
+			path = "Boro WK Extension";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -74,15 +172,51 @@
 				3D09FB1A211E1F6300B3C495 /* Sources */,
 				3D09FB1B211E1F6300B3C495 /* Frameworks */,
 				3D09FB1C211E1F6300B3C495 /* Resources */,
+				3D09FB5B211E2CC700B3C495 /* Embed Watch Content */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				3D09FB52211E2CC700B3C495 /* PBXTargetDependency */,
 			);
 			name = Boro;
 			productName = Boro;
 			productReference = 3D09FB1E211E1F6300B3C495 /* Boro.app */;
 			productType = "com.apple.product-type.application";
+		};
+		3D09FB36211E2CC500B3C495 /* Boro WK */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 3D09FB58211E2CC700B3C495 /* Build configuration list for PBXNativeTarget "Boro WK" */;
+			buildPhases = (
+				3D09FB35211E2CC500B3C495 /* Resources */,
+				3D09FB57211E2CC700B3C495 /* Embed App Extensions */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				3D09FB46211E2CC600B3C495 /* PBXTargetDependency */,
+			);
+			name = "Boro WK";
+			productName = "Boro WK";
+			productReference = 3D09FB37211E2CC500B3C495 /* Boro WK.app */;
+			productType = "com.apple.product-type.application.watchapp2";
+		};
+		3D09FB42211E2CC600B3C495 /* Boro WK Extension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 3D09FB54211E2CC700B3C495 /* Build configuration list for PBXNativeTarget "Boro WK Extension" */;
+			buildPhases = (
+				3D09FB3F211E2CC600B3C495 /* Sources */,
+				3D09FB40211E2CC600B3C495 /* Frameworks */,
+				3D09FB41211E2CC600B3C495 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Boro WK Extension";
+			productName = "Boro WK Extension";
+			productReference = 3D09FB43211E2CC600B3C495 /* Boro WK Extension.appex */;
+			productType = "com.apple.product-type.watchkit2-extension";
 		};
 /* End PBXNativeTarget section */
 
@@ -95,6 +229,17 @@
 				ORGANIZATIONNAME = "Joss Manger";
 				TargetAttributes = {
 					3D09FB1D211E1F6300B3C495 = {
+						CreatedOnToolsVersion = 9.4.1;
+						SystemCapabilities = {
+							com.apple.BackgroundModes = {
+								enabled = 1;
+							};
+						};
+					};
+					3D09FB36211E2CC500B3C495 = {
+						CreatedOnToolsVersion = 9.4.1;
+					};
+					3D09FB42211E2CC600B3C495 = {
 						CreatedOnToolsVersion = 9.4.1;
 					};
 				};
@@ -113,6 +258,8 @@
 			projectRoot = "";
 			targets = (
 				3D09FB1D211E1F6300B3C495 /* Boro */,
+				3D09FB36211E2CC500B3C495 /* Boro WK */,
+				3D09FB42211E2CC600B3C495 /* Boro WK Extension */,
 			);
 		};
 /* End PBXProject section */
@@ -128,6 +275,23 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		3D09FB35211E2CC500B3C495 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3D09FB3D211E2CC600B3C495 /* Assets.xcassets in Resources */,
+				3D09FB3B211E2CC500B3C495 /* Interface.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3D09FB41211E2CC600B3C495 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3D09FB4F211E2CC700B3C495 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -136,11 +300,35 @@
 			buildActionMask = 2147483647;
 			files = (
 				3D09FB24211E1F6300B3C495 /* ViewController.swift in Sources */,
+				3D09FB34211E1F7A00B3C495 /* Location.swift in Sources */,
 				3D09FB22211E1F6300B3C495 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		3D09FB3F211E2CC600B3C495 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3D09FB4B211E2CC600B3C495 /* ExtensionDelegate.swift in Sources */,
+				3D09FB49211E2CC600B3C495 /* InterfaceController.swift in Sources */,
+				3D09FB4D211E2CC600B3C495 /* ComplicationController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		3D09FB46211E2CC600B3C495 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 3D09FB42211E2CC600B3C495 /* Boro WK Extension */;
+			targetProxy = 3D09FB45211E2CC600B3C495 /* PBXContainerItemProxy */;
+		};
+		3D09FB52211E2CC700B3C495 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 3D09FB36211E2CC500B3C495 /* Boro WK */;
+			targetProxy = 3D09FB51211E2CC700B3C495 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		3D09FB25211E1F6300B3C495 /* Main.storyboard */ = {
@@ -157,6 +345,14 @@
 				3D09FB2B211E1F6500B3C495 /* Base */,
 			);
 			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		3D09FB39211E2CC500B3C495 /* Interface.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				3D09FB3A211E2CC500B3C495 /* Base */,
+			);
+			name = Interface.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -312,6 +508,88 @@
 			};
 			name = Release;
 		};
+		3D09FB55211E2CC700B3C495 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_COMPLICATION_NAME = Complication;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 3C42F7N9CQ;
+				INFOPLIST_FILE = "Boro WK Extension/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.jossy.Boro.watchkitapp.watchkitextension;
+				PRODUCT_NAME = "${TARGET_NAME}";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 4.3;
+			};
+			name = Debug;
+		};
+		3D09FB56211E2CC700B3C495 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_COMPLICATION_NAME = Complication;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 3C42F7N9CQ;
+				INFOPLIST_FILE = "Boro WK Extension/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.jossy.Boro.watchkitapp.watchkitextension;
+				PRODUCT_NAME = "${TARGET_NAME}";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 4.3;
+			};
+			name = Release;
+		};
+		3D09FB59211E2CC700B3C495 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 3C42F7N9CQ;
+				IBSC_MODULE = Boro_WK_Extension;
+				INFOPLIST_FILE = "Boro WK/Info.plist";
+				PRODUCT_BUNDLE_IDENTIFIER = com.jossy.Boro.watchkitapp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 4.3;
+			};
+			name = Debug;
+		};
+		3D09FB5A211E2CC700B3C495 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 3C42F7N9CQ;
+				IBSC_MODULE = Boro_WK_Extension;
+				INFOPLIST_FILE = "Boro WK/Info.plist";
+				PRODUCT_BUNDLE_IDENTIFIER = com.jossy.Boro.watchkitapp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 4.3;
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -329,6 +607,24 @@
 			buildConfigurations = (
 				3D09FB31211E1F6500B3C495 /* Debug */,
 				3D09FB32211E1F6500B3C495 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		3D09FB54211E2CC700B3C495 /* Build configuration list for PBXNativeTarget "Boro WK Extension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3D09FB55211E2CC700B3C495 /* Debug */,
+				3D09FB56211E2CC700B3C495 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		3D09FB58211E2CC700B3C495 /* Build configuration list for PBXNativeTarget "Boro WK" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3D09FB59211E2CC700B3C495 /* Debug */,
+				3D09FB5A211E2CC700B3C495 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
