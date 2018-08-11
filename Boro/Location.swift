@@ -21,6 +21,11 @@ class Locator : NSObject, CLLocationManagerDelegate{
     override init() {
         super.init()
         print("hello from location handler",CLLocationManager.locationServicesEnabled())
+        doUpdate()
+        
+    }
+    
+    func doUpdate(){
         if(CLLocationManager.locationServicesEnabled()){
             print("debug print")
             manager = CLLocationManager()
@@ -34,7 +39,6 @@ class Locator : NSObject, CLLocationManagerDelegate{
         } else {
             print("no location services")
         }
-        
     }
     
     private func reverseGeocodeCompletion(_ placemarks:[CLPlacemark]?,_ error:Error?){
@@ -50,6 +54,7 @@ class Locator : NSObject, CLLocationManagerDelegate{
             guard let isNYCBorough = Borough.checkBorough(subLocality) else {
                 print("guess that's not in NYC")
                 delegate?.locationUpdated("guess that's not in NYC")
+                manager.stopUpdatingLocation()
                 return
             }
             
@@ -62,6 +67,7 @@ class Locator : NSObject, CLLocationManagerDelegate{
         } else {
             //not in NY
             print("guess that's not in new york state")
+            manager.stopUpdatingLocation()
         }
 
         

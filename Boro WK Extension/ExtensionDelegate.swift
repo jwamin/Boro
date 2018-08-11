@@ -10,8 +10,13 @@ import WatchKit
 
 class ExtensionDelegate: NSObject, WKExtensionDelegate {
 
+    var myComplicationData:Dictionary<String,String>!
+    
+    
     func applicationDidFinishLaunching() {
         // Perform any final initialization of your application.
+        myComplicationData = NSDictionary(contentsOfFile: Bundle.main.path(forResource: "text", ofType: "strings")!) as! Dictionary<String,String>
+        print(myComplicationData)
     }
 
     func applicationDidBecomeActive() {

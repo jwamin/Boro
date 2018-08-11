@@ -21,8 +21,7 @@ class InterfaceController: WKInterfaceController,LocatorProtocol {
     @IBOutlet var label: WKInterfaceLabel!
     override func awake(withContext context: Any?) {
         super.awake(withContext: context)
-        locator = Locator()
-        locator.delegate = self
+
         // Configure interface objects here.
     }
     
@@ -30,12 +29,15 @@ class InterfaceController: WKInterfaceController,LocatorProtocol {
         // This method is called when watch view controller is about to be visible to user
         super.willActivate()
         label.setText("")
-        
+        locator = Locator()
+        locator.delegate = self
     }
     
     override func didDeactivate() {
         // This method is called when watch view controller is no longer visible
         super.didDeactivate()
+        locator = nil
+        
     }
 
 }
