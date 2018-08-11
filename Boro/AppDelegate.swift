@@ -19,7 +19,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Override point for customization after application launch.
         if((launchOptions?[UIApplicationLaunchOptionsKey.location]) != nil){
             print("location updated")
+            return true
         }
+        
+        window = UIWindow(frame: UIScreen.main.bounds)
+        window?.rootViewController = ViewController()
+        window?.makeKeyAndVisible()
         
         return true
     }

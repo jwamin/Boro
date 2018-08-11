@@ -20,18 +20,16 @@
 	<string>1</string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
-	<key>NSLocationWhenInUseUsageDescription</key>
-	<string>We need permission to see where you are.</string>
 	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
 	<string>In order to deliver background information to your watch, we need location access.</string>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>We need permission to see where you are.</string>
 	<key>UIBackgroundModes</key>
 	<array>
 		<string>location</string>
 	</array>
 	<key>UILaunchStoryboardName</key>
 	<string>LaunchScreen</string>
-	<key>UIMainStoryboardFile</key>
-	<string>Main</string>
 	<key>UIRequiredDeviceCapabilities</key>
 	<array>
 		<string>armv7</string>
