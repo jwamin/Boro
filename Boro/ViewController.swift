@@ -38,16 +38,10 @@ class ViewController: UIViewController, LocatorProtocol {
         NSLayoutConstraint(item: label, attribute: .trailing, relatedBy: .equal, toItem: view, attribute: .trailing, multiplier: 1.0, constant: 0).isActive = true
     }
 
-    func locationUpdated(_ location: String) {
+    func locationUpdated(_ locationString: String) {
         
-        guard let isNYCBorough = Borough.checkBorough(location) else {
-            print("guess that's not in NYC")
-            label.text = "guess that's not in NHC"
-            return
-        }
-        
-        print(isNYCBorough)
-        label.text = location
+
+        label.text = locationString
         
         
     }

@@ -22,9 +22,11 @@ class Locator : NSObject, CLLocationManagerDelegate{
         super.init()
         print("hello from location handler",CLLocationManager.locationServicesEnabled())
         if(CLLocationManager.locationServicesEnabled()){
+            print("debug print")
             manager = CLLocationManager()
             manager.requestAlwaysAuthorization()
             manager.activityType = .other
+            manager.desiredAccuracy = kCLLocationAccuracyKilometer
             manager.delegate = self
             manager.startUpdatingLocation()
             coder = CLGeocoder()
@@ -40,13 +42,22 @@ class Locator : NSObject, CLLocationManagerDelegate{
             fatalError((error?.localizedDescription)!)
         }
         
-        print(placemarks)
-        
         //if let subLocality = placemarks?.first?.subLocality, let locality = placemarks?.first?.locality{
         if(placemarks?.first?.administrativeArea == ADMINISTRATIVE_AREA && placemarks?.first?.country == COUNTRY){
             //in NY, USA
             let subLocality = placemarks?.first?.subLocality ?? ""
+            
+            guard let isNYCBorough = Borough.checkBorough(subLocality) else {
+                print("guess that's not in NYC")
+                delegate?.locationUpdated("guess that's not in NYC")
+                return
+            }
+            
             delegate?.locationUpdated("\(subLocality)")
+            
+            print(isNYCBorough)
+            
+            
             
         } else {
             //not in NY
@@ -57,8 +68,12 @@ class Locator : NSObject, CLLocationManagerDelegate{
         
     }
     
+    func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
+        print(error.localizedDescription)
+    }
+    
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        //print(locations)
+        print("updating locations")
         coder.reverseGeocodeLocation(locations.first!, completionHandler: reverseGeocodeCompletion(_:_:))
     }
     

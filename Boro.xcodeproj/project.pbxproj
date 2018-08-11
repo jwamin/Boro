@@ -21,6 +21,8 @@
 		3D09FB4F211E2CC700B3C495 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3D09FB4E211E2CC700B3C495 /* Assets.xcassets */; };
 		3D09FB53211E2CC700B3C495 /* Boro WK.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = 3D09FB37211E2CC500B3C495 /* Boro WK.app */; };
 		576D3866211E76330096D4AE /* nyc.swift in Sources */ = {isa = PBXBuildFile; fileRef = 576D3865211E76330096D4AE /* nyc.swift */; };
+		576D3867211F14490096D4AE /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D09FB33211E1F7A00B3C495 /* Location.swift */; };
+		576D3868211F144D0096D4AE /* nyc.swift in Sources */ = {isa = PBXBuildFile; fileRef = 576D3865211E76330096D4AE /* nyc.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -311,7 +313,9 @@
 			files = (
 				3D09FB4B211E2CC600B3C495 /* ExtensionDelegate.swift in Sources */,
 				3D09FB49211E2CC600B3C495 /* InterfaceController.swift in Sources */,
+				576D3867211F14490096D4AE /* Location.swift in Sources */,
 				3D09FB4D211E2CC600B3C495 /* ComplicationController.swift in Sources */,
+				576D3868211F144D0096D4AE /* nyc.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

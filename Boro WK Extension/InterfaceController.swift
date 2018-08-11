@@ -10,17 +10,27 @@ import WatchKit
 import Foundation
 
 
-class InterfaceController: WKInterfaceController {
-
+class InterfaceController: WKInterfaceController,LocatorProtocol {
+    
+    func locationUpdated(_ location: String) {
+        label.setText(location)
+    }
+    
+    var locator:Locator!
+    
+    @IBOutlet var label: WKInterfaceLabel!
     override func awake(withContext context: Any?) {
         super.awake(withContext: context)
-        
+        locator = Locator()
+        locator.delegate = self
         // Configure interface objects here.
     }
     
     override func willActivate() {
         // This method is called when watch view controller is about to be visible to user
         super.willActivate()
+        label.setText("")
+        
     }
     
     override func didDeactivate() {

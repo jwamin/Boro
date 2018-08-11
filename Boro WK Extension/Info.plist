@@ -32,6 +32,10 @@
 		<string>CLKComplicationFamilyCircularSmall</string>
 		<string>CLKComplicationFamilyExtraLarge</string>
 	</array>
+    <key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
+    <string>In order to deliver background information to your watch, we need location access.</string>
+    <key>NSLocationWhenInUseUsageDescription</key>
+    <string>We need permission to see where you are.</string>
 	<key>NSExtension</key>
 	<dict>
 		<key>NSExtensionAttributes</key>
