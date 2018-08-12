@@ -10,9 +10,12 @@ import WatchKit
 import Foundation
 
 
-class InterfaceController: WKInterfaceController,LocatorProtocol {
+class InterfaceController: WKInterfaceController, LocatorProtocol{
+    
+    var delegate:ExtensionDelegate!
     
     func locationUpdated(_ location: String) {
+        print("got location")
         label.setText(location)
     }
     
@@ -21,7 +24,7 @@ class InterfaceController: WKInterfaceController,LocatorProtocol {
     @IBOutlet var label: WKInterfaceLabel!
     override func awake(withContext context: Any?) {
         super.awake(withContext: context)
-
+        delegate = WKExtension.shared().delegate as! ExtensionDelegate
         // Configure interface objects here.
     }
     
@@ -29,8 +32,15 @@ class InterfaceController: WKInterfaceController,LocatorProtocol {
         // This method is called when watch view controller is about to be visible to user
         super.willActivate()
         label.setText("")
-        locator = Locator()
-        locator.delegate = self
+        locator = delegate.locator
+        if(locator.borough==nil){
+            print("location unavailalbe")
+            locator.doUpdate()
+        } else {
+            print("location availalbe")
+            locationUpdated((locator.borough?.getString())!)
+        }
+        
     }
     
     override func didDeactivate() {

@@ -25,6 +25,7 @@
 		576D3868211F144D0096D4AE /* nyc.swift in Sources */ = {isa = PBXBuildFile; fileRef = 576D3865211E76330096D4AE /* nyc.swift */; };
 		577AE385211F1F6F00FB3884 /* text.strings in Resources */ = {isa = PBXBuildFile; fileRef = 577AE384211F1F6F00FB3884 /* text.strings */; };
 		577AE386211F204B00FB3884 /* text.strings in Resources */ = {isa = PBXBuildFile; fileRef = 577AE384211F1F6F00FB3884 /* text.strings */; };
+		577AE387211F9D7900FB3884 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3D09FB4E211E2CC700B3C495 /* Assets.xcassets */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -286,6 +287,7 @@
 			files = (
 				3D09FB3D211E2CC600B3C495 /* Assets.xcassets in Resources */,
 				3D09FB3B211E2CC500B3C495 /* Interface.storyboard in Resources */,
+				577AE387211F9D7900FB3884 /* Assets.xcassets in Resources */,
 				577AE386211F204B00FB3884 /* text.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -513,7 +515,7 @@
 		3D09FB55211E2CC700B3C495 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_COMPLICATION_NAME = Complication;
+				ASSETCATALOG_COMPILER_COMPLICATION_NAME = Template;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 3C42F7N9CQ;
 				INFOPLIST_FILE = "Boro WK Extension/Info.plist";
@@ -535,7 +537,7 @@
 		3D09FB56211E2CC700B3C495 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_COMPLICATION_NAME = Complication;
+				ASSETCATALOG_COMPILER_COMPLICATION_NAME = Template;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 3C42F7N9CQ;
 				INFOPLIST_FILE = "Boro WK Extension/Info.plist";

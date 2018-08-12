@@ -18,6 +18,9 @@ class Locator : NSObject, CLLocationManagerDelegate{
     var manager:CLLocationManager!
     var coder:CLGeocoder!
     var delegate:LocatorProtocol?
+    
+    var borough:Borough?
+    
     override init() {
         super.init()
         print("hello from location handler",CLLocationManager.locationServicesEnabled())
@@ -58,6 +61,7 @@ class Locator : NSObject, CLLocationManagerDelegate{
                 return
             }
             
+            borough = isNYCBorough
             delegate?.locationUpdated("\(subLocality)")
             
             print(isNYCBorough)
@@ -66,6 +70,7 @@ class Locator : NSObject, CLLocationManagerDelegate{
             
         } else {
             //not in NY
+            borough = nil
             print("guess that's not in new york state")
             manager.stopUpdatingLocation()
         }

@@ -34,21 +34,27 @@ class ComplicationController: NSObject, CLKComplicationDataSource {
     
     func getCurrentTimelineEntry(for complication: CLKComplication, withHandler handler: @escaping (CLKComplicationTimelineEntry?) -> Void) {
         // Call the handler with the current timeline entry
+        print("getting current timeline entry")
+        guard let locale = (WKExtension.shared().delegate as! ExtensionDelegate).locator.borough else {
+            handler(nil)
+            print("no locale")
+            return
+        }
+        
         let date = Date()
         switch complication.family {
         case .utilitarianSmall:
-            let template = CLKComplicationTemplateUtilitarianSmallRingText()
-            let textProvider = CLKSimpleTextProvider(text: "NY")
-            template.textProvider = textProvider
-            template.ringStyle = CLKComplicationRingStyle.open
-            template.fillFraction = 0.0
+            let template = CLKComplicationTemplateUtilitarianSmallSquare()
+            let literal = #imageLiteral(resourceName: "Template/Staten")
+            let imageProvider = CLKImageProvider(onePieceImage:literal)
+            template.imageProvider = imageProvider
             let timelineEntry = CLKComplicationTimelineEntry(date: date, complicationTemplate: template)
             handler(timelineEntry)
         case .circularSmall:
             let template = CLKComplicationTemplateCircularSmallSimpleText()
-            let textProvider = CLKSimpleTextProvider(text: "NYC")
+            let textProvider = CLKSimpleTextProvider(text: locale.getAbbrString())
             template.textProvider = textProvider
-            template.tintColor = UIColor.red
+            //template.tintColor = UIColor.red
             let timelineEntry = CLKComplicationTimelineEntry(date: date, complicationTemplate: template)
             handler(timelineEntry)
         default:
@@ -80,11 +86,10 @@ class ComplicationController: NSObject, CLKComplicationDataSource {
         
         switch complication.family {
         case .utilitarianSmall:
-            let template = CLKComplicationTemplateUtilitarianSmallRingText()
-            let textProvider = CLKSimpleTextProvider(text: "NY")
-            template.textProvider = textProvider
-            template.ringStyle = CLKComplicationRingStyle.open
-            template.fillFraction = 0.0
+            let template = CLKComplicationTemplateUtilitarianSmallSquare()
+            let literal = #imageLiteral(resourceName: "Template/Utilitarian")
+            let imageProvider = CLKImageProvider(onePieceImage:literal)
+           template.imageProvider = imageProvider
             handler(template)
         case .circularSmall:
             let template = CLKComplicationTemplateCircularSmallSimpleText()

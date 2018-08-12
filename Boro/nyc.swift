@@ -35,4 +35,34 @@ enum Borough {
         }
     }
     
+    func getString()->String{
+        switch self {
+        case .manhattan:
+            return "Manhattan"
+        case .brooklyn:
+            return "Brooklyn"
+        case .queens:
+            return "Queens"
+        case .bronx:
+            return "Bronx"
+        case .statenIsland:
+            return "Staten Island"
+        }
+    }
+    
+    func getAbbrString()->String{
+        switch self {
+        case .manhattan:
+            return "Mn"
+        case .brooklyn:
+            return "Br"
+        case .queens:
+            return "Qu"
+        case .bronx:
+            return "Bx"
+        case .statenIsland:
+            return "Si"
+        }
+    }
+    
 }
