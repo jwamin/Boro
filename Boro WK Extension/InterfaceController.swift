@@ -25,6 +25,7 @@ class InterfaceController: WKInterfaceController, LocatorProtocol{
     override func awake(withContext context: Any?) {
         super.awake(withContext: context)
         delegate = WKExtension.shared().delegate as! ExtensionDelegate
+        delegate.interface = self
         // Configure interface objects here.
     }
     
@@ -32,13 +33,22 @@ class InterfaceController: WKInterfaceController, LocatorProtocol{
         // This method is called when watch view controller is about to be visible to user
         super.willActivate()
         label.setText("")
+        
+        if(delegate.locator == nil){
+            delegate.applicationDidBecomeActive()
+        }
         locator = delegate.locator
-        if(locator.borough==nil){
-            print("location unavailalbe")
+        
+        if(locator.borough==nil && !locator.updating){
+            
+            print("not updating, doing update")
             locator.doUpdate()
+            
         } else {
+            
             print("location availalbe")
             locationUpdated((locator.borough?.getString())!)
+            
         }
         
     }

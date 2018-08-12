@@ -18,8 +18,8 @@ class Locator : NSObject, CLLocationManagerDelegate{
     var manager:CLLocationManager!
     var coder:CLGeocoder!
     var delegate:LocatorProtocol?
-    
     var borough:Borough?
+    var updating = false
     
     override init() {
         super.init()
@@ -30,13 +30,13 @@ class Locator : NSObject, CLLocationManagerDelegate{
     
     func doUpdate(){
         if(CLLocationManager.locationServicesEnabled()){
-            print("debug print")
             manager = CLLocationManager()
             manager.requestAlwaysAuthorization()
             manager.activityType = .other
             manager.desiredAccuracy = kCLLocationAccuracyKilometer
             manager.delegate = self
             manager.startUpdatingLocation()
+            updating = true
             coder = CLGeocoder()
             
         } else {
@@ -58,6 +58,7 @@ class Locator : NSObject, CLLocationManagerDelegate{
                 print("guess that's not in NYC")
                 delegate?.locationUpdated("guess that's not in NYC")
                 manager.stopUpdatingLocation()
+                updating = false
                 return
             }
             
@@ -75,7 +76,7 @@ class Locator : NSObject, CLLocationManagerDelegate{
             manager.stopUpdatingLocation()
         }
 
-        
+        updating = false
         
     }
     

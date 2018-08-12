@@ -13,26 +13,33 @@ class ExtensionDelegate: NSObject, WKExtensionDelegate,LocatorProtocol {
     var myComplicationData:Dictionary<String,String>!
     var backgroundTask:WKRefreshBackgroundTask?
     var locator:Locator!
+    var interface:InterfaceController?
     
     func applicationDidFinishLaunching() {
         // Perform any final initialization of your application.
         myComplicationData = NSDictionary(contentsOfFile: Bundle.main.path(forResource: "text", ofType: "strings")!) as! Dictionary<String,String>
         print(myComplicationData)
-        locator = Locator()
-        locator.delegate = self
     }
 
     func applicationDidBecomeActive() {
         // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
+        print("became active")
+        locator = Locator()
+        locator.delegate = self
     }
 
     func applicationWillResignActive() {
         // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
         // Use this method to pause ongoing tasks, disable timers, etc.
+        print("active resigned")
         locator.delegate = nil
+        locator = nil
     }
 
     func locationUpdated(_ location: String) {
+        
+        interface?.locationUpdated(location)
+        
         let server =  CLKComplicationServer.sharedInstance()
         
         guard let complications = server.activeComplications else {
@@ -42,7 +49,9 @@ class ExtensionDelegate: NSObject, WKExtensionDelegate,LocatorProtocol {
         for complication in complications{
             server.reloadTimeline(for: complication)
         }
+        
         self.backgroundTask?.setTaskCompletedWithSnapshot(false)
+        
     }
     
     func handle(_ backgroundTasks: Set<WKRefreshBackgroundTask>) {
@@ -53,14 +62,13 @@ class ExtensionDelegate: NSObject, WKExtensionDelegate,LocatorProtocol {
             case let backgroundTask as WKApplicationRefreshBackgroundTask:
                 // Be sure to complete the background task once you’re done.
                 let server =  CLKComplicationServer.sharedInstance()
-                guard let complications = server.activeComplications else {
+                guard let _ = server.activeComplications else {
                     backgroundTask.setTaskCompletedWithSnapshot(false)
                     return
                 }
                 //self.complications = complications
                 self.backgroundTask = backgroundTask
-                locator = Locator()
-                locator.delegate = self
+                locator.doUpdate()
             case let snapshotTask as WKSnapshotRefreshBackgroundTask:
                 // Snapshot tasks have a unique completion call, make sure to set your expiration date
                 snapshotTask.setTaskCompleted(restoredDefaultState: true, estimatedSnapshotExpiration: Date.distantFuture, userInfo: nil)
