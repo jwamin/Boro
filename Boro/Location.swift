@@ -23,9 +23,7 @@ class Locator : NSObject, CLLocationManagerDelegate{
     
     override init() {
         super.init()
-        print("hello from location handler",CLLocationManager.locationServicesEnabled())
         doUpdate()
-        
     }
     
     func doUpdate(){

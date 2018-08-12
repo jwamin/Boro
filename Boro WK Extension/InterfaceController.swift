@@ -39,11 +39,12 @@ class InterfaceController: WKInterfaceController, LocatorProtocol{
         }
         locator = delegate.locator
         
-        if(locator.borough==nil && !locator.updating){
+        if(locator.borough==nil){
+        if(!locator.updating){
             
             print("not updating, doing update")
             locator.doUpdate()
-            
+            }
         } else {
             
             print("location availalbe")

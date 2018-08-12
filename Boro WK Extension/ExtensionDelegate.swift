@@ -40,27 +40,38 @@ class ExtensionDelegate: NSObject, WKExtensionDelegate,LocatorProtocol {
         
         interface?.locationUpdated(location)
         
-        let server =  CLKComplicationServer.sharedInstance()
-        
-        guard let complications = server.activeComplications else {
-            return
+        if(backgroundTask != nil){
+            let server =  CLKComplicationServer.sharedInstance()
+            
+            guard let complications = server.activeComplications else {
+                return
+            }
+            
+            for complication in complications{
+                server.reloadTimeline(for: complication)
+            }
+            
+            self.backgroundTask?.setTaskCompletedWithSnapshot(false)
+            self.backgroundTask = nil
         }
-        
-        for complication in complications{
-            server.reloadTimeline(for: complication)
-        }
-        
-        self.backgroundTask?.setTaskCompletedWithSnapshot(false)
+
         
     }
     
     func handle(_ backgroundTasks: Set<WKRefreshBackgroundTask>) {
+        
+        print("background task")
+        
         // Sent when the system needs to launch the application in the background to process tasks. Tasks arrive in a set, so loop through and process each one.
         for task in backgroundTasks {
             // Use a switch statement to check the task type
             switch task {
             case let backgroundTask as WKApplicationRefreshBackgroundTask:
+                
+                
                 // Be sure to complete the background task once you’re done.
+                print("background refresh")
+                
                 let server =  CLKComplicationServer.sharedInstance()
                 guard let _ = server.activeComplications else {
                     backgroundTask.setTaskCompletedWithSnapshot(false)
@@ -69,6 +80,11 @@ class ExtensionDelegate: NSObject, WKExtensionDelegate,LocatorProtocol {
                 //self.complications = complications
                 self.backgroundTask = backgroundTask
                 locator.doUpdate()
+                
+                
+                //backgroundTask.setTaskCompletedWithSnapshot(false)
+                
+                
             case let snapshotTask as WKSnapshotRefreshBackgroundTask:
                 // Snapshot tasks have a unique completion call, make sure to set your expiration date
                 snapshotTask.setTaskCompleted(restoredDefaultState: true, estimatedSnapshotExpiration: Date.distantFuture, userInfo: nil)
