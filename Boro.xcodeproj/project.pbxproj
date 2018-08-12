@@ -116,6 +116,7 @@
 			children = (
 				3D09FB5C211E2E7D00B3C495 /* README.md */,
 				3D09FB20211E1F6300B3C495 /* Boro */,
+				575AAE07212078F100AF1023 /* Shared */,
 				3D09FB38211E2CC500B3C495 /* Boro WK */,
 				3D09FB47211E2CC600B3C495 /* Boro WK Extension */,
 				3D09FB1F211E1F6300B3C495 /* Products */,
@@ -137,8 +138,6 @@
 			children = (
 				3D09FB21211E1F6300B3C495 /* AppDelegate.swift */,
 				3D09FB23211E1F6300B3C495 /* ViewController.swift */,
-				3D09FB33211E1F7A00B3C495 /* Location.swift */,
-				576D3865211E76330096D4AE /* nyc.swift */,
 				3D09FB28211E1F6500B3C495 /* Assets.xcassets */,
 				3D09FB2A211E1F6500B3C495 /* LaunchScreen.storyboard */,
 				3D09FB2D211E1F6500B3C495 /* Info.plist */,
@@ -167,6 +166,15 @@
 				3D09FB50211E2CC700B3C495 /* Info.plist */,
 			);
 			path = "Boro WK Extension";
+			sourceTree = "<group>";
+		};
+		575AAE07212078F100AF1023 /* Shared */ = {
+			isa = PBXGroup;
+			children = (
+				3D09FB33211E1F7A00B3C495 /* Location.swift */,
+				576D3865211E76330096D4AE /* nyc.swift */,
+			);
+			path = Shared;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -248,6 +256,11 @@
 					};
 					3D09FB42211E2CC600B3C495 = {
 						CreatedOnToolsVersion = 9.4.1;
+						SystemCapabilities = {
+							com.apple.BackgroundModes.watchos.extension = {
+								enabled = 1;
+							};
+						};
 					};
 				};
 			};

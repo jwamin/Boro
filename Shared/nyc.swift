@@ -11,12 +11,19 @@ import Foundation
 let ADMINISTRATIVE_AREA = "NY"
 let COUNTRY = "United States"
 
+enum BoroughState{
+    case inBorough
+    case outOfBorough
+    case timeout
+}
+
 enum Borough {
     case manhattan
     case brooklyn
     case queens
     case bronx
     case statenIsland
+    case outOfNYC
     
     static func checkBorough(_ str:String) -> Borough? {
         switch str {
@@ -47,6 +54,8 @@ enum Borough {
             return "Bronx"
         case .statenIsland:
             return "Staten Island"
+        default:
+            return "Out Of NYC"
         }
     }
     
@@ -62,6 +71,8 @@ enum Borough {
             return "Bx"
         case .statenIsland:
             return "Si"
+        default:
+            return "OUT"
         }
     }
     

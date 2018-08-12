@@ -17,48 +17,49 @@ class InterfaceController: WKInterfaceController, LocatorProtocol{
     func locationUpdated(_ location: String) {
         print("got location")
         label.setText(location)
+        label.setHidden(false)
     }
     
-    var locator:Locator!
+    //var locator:Locator!
     
     @IBOutlet var label: WKInterfaceLabel!
     override func awake(withContext context: Any?) {
         super.awake(withContext: context)
         delegate = WKExtension.shared().delegate as! ExtensionDelegate
         delegate.interface = self
+        label.setText("")
         // Configure interface objects here.
     }
     
     override func willActivate() {
         // This method is called when watch view controller is about to be visible to user
         super.willActivate()
-        label.setText("")
         
-        if(delegate.locator == nil){
-            delegate.applicationDidBecomeActive()
-        }
-        locator = delegate.locator
         
-        if(locator.borough==nil){
-        if(!locator.updating){
-            
-            print("not updating, doing update")
-            locator.doUpdate()
-            }
-        } else {
-            
-            print("location availalbe")
-            locationUpdated((locator.borough?.getString())!)
-            
-        }
+//        if(delegate.locator == nil){
+//            print("delegate locator is nil")
+//            delegate.applicationDidBecomeActive()
+//        }
+//        locator = delegate.locator
+//
+//        if(locator.borough==nil){
+//            if(!locator.updating){
+//                print("not updating, doing update")
+//                locator.doUpdate()
+//            }
+//        } else {
+//            print("location already availalbe")
+//            locationUpdated((locator.borough?.getString())!)
+//
+//        }
         
     }
     
     override func didDeactivate() {
         // This method is called when watch view controller is no longer visible
         super.didDeactivate()
-        locator = nil
+       // locator = nil
         
     }
-
+    
 }

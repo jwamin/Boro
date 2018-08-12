@@ -46,6 +46,14 @@ class ViewController: UIViewController, LocatorProtocol {
         
     }
     
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        locationHandler.doUpdate()
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.

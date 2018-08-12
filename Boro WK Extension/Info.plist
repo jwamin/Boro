@@ -40,6 +40,10 @@
 	<string>In order to deliver background information to your watch, we need location access.</string>
 	<key>NSLocationWhenInUseUsageDescription</key>
 	<string>We need permission to see where you are.</string>
+	<key>UIBackgroundModes</key>
+	<array>
+		<string>location</string>
+	</array>
 	<key>WKExtensionDelegateClassName</key>
 	<string>$(PRODUCT_MODULE_NAME).ExtensionDelegate</string>
 </dict>

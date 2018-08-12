@@ -14,7 +14,7 @@
             <objects>
                 <controller id="AgC-eL-Hgc" customClass="InterfaceController" customModule="Boro_WK" customModuleProvider="target">
                     <items>
-                        <label alignment="center" verticalAlignment="center" text="Label" textAlignment="center" id="iEU-fr-TS4">
+                        <label alignment="center" verticalAlignment="center" hidden="YES" text="Label" textAlignment="center" id="iEU-fr-TS4">
                             <fontDescription key="font" style="UICTFontTextStyleHeadline"/>
                         </label>
                     </items>
