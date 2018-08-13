@@ -49,7 +49,6 @@ class ComplicationController: NSObject, CLKComplicationDataSource {
         case .circularSmall:
             let template = CLKComplicationTemplateCircularSmallSimpleText()
             
-            
             guard let locale = (WKExtension.shared().delegate as! ExtensionDelegate).locator.borough else {
                 print("no locale")
                 let textProvider = CLKSimpleTextProvider(text: "NYC")

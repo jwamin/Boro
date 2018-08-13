@@ -10,15 +10,15 @@ import WatchKit
 
 class ExtensionDelegate: NSObject, WKExtensionDelegate,LocatorProtocol {
 
-    var myComplicationData:Dictionary<String,String>!
+    //var myComplicationData:Dictionary<String,String>!
     var backgroundTask:WKRefreshBackgroundTask?
     var locator:Locator!
     var interface:InterfaceController?
     
     func applicationDidFinishLaunching() {
         // Perform any final initialization of your application.
-        myComplicationData = NSDictionary(contentsOfFile: Bundle.main.path(forResource: "text", ofType: "strings")!) as! Dictionary<String,String>
-        print(myComplicationData)
+        //myComplicationData = NSDictionary(contentsOfFile: Bundle.main.path(forResource: "text", ofType: "strings")!) as! Dictionary<String,String>
+        //print(myComplicationData)
         locator = Locator()
         locator.delegate = self
     }
@@ -27,7 +27,7 @@ class ExtensionDelegate: NSObject, WKExtensionDelegate,LocatorProtocol {
         // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
         print("became active")
         locator.doUpdate()
-       scheduleBackgroundTask()
+        scheduleBackgroundTask()
     }
     
     func scheduleBackgroundTask(){
@@ -54,9 +54,9 @@ class ExtensionDelegate: NSObject, WKExtensionDelegate,LocatorProtocol {
     
     }
     
-    func locationUpdated(_ location: String) {
+    func locationUpdated(_ locator: Locator) {
         
-        interface?.locationUpdated(location)
+        interface?.locationUpdated(locator)
         
         if(backgroundTask != nil){
             print("background task not nil, doing complication refresh")
@@ -75,6 +75,11 @@ class ExtensionDelegate: NSObject, WKExtensionDelegate,LocatorProtocol {
         }
 
         
+    }
+    
+    func locatorError(errorMsg: String) {
+        print("error")
+        self.backgroundTask?.setTaskCompletedWithSnapshot(false)
     }
     
     func updateComplication(task:WKApplicationRefreshBackgroundTask){

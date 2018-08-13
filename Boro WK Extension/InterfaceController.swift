@@ -11,12 +11,16 @@ import Foundation
 
 
 class InterfaceController: WKInterfaceController, LocatorProtocol{
+    func locatorError(errorMsg: String) {
+        label.setText(errorMsg)
+    }
+    
     
     var delegate:ExtensionDelegate!
     
-    func locationUpdated(_ location: String) {
+    func locationUpdated(_ locator: Locator) {
         print("got location")
-        label.setText(location)
+        label.setText(locator.borough?.getString())
         label.setHidden(false)
     }
     

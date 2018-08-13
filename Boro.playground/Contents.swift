@@ -1,21 +1,8 @@
-//
-//  nyc.swift
-//  Boro
-//
-//  Created by Joss Manger on 8/10/18.
-//  Copyright © 2018 Joss Manger. All rights reserved.
-//
+//: Playground - noun: a place where people can play
 
-import Foundation
+import UIKit
 
-let ADMINISTRATIVE_AREA = "NY"
-let COUNTRY = "United States"
-
-enum BoroughState{
-    case initialised
-    case valid
-    case timeoutError
-}
+var str = "Hello, playground"
 
 public enum Borough {
     case manhattan
@@ -77,3 +64,8 @@ public enum Borough {
     }
     
 }
+
+let myBorough:Borough? = .outOfNYC
+
+Borough.checkBorough(myBorough)
+

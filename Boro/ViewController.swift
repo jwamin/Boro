@@ -38,12 +38,12 @@ class ViewController: UIViewController, LocatorProtocol {
         NSLayoutConstraint(item: label, attribute: .trailing, relatedBy: .equal, toItem: view, attribute: .trailing, multiplier: 1.0, constant: 0).isActive = true
     }
 
-    func locationUpdated(_ locationString: String) {
-        
-
-        label.text = locationString
-        
-        
+    func locationUpdated(_ locator: Locator) {
+         label.text = locator.borough?.getString() ?? "Error"
+    }
+    
+    func locatorError(errorMsg: String) {
+        label.text = "Error"
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {

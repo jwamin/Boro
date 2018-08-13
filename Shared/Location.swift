@@ -9,53 +9,68 @@
 import Foundation
 import CoreLocation
 
+// delegation protocol to notify UI / Delegate
 protocol LocatorProtocol {
-    func locationUpdated(_ location:String)
+    func locationUpdated(_ locator:Locator)
+    func locatorError(errorMsg:String)
 }
 
-
-
+//Locator Class - Reverse Geocodes location in one of the 5 New York Boroughs
 class Locator : NSObject, CLLocationManagerDelegate{
     
+    //Core Location Objects
     var manager:CLLocationManager!
     var coder:CLGeocoder!
+    
+    //Delegation
     var delegate:LocatorProtocol?
-    var borough:Borough?
+    
+    //Model
+    var borough:Borough? {
+        didSet{
+            delegate?.locationUpdated(self)
+        }
+    }
+    
+    //State
     var updating = false
+    var state:BoroughState! = .initialised{
+        didSet{
+            if(state == .timeoutError){
+                delegate?.locatorError(errorMsg: "Error")
+            }
+        }
+    }
+    
+    //Timeout Date
     var updatedOn:Date? = nil
+    
+    //Timeout Objects
     let timeout:TimeInterval! = 60
+    var geoTimer:Timer!
+    
+    
+    //Instance Methods
     
     override init() {
         super.init()
         doUpdate()
     }
     
-    private func checkExisting()->Bool{
-        if let updatedDate = updatedOn{
-            let checkDate = Date() < updatedDate.addingTimeInterval(timeout)
-            print("checkdate", checkDate)
-                if(checkDate){
-                    print("within timeout duration, returning existing borough enum")
-                    guard let validBorough = borough else {
-                    delegate?.locationUpdated("error")
-                    return true
-                }
-                delegate?.locationUpdated(validBorough.getString())
-                return true
-            }
-        } else {
-        print("optional unwrap failed")
-        print(updating,updatedOn)
-        }
-        return false
+    deinit {
+        print("deinitialising locator")
     }
+    
+    //Primary Update Method
     
     func doUpdate(){
         
         if(updating){
             return
         }
+        
         updating = true
+        
         if(checkExisting()){
             updating = false
             return
@@ -79,12 +94,45 @@ class Locator : NSObject, CLLocationManagerDelegate{
         
     }
     
+    //Checks validity of existing information
+    private func checkExisting()->Bool{
+        
+        if(borough == .outOfNYC){
+            return false
+        }
+        
+        if let updatedDate = updatedOn{
+            
+            let checkDate = Date() < updatedDate.addingTimeInterval(timeout)
+
+            if(checkDate){
+                print("within timeout duration, returning existing status borough enum")
+                guard let validBorough = borough else {
+                    delegate?.locationUpdated(self)
+                    return true
+                }
+                delegate?.locationUpdated(self)
+                return true
+            }
+            
+        } else {
+            print("optional unwrap failed")
+            print(updating,updatedOn)
+        }
+        
+        return false
+    }
+    
+    
+    // Callbacks
     private func reverseGeocodeCompletion(_ placemarks:[CLPlacemark]?,_ error:Error?){
+        geoTimer.invalidate()
         if(error != nil){
-            delegate?.locationUpdated("Connection Error")
+            self.state = .timeoutError
             return
         }
         print("in geocode callback")
+        
         //if let subLocality = placemarks?.first?.subLocality, let locality = placemarks?.first?.locality{
         if(placemarks?.first?.administrativeArea == ADMINISTRATIVE_AREA && placemarks?.first?.country == COUNTRY){
             //in NY, USA
@@ -92,31 +140,30 @@ class Locator : NSObject, CLLocationManagerDelegate{
             
             guard let isNYCBorough = Borough.checkBorough(subLocality) else {
                 print("guess that's not in NYC")
-                delegate?.locationUpdated("guess that's not in NYC")
-                manager.stopUpdatingLocation()
                 updating = false
-                updatedOn = nil
-                borough = nil
+                updatedOn = Date()
+                borough = .outOfNYC
+                state = .valid
+                
                 return
             }
             
             borough = isNYCBorough
-            
+            state = .valid
             self.updating = false
             self.updatedOn = Date()
             
-            delegate?.locationUpdated("\(subLocality)")
-            
+            delegate?.locationUpdated(self)
             
             print("setting date",updatedOn,"expires at \(updatedOn?.addingTimeInterval(timeout))")
             print("in ny",isNYCBorough)
             
             
-            
         } else {
             //not in NY
-            borough = nil
-            updatedOn = nil
+            borough = .outOfNYC
+            updatedOn = Date()
+            state = .valid
             print("guess that's not in new york state")
             manager.stopUpdatingLocation()
         }
@@ -125,6 +172,8 @@ class Locator : NSObject, CLLocationManagerDelegate{
         
     }
     
+    //Delegate methods
+    
     func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
         print(error.localizedDescription)
     }
@@ -132,11 +181,13 @@ class Locator : NSObject, CLLocationManagerDelegate{
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         print("updated location, stopping refresh")
         manager.stopUpdatingLocation()
+        let interval:TimeInterval = 10
+        geoTimer = Timer(fire: Date().addingTimeInterval(interval), interval: 0.0, repeats: false) { (timer) in
+            timer.invalidate()
+            self.coder.cancelGeocode()
+            self.state = BoroughState.timeoutError
+        }
         coder.reverseGeocodeLocation(locations.first!, completionHandler: reverseGeocodeCompletion(_:_:))
-    }
-    
-    deinit {
-        print("deinitialising locator")
     }
     
 }
