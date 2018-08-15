@@ -11,6 +11,7 @@ import Foundation
 
 
 class InterfaceController: WKInterfaceController, LocatorProtocol{
+    
     func locatorError(errorMsg: String) {
         label.setText(errorMsg)
     }

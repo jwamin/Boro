@@ -21,10 +21,10 @@ class ExtensionDelegate: NSObject, WKExtensionDelegate,LocatorProtocol {
     func applicationDidFinishLaunching() {
         // Perform any final initialization of your application.
         //myComplicationData = NSDictionary(contentsOfFile: Bundle.main.path(forResource: "text", ofType: "strings")!) as! Dictionary<String,String>
-        //print(myComplicationData)
+        //print(myComplicationData)print
+        print("initialising delegate")
         locator = Locator()
         locator.delegate = self
-        locator.doUpdate()
     }
 
     func applicationDidBecomeActive() {
@@ -63,14 +63,16 @@ class ExtensionDelegate: NSObject, WKExtensionDelegate,LocatorProtocol {
         let newBoro = locator.getBorough()
         
         if (storedBorough != newBoro){
+            print("updating borough stored in delegate")
             storedBorough = newBoro
             interface?.locationUpdated(locator)
             update = true
         }
         
         if(backgroundTask != nil && update == true){
-            print("background task not nil, doing complication refresh")
+            print("location has changed")
             let server =  CLKComplicationServer.sharedInstance()
+                                                                   
             
             guard let complications = server.activeComplications else {
                 return
@@ -83,11 +85,10 @@ class ExtensionDelegate: NSObject, WKExtensionDelegate,LocatorProtocol {
             self.backgroundTask = nil
             update = false
             releaseBackgroundTask(doShapshot: true)
-        } else if (update == false){
-            releaseBackgroundTask(doShapshot: false)
+            return
         }
-
-       
+            print("didnt update local borough \(storedBorough.getString())")
+         releaseBackgroundTask(doShapshot: false)
         
     }
     
@@ -129,7 +130,6 @@ class ExtensionDelegate: NSObject, WKExtensionDelegate,LocatorProtocol {
                 
                 scheduleBackgroundTask()
                 updateComplication(task:backgroundTask)
-                
             
                 //backgroundTask.setTaskCompletedWithSnapshot(false)
                 

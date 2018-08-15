@@ -14,6 +14,8 @@ class ComplicationController: NSObject, CLKComplicationDataSource {
     
     // MARK: - Timeline Configuration
     
+    let delegate:ExtensionDelegate! = WKExtension.shared().delegate as! ExtensionDelegate
+    
     func getSupportedTimeTravelDirections(for complication: CLKComplication, withHandler handler: @escaping (CLKComplicationTimeTravelDirections) -> Void) {
         handler([.forward,.backward])
     }
@@ -36,7 +38,13 @@ class ComplicationController: NSObject, CLKComplicationDataSource {
         // Call the handler with the current timeline entry
         print("getting current timeline entry")
         
-        let locale = (WKExtension.shared().delegate as! ExtensionDelegate).locator.getBorough()
+        //If the locator on the delegate doesnt exist, then there isa crash here.
+        //how to initialise delegate before complication?
+        if(delegate.locator == nil){
+            return
+        }
+        
+        let locale = delegate.locator.getBorough()
     
         let date = Date()
         switch complication.family {
@@ -52,7 +60,6 @@ class ComplicationController: NSObject, CLKComplicationDataSource {
             template.textProvider = textProvider
             let timelineEntry = CLKComplicationTimelineEntry(date: date, complicationTemplate: template)
             handler(timelineEntry)
-
         default:
             handler(nil)
         }
