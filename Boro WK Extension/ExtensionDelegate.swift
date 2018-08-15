@@ -17,10 +17,19 @@ class ExtensionDelegate: NSObject, WKExtensionDelegate,LocatorProtocol {
     var interface:InterfaceController?
     var updateComplication = false;
     var firstLoad = true
+    
     override init() {
         super.init()
         print("initialised")
-        DispatchQueue.main.async {
+        
+        if let testStoredBorough = UserDefaults.standard.string(forKey: "storedBorough"){
+            if let returnedBorough = Borough.checkBorough(testStoredBorough){
+                print("got existing UserDefault \(returnedBorough.getString())")
+                storedBorough = returnedBorough
+            }
+        }
+        
+        DispatchQueue.main.sync {
             self.locator = Locator()
             self.locator.delegate = self
         }
@@ -44,9 +53,11 @@ class ExtensionDelegate: NSObject, WKExtensionDelegate,LocatorProtocol {
     
     func applicationDidEnterBackground() {
         // save current Borough String to NSUD for retrieval on next init
+    print("storing savedBorough into UD \(storedBorough.getString)")
+        UserDefaults.standard.set(storedBorough.getString(), forKey: "storedBorough")
     }
     
-    func scheduleBackgroundTask(){
+    public func scheduleBackgroundTask(){
         let timeInterval:TimeInterval = 60 * 8 //8 mins from now
         let firedate = Date().addingTimeInterval(timeInterval)
         let userinfo:NSDictionary = NSDictionary(dictionary: ["refresh":"complication","time":firedate])
@@ -54,7 +65,7 @@ class ExtensionDelegate: NSObject, WKExtensionDelegate,LocatorProtocol {
         print("scheduled background task, will fire at \(firedate)")
     }
     
-    func scheduledCompletionHandler(_ error:Error?) -> Void{
+    private func scheduledCompletionHandler(_ error:Error?) -> Void{
         if let error = error{
             print("background refresh error")
             print(error.localizedDescription)
@@ -72,17 +83,17 @@ class ExtensionDelegate: NSObject, WKExtensionDelegate,LocatorProtocol {
     
     func locationUpdated(_ locator: Locator) {
         
-        print("location updated")
+        print("WK location extension delegate called")
+        
+        //notify interface, if any
+        interface?.locationUpdated(locator)
         
         let newBoro = locator.getBorough()
         
         if (storedBorough != newBoro){
             print("updating borough stored in delegate")
+            print("location has changed from \(storedBorough) to \(newBoro)")
             storedBorough = newBoro
-            
-            //notify interface
-            interface?.locationUpdated(locator)
-            
             updateComplication = true
         }
         
@@ -116,13 +127,14 @@ class ExtensionDelegate: NSObject, WKExtensionDelegate,LocatorProtocol {
         
         //if we didnt return, we get here... (background task, but no updateComplication flag)
         print("didnt update local borough \(storedBorough.getString())")
+        firstLoad = false
         
         //release
          releaseBackgroundTask(doShapshot: false)
         
     }
     
-    func releaseBackgroundTask(doShapshot:Bool){
+    private func releaseBackgroundTask(doShapshot:Bool){
         if(self.backgroundTask != nil){
             self.backgroundTask?.setTaskCompletedWithSnapshot(doShapshot)
             self.backgroundTask = nil
@@ -134,8 +146,8 @@ class ExtensionDelegate: NSObject, WKExtensionDelegate,LocatorProtocol {
         self.backgroundTask?.setTaskCompletedWithSnapshot(false)
     }
     
-    func updateComplication(task:WKApplicationRefreshBackgroundTask){
-        
+    private func updateComplication(task:WKApplicationRefreshBackgroundTask){
+        print("update complication called")
         let server =  CLKComplicationServer.sharedInstance()
         guard let _ = server.activeComplications else {
             task.setTaskCompletedWithSnapshot(false)

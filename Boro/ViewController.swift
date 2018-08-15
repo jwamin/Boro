@@ -45,7 +45,7 @@ class ViewController: UIViewController, LocatorProtocol {
     }
 
     func locationUpdated(_ locator: Locator) {
-         label.text = locator.getBorough().getString() ?? "Error"
+         label.text = locator.getBorough().getString()
     }
     
     func locatorError(errorMsg: String) {

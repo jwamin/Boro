@@ -67,5 +67,5 @@ public enum Borough {
 
 let myBorough:Borough? = .outOfNYC
 
-Borough.checkBorough(myBorough)
+//Borough.checkBorough(myBorough)
 

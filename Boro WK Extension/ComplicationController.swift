@@ -42,12 +42,12 @@ class ComplicationController: NSObject, CLKComplicationDataSource {
         //how to initialise delegate before complication?
         var locale:Borough = delegate.storedBorough
         
-        if(delegate.locator != nil){
-            locale = delegate.locator.getBorough()
-            print("locator on delegate, \(locale.getAbbrString())")
-        } else {
-            print("no locator on delegate,scheduling update")
+        if(delegate.locator.state != .valid){
+            print("locator still updating")
             delegate.scheduleBackgroundTask()
+        } else {
+            locale = delegate.locator.getBorough()
+            print("locator valid on delegate, \(locale.getAbbrString())")
         }
         
     

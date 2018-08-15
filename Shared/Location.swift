@@ -46,6 +46,9 @@ class Locator : NSObject, CLLocationManagerDelegate{
     var state:BoroughState! = .initialised{
         didSet{
             if(state == .timeoutError){
+                geoTimer.invalidate()
+                coder.cancelGeocode()
+                manager.stopUpdatingLocation()
                 delegate?.locatorError(errorMsg: "Error")
             }
         }
@@ -152,7 +155,6 @@ class Locator : NSObject, CLLocationManagerDelegate{
                 updatedOn = Date()
                 borough = .outOfNYC
                 state = .valid
-                
                 return
             }
             
@@ -160,9 +162,6 @@ class Locator : NSObject, CLLocationManagerDelegate{
             state = .valid
             self.updatedOn = Date()
             
-            delegate?.locationUpdated(self)
-            
-            print("setting date",updatedOn,"expires at \(updatedOn?.addingTimeInterval(timeout))")
             print("in ny",isNYCBorough)
             return
             
@@ -189,15 +188,13 @@ class Locator : NSObject, CLLocationManagerDelegate{
     }
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        print("updated location, stopping refresh")
+        print("updated location, stopping cllocation updates")
         //stop after 1 hit
         manager.stopUpdatingLocation()
         
         let interval:TimeInterval = 10
         geoTimer = Timer(fire: Date().addingTimeInterval(interval), interval: 0.0, repeats: false) { (timer) in
-            print("got to timer date")
-            timer.invalidate()
-            self.coder.cancelGeocode()
+            print("timer ran, must be connectivity errors")
             self.state = BoroughState.timeoutError
         }
         RunLoop.current.add(geoTimer, forMode: .defaultRunLoopMode)
