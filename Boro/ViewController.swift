@@ -20,8 +20,8 @@ class ViewController: UIViewController, LocatorProtocol {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        locationHandler = Locator()
-        locationHandler.delegate = self
+
+        //Setup UI
         let rect = CGRect(origin: .zero, size: CGSize(width: view.frame.width, height: 200))
         label = UILabel(frame: rect)
         label.textAlignment = .center
@@ -29,6 +29,12 @@ class ViewController: UIViewController, LocatorProtocol {
         view.addSubview(label)
         label.font = UIFont.systemFont(ofSize: 30)
         addConstraints()
+        
+        //Start Locationhandler model
+        locationHandler = Locator()
+        locationHandler.delegate = self
+        locationHandler.doUpdate()
+        
         // Do any additional setup after loading the view, typically from a nib.
     }
     
@@ -39,7 +45,7 @@ class ViewController: UIViewController, LocatorProtocol {
     }
 
     func locationUpdated(_ locator: Locator) {
-         label.text = locator.borough?.getString() ?? "Error"
+         label.text = locator.getBorough().getString() ?? "Error"
     }
     
     func locatorError(errorMsg: String) {
@@ -51,7 +57,7 @@ class ViewController: UIViewController, LocatorProtocol {
     }
     
     override func viewDidAppear(_ animated: Bool) {
-        
+        locationHandler.doUpdate()
     }
     
     override func didReceiveMemoryWarning() {

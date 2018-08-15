@@ -20,7 +20,7 @@ class InterfaceController: WKInterfaceController, LocatorProtocol{
     
     func locationUpdated(_ locator: Locator) {
         print("got location")
-        label.setText(locator.borough?.getString())
+        label.setText(locator.getBorough().getString())
         label.setHidden(false)
     }
     

@@ -9,6 +9,12 @@
 import Foundation
 import CoreLocation
 
+//1. request for location, geocoder checks if within area and sets status accordingly
+//2. request for location update, geocoder checks if timeout has occurred, if so, reloads geocoder. IF location the same, state unchanged, if changed, state changed,
+// callback from delegate will reset state to current
+//X. 2
+
+
 // delegation protocol to notify UI / Delegate
 protocol LocatorProtocol {
     func locationUpdated(_ locator:Locator)
@@ -26,10 +32,14 @@ class Locator : NSObject, CLLocationManagerDelegate{
     var delegate:LocatorProtocol?
     
     //Model
-    var borough:Borough? {
+    private var borough:Borough = .outOfNYC {
         didSet{
             delegate?.locationUpdated(self)
         }
+    }
+    
+    public func getBorough()->Borough{
+        return borough
     }
     
     //State
@@ -54,7 +64,9 @@ class Locator : NSObject, CLLocationManagerDelegate{
     
     override init() {
         super.init()
-        doUpdate()
+        coder = CLGeocoder()
+        manager = CLLocationManager()
+        manager.requestAlwaysAuthorization()
     }
     
     deinit {
@@ -79,14 +91,13 @@ class Locator : NSObject, CLLocationManagerDelegate{
         print("will update location")
         
         if(CLLocationManager.locationServicesEnabled()){
-            manager = CLLocationManager()
-            manager.requestAlwaysAuthorization()
+
             manager.activityType = .other
             manager.desiredAccuracy = kCLLocationAccuracyKilometer
             manager.delegate = self
             manager.allowsBackgroundLocationUpdates = true
             manager.startUpdatingLocation()
-            coder = CLGeocoder()
+           
         } else {
             print("no location services")
             updating = false
@@ -107,10 +118,6 @@ class Locator : NSObject, CLLocationManagerDelegate{
 
             if(checkDate){
                 print("within timeout duration, returning existing status borough enum")
-                guard let validBorough = borough else {
-                    delegate?.locationUpdated(self)
-                    return true
-                }
                 delegate?.locationUpdated(self)
                 return true
             }

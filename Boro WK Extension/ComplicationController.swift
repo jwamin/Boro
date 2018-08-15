@@ -36,28 +36,18 @@ class ComplicationController: NSObject, CLKComplicationDataSource {
         // Call the handler with the current timeline entry
         print("getting current timeline entry")
         
+        let locale = (WKExtension.shared().delegate as! ExtensionDelegate).locator.getBorough()
+    
         let date = Date()
         switch complication.family {
-//        case .utilitarianSmall:
-//            let template = CLKComplicationTemplateUtilitarianSmallSquare()
-//            let literal = #imageLiteral(resourceName: "Template/Staten")
-//            let imageProvider = CLKImageProvider(onePieceImage:literal)
-//            template.imageProvider = imageProvider
-//            let timelineEntry = CLKComplicationTimelineEntry(date: date, complicationTemplate: template)
-//            print("returning utilitarian small?")
-//            handler(timelineEntry)
+        case .utilitarianLarge:
+            let template = CLKComplicationTemplateUtilitarianLargeFlat()
+            let textProvider = CLKSimpleTextProvider(text: locale.getString(), shortText: locale.getAbbrString())
+            template.textProvider = textProvider
+            let timelineEntry = CLKComplicationTimelineEntry(date: date, complicationTemplate: template)
+            handler(timelineEntry)
         case .circularSmall:
             let template = CLKComplicationTemplateCircularSmallSimpleText()
-            
-            guard let locale = (WKExtension.shared().delegate as! ExtensionDelegate).locator.borough else {
-                print("no locale")
-                let textProvider = CLKSimpleTextProvider(text: "NYC")
-                template.textProvider = textProvider
-                let timelineEntry = CLKComplicationTimelineEntry(date: date, complicationTemplate: template)
-                handler(timelineEntry)
-                return
-            }
-            
             let textProvider = CLKSimpleTextProvider(text: locale.getAbbrString())
             template.textProvider = textProvider
             let timelineEntry = CLKComplicationTimelineEntry(date: date, complicationTemplate: template)
@@ -91,12 +81,14 @@ class ComplicationController: NSObject, CLKComplicationDataSource {
         
         
         switch complication.family {
-//        case .utilitarianSmall:
-//            let template = CLKComplicationTemplateUtilitarianSmallSquare()
+        case .utilitarianLarge:
+            let template = CLKComplicationTemplateUtilitarianLargeFlat()
 //            let literal = #imageLiteral(resourceName: "Template/Utilitarian")
 //            let imageProvider = CLKImageProvider(onePieceImage:literal)
 //            template.imageProvider = imageProvider
-//            handler(template)
+            let textProvider = CLKSimpleTextProvider(text: "New York City", shortText: "NYC")
+            template.textProvider = textProvider
+            handler(template)
         case .circularSmall:
             let template = CLKComplicationTemplateCircularSmallSimpleText()
             let textProvider = CLKSimpleTextProvider(text: "NYC")

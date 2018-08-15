@@ -13,7 +13,10 @@ class ExtensionDelegate: NSObject, WKExtensionDelegate,LocatorProtocol {
     //var myComplicationData:Dictionary<String,String>!
     var backgroundTask:WKRefreshBackgroundTask?
     var locator:Locator!
+    var storedBorough:Borough = Borough.outOfNYC
     var interface:InterfaceController?
+    var update = false;
+    
     
     func applicationDidFinishLaunching() {
         // Perform any final initialization of your application.
@@ -56,9 +59,15 @@ class ExtensionDelegate: NSObject, WKExtensionDelegate,LocatorProtocol {
     
     func locationUpdated(_ locator: Locator) {
         
-        interface?.locationUpdated(locator)
         
-        if(backgroundTask != nil){
+        
+        if storedBorough != locator.getBorough(){
+            storedBorough = locator.getBorough()
+            interface?.locationUpdated(locator)
+            update = true
+        }
+        
+        if(backgroundTask != nil && update == true){
             print("background task not nil, doing complication refresh")
             let server =  CLKComplicationServer.sharedInstance()
             
@@ -72,6 +81,7 @@ class ExtensionDelegate: NSObject, WKExtensionDelegate,LocatorProtocol {
             
             self.backgroundTask?.setTaskCompletedWithSnapshot(true)
             self.backgroundTask = nil
+            update = false
         }
 
         
