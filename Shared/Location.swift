@@ -66,10 +66,13 @@ class Locator : NSObject, CLLocationManagerDelegate{
     
     override init() {
         super.init()
+        
         coder = CLGeocoder()
         manager = CLLocationManager()
         manager.requestAlwaysAuthorization()
+        
         doUpdate()
+        
     }
     
     deinit {

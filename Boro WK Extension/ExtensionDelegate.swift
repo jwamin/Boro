@@ -53,7 +53,7 @@ class ExtensionDelegate: NSObject, WKExtensionDelegate,LocatorProtocol {
     
     func applicationDidEnterBackground() {
         // save current Borough String to NSUD for retrieval on next init
-    print("storing savedBorough into UD \(storedBorough.getString)")
+    print("storing savedBorough into UD \(storedBorough.getString())")
         UserDefaults.standard.set(storedBorough.getString(), forKey: "storedBorough")
     }
     
