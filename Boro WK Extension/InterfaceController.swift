@@ -12,59 +12,46 @@ import Foundation
 
 class InterfaceController: WKInterfaceController, LocatorProtocol{
     
-    func locatorError(errorMsg: String) {
-        label.setText(errorMsg)
-    }
-    
-    
     var delegate:ExtensionDelegate!
     
-    func locationUpdated(_ locator: Locator) {
-        print("got location")
-        label.setText(locator.getBorough().getString())
-        label.setHidden(false)
-    }
+
     
     //var locator:Locator!
     
     @IBOutlet var label: WKInterfaceLabel!
     override func awake(withContext context: Any?) {
         super.awake(withContext: context)
+        
+        // Configure interface objects here.
         delegate = WKExtension.shared().delegate as! ExtensionDelegate
         delegate.interface = self
         label.setText("")
-        // Configure interface objects here.
+        
     }
     
     override func willActivate() {
         // This method is called when watch view controller is about to be visible to user
         super.willActivate()
         
-        
-//        if(delegate.locator == nil){
-//            print("delegate locator is nil")
-//            delegate.applicationDidBecomeActive()
-//        }
-//        locator = delegate.locator
-//
-//        if(locator.borough==nil){
-//            if(!locator.updating){
-//                print("not updating, doing update")
-//                locator.doUpdate()
-//            }
-//        } else {
-//            print("location already availalbe")
-//            locationUpdated((locator.borough?.getString())!)
-//
-//        }
-        
+        // try update on appear
+        delegate.locator.doUpdate()
     }
     
     override func didDeactivate() {
         // This method is called when watch view controller is no longer visible
         super.didDeactivate()
-       // locator = nil
-        
+
+    }
+    
+    //Locator Delegation methods
+    func locationUpdated(_ locator: Locator) {
+        print("got location")
+        label.setText(locator.getBorough().getString())
+        label.setHidden(false)
+    }
+    
+    func locatorError(errorMsg: String) {
+        label.setText(errorMsg)
     }
     
 }

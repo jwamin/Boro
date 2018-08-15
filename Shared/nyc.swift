@@ -13,6 +13,7 @@ let COUNTRY = "United States"
 
 enum BoroughState{
     case initialised
+    case updating
     case valid
     case timeoutError
 }

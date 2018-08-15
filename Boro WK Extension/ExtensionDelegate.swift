@@ -15,16 +15,24 @@ class ExtensionDelegate: NSObject, WKExtensionDelegate,LocatorProtocol {
     var locator:Locator!
     var storedBorough:Borough = Borough.outOfNYC
     var interface:InterfaceController?
-    var update = false;
-    
+    var updateComplication = false;
+    var firstLoad = true
+    override init() {
+        super.init()
+        print("initialised")
+        DispatchQueue.main.async {
+            self.locator = Locator()
+            self.locator.delegate = self
+        }
+
+    }
     
     func applicationDidFinishLaunching() {
         // Perform any final initialization of your application.
         //myComplicationData = NSDictionary(contentsOfFile: Bundle.main.path(forResource: "text", ofType: "strings")!) as! Dictionary<String,String>
         //print(myComplicationData)print
         print("initialising delegate")
-        locator = Locator()
-        locator.delegate = self
+
     }
 
     func applicationDidBecomeActive() {
@@ -34,12 +42,16 @@ class ExtensionDelegate: NSObject, WKExtensionDelegate,LocatorProtocol {
         scheduleBackgroundTask()
     }
     
+    func applicationDidEnterBackground() {
+        // save current Borough String to NSUD for retrieval on next init
+    }
+    
     func scheduleBackgroundTask(){
-        let timeInterval:TimeInterval = 60 * 8
+        let timeInterval:TimeInterval = 60 * 8 //8 mins from now
         let firedate = Date().addingTimeInterval(timeInterval)
-        print("will fire at \(firedate)")
         let userinfo:NSDictionary = NSDictionary(dictionary: ["refresh":"complication","time":firedate])
         WKExtension.shared().scheduleBackgroundRefresh(withPreferredDate: firedate, userInfo: userinfo, scheduledCompletion: scheduledCompletionHandler(_:))
+        print("scheduled background task, will fire at \(firedate)")
     }
     
     func scheduledCompletionHandler(_ error:Error?) -> Void{
@@ -60,34 +72,52 @@ class ExtensionDelegate: NSObject, WKExtensionDelegate,LocatorProtocol {
     
     func locationUpdated(_ locator: Locator) {
         
+        print("location updated")
+        
         let newBoro = locator.getBorough()
         
         if (storedBorough != newBoro){
             print("updating borough stored in delegate")
             storedBorough = newBoro
+            
+            //notify interface
             interface?.locationUpdated(locator)
-            update = true
+            
+            updateComplication = true
         }
         
-        if(backgroundTask != nil && update == true){
-            print("location has changed")
+        //we must be in a background task AND the updat complication mist be set in order to trigger complication update
+        if((backgroundTask != nil||firstLoad==true) && updateComplication == true){
+            
+            if(firstLoad==true){
+                print("we are in first run, resetting")
+                firstLoad = false
+            }
+            
+            print("location has changed, will update complication")
+            
             let server =  CLKComplicationServer.sharedInstance()
                                                                    
-            
             guard let complications = server.activeComplications else {
                 return
             }
             
             for complication in complications{
+                //full reload is crude but since we arent adding to a timeline, it's ok for our needs
                 server.reloadTimeline(for: complication)
             }
-            self.backgroundTask?.setTaskCompletedWithSnapshot(true)
-            self.backgroundTask = nil
-            update = false
+            
+            //reset update flag
+            updateComplication = false
             releaseBackgroundTask(doShapshot: true)
             return
+            
         }
-            print("didnt update local borough \(storedBorough.getString())")
+        
+        //if we didnt return, we get here... (background task, but no updateComplication flag)
+        print("didnt update local borough \(storedBorough.getString())")
+        
+        //release
          releaseBackgroundTask(doShapshot: false)
         
     }

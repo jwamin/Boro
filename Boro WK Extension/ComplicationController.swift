@@ -40,11 +40,16 @@ class ComplicationController: NSObject, CLKComplicationDataSource {
         
         //If the locator on the delegate doesnt exist, then there isa crash here.
         //how to initialise delegate before complication?
-        if(delegate.locator == nil){
-            return
+        var locale:Borough = delegate.storedBorough
+        
+        if(delegate.locator != nil){
+            locale = delegate.locator.getBorough()
+            print("locator on delegate, \(locale.getAbbrString())")
+        } else {
+            print("no locator on delegate,scheduling update")
+            delegate.scheduleBackgroundTask()
         }
         
-        let locale = delegate.locator.getBorough()
     
         let date = Date()
         switch complication.family {

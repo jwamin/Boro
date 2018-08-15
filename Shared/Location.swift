@@ -43,7 +43,6 @@ class Locator : NSObject, CLLocationManagerDelegate{
     }
     
     //State
-    var updating = false
     var state:BoroughState! = .initialised{
         didSet{
             if(state == .timeoutError){
@@ -67,6 +66,7 @@ class Locator : NSObject, CLLocationManagerDelegate{
         coder = CLGeocoder()
         manager = CLLocationManager()
         manager.requestAlwaysAuthorization()
+        doUpdate()
     }
     
     deinit {
@@ -77,56 +77,58 @@ class Locator : NSObject, CLLocationManagerDelegate{
     
     func doUpdate(){
         
-        if(updating){
+        if(state == .updating){
             return
         }
         
-        updating = true
+        state = .updating
         
-        if(checkExisting()){
-            updating = false
+        if(checkExistingLocationIsCurrent()){
+            state = .valid
             return
         }
         
         print("will update location")
         
         if(CLLocationManager.locationServicesEnabled()){
-
+            //setup locationManager
             manager.activityType = .other
             manager.desiredAccuracy = kCLLocationAccuracyKilometer
             manager.delegate = self
             manager.allowsBackgroundLocationUpdates = true
+            //start locationManager
             manager.startUpdatingLocation()
            
         } else {
             print("no location services")
-            updating = false
+            state = .timeoutError
         }
         
     }
     
     //Checks validity of existing information
-    private func checkExisting()->Bool{
+    private func checkExistingLocationIsCurrent()->Bool{
         
+        //allow refresh sooner if curernt borough is 'out of NYC'
         if(borough == .outOfNYC){
             return false
         }
         
         if let updatedDate = updatedOn{
             
+            //check for timeout
             let checkDate = Date() < updatedDate.addingTimeInterval(timeout)
 
+            //if within timeout cooldown, within NYC, return true
             if(checkDate){
                 print("within timeout duration, returning existing status borough enum")
                 delegate?.locationUpdated(self)
                 return true
             }
             
-        } else {
-            print("optional unwrap failed")
-            print(updating,updatedOn)
         }
         
+        //current info is out of date, proceed with lookup
         return false
     }
     
@@ -147,7 +149,6 @@ class Locator : NSObject, CLLocationManagerDelegate{
             
             guard let isNYCBorough = Borough.checkBorough(subLocality) else {
                 print("guess that's not in NYC")
-                updating = false
                 updatedOn = Date()
                 borough = .outOfNYC
                 state = .valid
@@ -157,14 +158,13 @@ class Locator : NSObject, CLLocationManagerDelegate{
             
             borough = isNYCBorough
             state = .valid
-            self.updating = false
             self.updatedOn = Date()
             
             delegate?.locationUpdated(self)
             
             print("setting date",updatedOn,"expires at \(updatedOn?.addingTimeInterval(timeout))")
             print("in ny",isNYCBorough)
-            
+            return
             
         } else {
             //not in NY
@@ -173,27 +173,35 @@ class Locator : NSObject, CLLocationManagerDelegate{
             state = .valid
             print("guess that's not in new york state")
             manager.stopUpdatingLocation()
+            return
         }
-        
-        updating = false
         
     }
     
-    //Delegate methods
+    //CLLocatonManager Delegate methods
     
     func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
+        print("locationmanager error")
         print(error.localizedDescription)
+        manager.stopUpdatingLocation()
+        state = .timeoutError
+        self.state = BoroughState.timeoutError
     }
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         print("updated location, stopping refresh")
+        //stop after 1 hit
         manager.stopUpdatingLocation()
+        
         let interval:TimeInterval = 10
         geoTimer = Timer(fire: Date().addingTimeInterval(interval), interval: 0.0, repeats: false) { (timer) in
+            print("got to timer date")
             timer.invalidate()
             self.coder.cancelGeocode()
             self.state = BoroughState.timeoutError
         }
+        RunLoop.current.add(geoTimer, forMode: .defaultRunLoopMode)
+        
         coder.reverseGeocodeLocation(locations.first!, completionHandler: reverseGeocodeCompletion(_:_:))
     }
     
