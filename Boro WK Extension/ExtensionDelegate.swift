@@ -24,6 +24,7 @@ class ExtensionDelegate: NSObject, WKExtensionDelegate,LocatorProtocol {
         //print(myComplicationData)
         locator = Locator()
         locator.delegate = self
+        locator.doUpdate()
     }
 
     func applicationDidBecomeActive() {
@@ -34,7 +35,7 @@ class ExtensionDelegate: NSObject, WKExtensionDelegate,LocatorProtocol {
     }
     
     func scheduleBackgroundTask(){
-        let timeInterval:TimeInterval = 60 * 15
+        let timeInterval:TimeInterval = 60 * 8
         let firedate = Date().addingTimeInterval(timeInterval)
         print("will fire at \(firedate)")
         let userinfo:NSDictionary = NSDictionary(dictionary: ["refresh":"complication","time":firedate])
@@ -59,10 +60,10 @@ class ExtensionDelegate: NSObject, WKExtensionDelegate,LocatorProtocol {
     
     func locationUpdated(_ locator: Locator) {
         
+        let newBoro = locator.getBorough()
         
-        
-        if storedBorough != locator.getBorough(){
-            storedBorough = locator.getBorough()
+        if (storedBorough != newBoro){
+            storedBorough = newBoro
             interface?.locationUpdated(locator)
             update = true
         }
@@ -78,13 +79,23 @@ class ExtensionDelegate: NSObject, WKExtensionDelegate,LocatorProtocol {
             for complication in complications{
                 server.reloadTimeline(for: complication)
             }
-            
             self.backgroundTask?.setTaskCompletedWithSnapshot(true)
             self.backgroundTask = nil
             update = false
+            releaseBackgroundTask(doShapshot: true)
+        } else if (update == false){
+            releaseBackgroundTask(doShapshot: false)
         }
 
+       
         
+    }
+    
+    func releaseBackgroundTask(doShapshot:Bool){
+        if(self.backgroundTask != nil){
+            self.backgroundTask?.setTaskCompletedWithSnapshot(doShapshot)
+            self.backgroundTask = nil
+        }
     }
     
     func locatorError(errorMsg: String) {

@@ -62,7 +62,7 @@ public enum Borough {
     func getAbbrString()->String{
         switch self {
         case .manhattan:
-            return "Mn"
+            return "NY"
         case .brooklyn:
             return "Br"
         case .queens:
