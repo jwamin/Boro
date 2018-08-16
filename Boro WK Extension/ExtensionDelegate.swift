@@ -10,6 +10,8 @@ import WatchKit
 
 class ExtensionDelegate: NSObject, WKExtensionDelegate,LocatorProtocol {
 
+    let refreshMinutes:TimeInterval = 5
+    
     //var myComplicationData:Dictionary<String,String>!
     var backgroundTask:WKRefreshBackgroundTask?
     var locator:Locator!
@@ -58,7 +60,7 @@ class ExtensionDelegate: NSObject, WKExtensionDelegate,LocatorProtocol {
     }
     
     public func scheduleBackgroundTask(){
-        let timeInterval:TimeInterval = 60 * 8 //8 mins from now
+        let timeInterval:TimeInterval = 60 * refreshMinutes //x mins from now
         let firedate = Date().addingTimeInterval(timeInterval)
         let userinfo:NSDictionary = NSDictionary(dictionary: ["refresh":"complication","time":firedate])
         WKExtension.shared().scheduleBackgroundRefresh(withPreferredDate: firedate, userInfo: userinfo, scheduledCompletion: scheduledCompletionHandler(_:))
@@ -151,10 +153,13 @@ class ExtensionDelegate: NSObject, WKExtensionDelegate,LocatorProtocol {
     private func updateComplication(task:WKApplicationRefreshBackgroundTask){
         print("update complication called")
         let server =  CLKComplicationServer.sharedInstance()
+        
+        //There ARE no complications
         guard let _ = server.activeComplications else {
             task.setTaskCompletedWithSnapshot(false)
             return
         }
+        
         //self.complications = complications
         self.backgroundTask = task
         locator.doUpdate()
