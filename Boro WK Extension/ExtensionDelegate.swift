@@ -143,6 +143,7 @@ class ExtensionDelegate: NSObject, WKExtensionDelegate,LocatorProtocol {
     
     func locatorError(errorMsg: String) {
         print("error")
+        interface?.locatorError(errorMsg: errorMsg)
         self.backgroundTask?.setTaskCompletedWithSnapshot(false)
     }
     

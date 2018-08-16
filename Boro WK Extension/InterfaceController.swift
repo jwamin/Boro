@@ -14,8 +14,6 @@ class InterfaceController: WKInterfaceController, LocatorProtocol{
     
     var delegate:ExtensionDelegate!
     
-
-    
     //var locator:Locator!
     
     @IBOutlet var label: WKInterfaceLabel!
@@ -34,7 +32,11 @@ class InterfaceController: WKInterfaceController, LocatorProtocol{
         super.willActivate()
         
         // try update on appear
-        delegate.locator.doUpdate()
+        if(delegate.locator.state != .updating){
+            delegate.locator.doUpdate()
+        }
+        
+        
     }
     
     override func didDeactivate() {

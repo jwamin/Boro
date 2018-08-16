@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import os
 import CoreLocation
 
 //1. request for location, geocoder checks if within area and sets status accordingly
@@ -46,7 +47,6 @@ class Locator : NSObject, CLLocationManagerDelegate{
     var state:BoroughState! = .initialised{
         didSet{
             if(state == .timeoutError){
-                geoTimer.invalidate()
                 coder.cancelGeocode()
                 manager.stopUpdatingLocation()
                 delegate?.locatorError(errorMsg: "Error")
@@ -59,8 +59,6 @@ class Locator : NSObject, CLLocationManagerDelegate{
     
     //Timeout Objects
     let timeout:TimeInterval! = 60
-    var geoTimer:Timer!
-    
     
     //Instance Methods
     
@@ -75,8 +73,9 @@ class Locator : NSObject, CLLocationManagerDelegate{
         
     }
     
+    //log when object is deallocated
     deinit {
-        print("deinitialising locator")
+       os_log("deinitialising Locator")
     }
     
     //Primary Update Method
@@ -141,37 +140,36 @@ class Locator : NSObject, CLLocationManagerDelegate{
     
     // Callbacks
     private func reverseGeocodeCompletion(_ placemarks:[CLPlacemark]?,_ error:Error?){
-        geoTimer.invalidate()
+        
         if(error != nil){
+            print("geocoder error",error?.localizedDescription)
             self.state = .timeoutError
             return
         }
-        print("in geocode callback")
         
-        //if let subLocality = placemarks?.first?.subLocality, let locality = placemarks?.first?.locality{
+        print("in geocode callback, no errors")
+        
+        self.updatedOn = Date()
+        state = .valid
+        
         if(placemarks?.first?.administrativeArea == ADMINISTRATIVE_AREA && placemarks?.first?.country == COUNTRY){
             //in NY, USA
             let subLocality = placemarks?.first?.subLocality ?? ""
             
             guard let isNYCBorough = Borough.checkBorough(subLocality) else {
                 print("guess that's not in NYC")
-                updatedOn = Date()
                 borough = .outOfNYC
-                state = .valid
                 return
             }
             
             borough = isNYCBorough
-            state = .valid
-            self.updatedOn = Date()
-            
-            print("in ny",isNYCBorough)
+        
+            print("in ny ",isNYCBorough)
             return
             
         } else {
             //not in NY
             borough = .outOfNYC
-            updatedOn = Date()
             state = .valid
             print("guess that's not in new york state")
             manager.stopUpdatingLocation()
@@ -182,27 +180,24 @@ class Locator : NSObject, CLLocationManagerDelegate{
     
     //CLLocatonManager Delegate methods
     
+    
+    //if locationamanger fails
     func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
         print("locationmanager error")
         print(error.localizedDescription)
         manager.stopUpdatingLocation()
         state = .timeoutError
-        self.state = BoroughState.timeoutError
     }
     
+    //if locationamanager succeeds
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         print("updated location, stopping cllocation updates")
         //stop after 1 hit
         manager.stopUpdatingLocation()
-        
-        let interval:TimeInterval = 10
-        geoTimer = Timer(fire: Date().addingTimeInterval(interval), interval: 0.0, repeats: false) { (timer) in
-            print("timer ran, must be connectivity errors")
-            self.state = BoroughState.timeoutError
-        }
-        RunLoop.current.add(geoTimer, forMode: .defaultRunLoopMode)
-        
+    
         coder.reverseGeocodeLocation(locations.first!, completionHandler: reverseGeocodeCompletion(_:_:))
+        print("started coder")
+        
     }
     
 }
