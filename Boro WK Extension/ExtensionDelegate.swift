@@ -145,6 +145,7 @@ class ExtensionDelegate: NSObject, WKExtensionDelegate,LocatorProtocol {
         print("error")
         interface?.locatorError(errorMsg: errorMsg)
         self.backgroundTask?.setTaskCompletedWithSnapshot(false)
+        scheduleBackgroundTask()
     }
     
     private func updateComplication(task:WKApplicationRefreshBackgroundTask){
