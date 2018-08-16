@@ -50,23 +50,29 @@ class ComplicationController: NSObject, CLKComplicationDataSource {
             print("locator valid on delegate, \(locale.getAbbrString())")
         }
         
-    
         let date = Date()
+        
         switch complication.family {
-        case .utilitarianLarge:
-            let template = CLKComplicationTemplateUtilitarianLargeFlat()
-            let textProvider = CLKSimpleTextProvider(text: locale.getString(), shortText: locale.getAbbrString())
-            template.textProvider = textProvider
-            let timelineEntry = CLKComplicationTimelineEntry(date: date, complicationTemplate: template)
-            handler(timelineEntry)
-        case .circularSmall:
-            let template = CLKComplicationTemplateCircularSmallSimpleText()
-            let textProvider = CLKSimpleTextProvider(text: locale.getAbbrString())
-            template.textProvider = textProvider
-            let timelineEntry = CLKComplicationTimelineEntry(date: date, complicationTemplate: template)
-            handler(timelineEntry)
-        default:
-            handler(nil)
+            case .utilitarianSmall:
+                let template = CLKComplicationTemplateUtilitarianSmallFlat()
+                let textProvider = CLKSimpleTextProvider(text: locale.getString(), shortText: locale.getAbbrString())
+                template.textProvider = textProvider
+                let timelineEntry = CLKComplicationTimelineEntry(date: date, complicationTemplate: template)
+                handler(timelineEntry)
+            case .utilitarianLarge:
+                let template = CLKComplicationTemplateUtilitarianLargeFlat()
+                let textProvider = CLKSimpleTextProvider(text: locale.getString(), shortText: locale.getAbbrString())
+                template.textProvider = textProvider
+                let timelineEntry = CLKComplicationTimelineEntry(date: date, complicationTemplate: template)
+                handler(timelineEntry)
+            case .circularSmall:
+                let template = CLKComplicationTemplateCircularSmallSimpleText()
+                let textProvider = CLKSimpleTextProvider(text: locale.getAbbrString())
+                template.textProvider = textProvider
+                let timelineEntry = CLKComplicationTimelineEntry(date: date, complicationTemplate: template)
+                handler(timelineEntry)
+            default:
+                handler(nil)
         }
         
     }
@@ -93,22 +99,24 @@ class ComplicationController: NSObject, CLKComplicationDataSource {
         
         
         switch complication.family {
-        case .utilitarianLarge:
-            let template = CLKComplicationTemplateUtilitarianLargeFlat()
-//            let literal = #imageLiteral(resourceName: "Template/Utilitarian")
-//            let imageProvider = CLKImageProvider(onePieceImage:literal)
-//            template.imageProvider = imageProvider
-            let textProvider = CLKSimpleTextProvider(text: "New York City", shortText: "NYC")
-            template.textProvider = textProvider
-            handler(template)
-        case .circularSmall:
-            let template = CLKComplicationTemplateCircularSmallSimpleText()
-            let textProvider = CLKSimpleTextProvider(text: "NYC")
-            template.textProvider = textProvider
-            template.tintColor = UIColor.red
-            handler(template)
-        default:
-            handler(nil)
+            case .utilitarianSmall:
+                let template = CLKComplicationTemplateUtilitarianSmallFlat()
+                let textProvider = CLKSimpleTextProvider(text: "New York City", shortText: "NYC")
+                template.textProvider = textProvider
+                handler(template)
+            case .utilitarianLarge:
+                let template = CLKComplicationTemplateUtilitarianLargeFlat()
+                let textProvider = CLKSimpleTextProvider(text: "New York City", shortText: "NYC")
+                template.textProvider = textProvider
+                handler(template)
+            case .circularSmall:
+                let template = CLKComplicationTemplateCircularSmallSimpleText()
+                let textProvider = CLKSimpleTextProvider(text: "NYC")
+                template.textProvider = textProvider
+                template.tintColor = UIColor.red
+                handler(template)
+            default:
+                handler(nil)
         }
         
         
