@@ -60,11 +60,18 @@ class ExtensionDelegate: NSObject, WKExtensionDelegate,LocatorProtocol {
     }
     
     public func scheduleBackgroundTask(){
+        
         let timeInterval:TimeInterval = 60 * refreshMinutes //x mins from now
         let firedate = Date().addingTimeInterval(timeInterval)
+        
+        //send arbitrary dictionary to squelch additional logging
         let userinfo:NSDictionary = NSDictionary(dictionary: ["refresh":"complication","time":firedate])
+        
+        //schedule background task
         WKExtension.shared().scheduleBackgroundRefresh(withPreferredDate: firedate, userInfo: userinfo, scheduledCompletion: scheduledCompletionHandler(_:))
+        
         print("scheduled background task, will fire at \(firedate)")
+        
     }
     
     private func scheduledCompletionHandler(_ error:Error?) -> Void{
@@ -100,7 +107,8 @@ class ExtensionDelegate: NSObject, WKExtensionDelegate,LocatorProtocol {
         }
         
         //we must be in a background task AND the updat complication mist be set in order to trigger complication update
-        if((backgroundTask != nil||firstLoad==true) && updateComplication == true){
+        //if((backgroundTask != nil||firstLoad==true || updateComplication == true){
+        if( firstLoad == true || updateComplication == true ){
             
             if(firstLoad==true){
                 print("we are in first run, resetting")
@@ -110,18 +118,20 @@ class ExtensionDelegate: NSObject, WKExtensionDelegate,LocatorProtocol {
             print("location has changed, will update complication")
             
             let server =  CLKComplicationServer.sharedInstance()
-                                                                   
+            
+            // if there arent any active complications, simply return out
             guard let complications = server.activeComplications else {
                 return
             }
+            
+            //reset update flag
+            updateComplication = false
             
             for complication in complications{
                 //full reload is crude but since we arent adding to a timeline, it's ok for our needs
                 server.reloadTimeline(for: complication)
             }
             
-            //reset update flag
-            updateComplication = false
             releaseBackgroundTask(doShapshot: true)
             return
             
@@ -136,6 +146,7 @@ class ExtensionDelegate: NSObject, WKExtensionDelegate,LocatorProtocol {
         
     }
     
+    //release task when complete
     private func releaseBackgroundTask(doShapshot:Bool){
         if(self.backgroundTask != nil){
             self.backgroundTask?.setTaskCompletedWithSnapshot(doShapshot)
@@ -143,6 +154,7 @@ class ExtensionDelegate: NSObject, WKExtensionDelegate,LocatorProtocol {
         }
     }
     
+    // if delegate method is fired, schedule new update, do not snapshot, send optional error message to interface
     func locatorError(errorMsg: String) {
         print("error")
         interface?.locatorError(errorMsg: errorMsg)
@@ -175,7 +187,7 @@ class ExtensionDelegate: NSObject, WKExtensionDelegate,LocatorProtocol {
             case let backgroundTask as WKApplicationRefreshBackgroundTask:
                 
                 // Be sure to complete the background task once you’re done.
-                print("background refresh task")
+                print("background refresh task provided by system")
                 
                 scheduleBackgroundTask()
                 updateComplication(task:backgroundTask)
