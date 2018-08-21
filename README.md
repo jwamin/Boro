@@ -13,7 +13,6 @@ enum Borough {
     case statenIsland
     case outOfNYC
 }
-
 ```
 
 Automatically updates and schedules future updates 5 min from now.
@@ -25,9 +24,7 @@ Simple `WKInterfaceController` Interface.
 ### Notes
 
 * Will only update when `watchOS` grants a `WKApplicationRefreshBackgroundTask`. 
-
 * More reliable when on a Wi-Fi network.
-
 * `CLKComplicationTemplateCircularSmallSimpleText` is a good complication to use to prototype as all it takes is one small text provider.
 
 ### DONE
@@ -41,7 +38,6 @@ Simple `WKInterfaceController` Interface.
 ### TODO
 
 * TIghten up refresh and timeline logic.
-
 * Frameworkize Locator Class using Cross Platform `.framework` using [framework hack](https://theswiftdev.com/2017/10/23/how-to-make-a-swift-framework/)
   
 #### Frameworks Used
