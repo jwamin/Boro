@@ -71,6 +71,14 @@ class ComplicationController: NSObject, CLKComplicationDataSource {
                 template.textProvider = textProvider
                 let timelineEntry = CLKComplicationTimelineEntry(date: date, complicationTemplate: template)
                 handler(timelineEntry)
+            case .graphicCircular:
+                let template = CLKComplicationTemplateGraphicCircularStackText()
+                let textProvider = CLKSimpleTextProvider(text: locale.getString(), shortText: locale.getAbbrString())
+                let textProv2 = CLKSimpleTextProvider(text: "Boro")
+                template.line1TextProvider = textProv2
+                template.line2TextProvider = textProvider
+                let timelineEntry = CLKComplicationTimelineEntry(date: date, complicationTemplate: template)
+                handler(timelineEntry)
             default:
                 handler(nil)
         }
@@ -113,6 +121,13 @@ class ComplicationController: NSObject, CLKComplicationDataSource {
                 let template = CLKComplicationTemplateCircularSmallSimpleText()
                 let textProvider = CLKSimpleTextProvider(text: "NYC")
                 template.textProvider = textProvider
+                template.tintColor = UIColor.red
+                handler(template)
+            case .graphicCircular:
+                let template = CLKComplicationTemplateGraphicCircularStackText()
+                let textProvider = CLKSimpleTextProvider(text: "NYC")
+                template.line1TextProvider = textProvider
+                template.line2TextProvider = CLKSimpleTextProvider(text: "...")
                 template.tintColor = UIColor.red
                 handler(template)
             default:
