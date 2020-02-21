@@ -23,7 +23,7 @@ protocol LocatorProtocol {
 }
 
 //Locator Class - Reverse Geocodes location in one of the 5 New York Boroughs
-class Locator : NSObject, CLLocationManagerDelegate{
+class Locator : NSObject {
     
     //Core Location Objects
     var manager:CLLocationManager!
@@ -102,7 +102,7 @@ class Locator : NSObject, CLLocationManagerDelegate{
             manager.delegate = self
             manager.allowsBackgroundLocationUpdates = true
             //start locationManager
-            manager.startUpdatingLocation()
+            manager.requestLocation()
            
         } else {
             print("no location services")
@@ -141,8 +141,8 @@ class Locator : NSObject, CLLocationManagerDelegate{
     // Callbacks
     private func reverseGeocodeCompletion(_ placemarks:[CLPlacemark]?,_ error:Error?){
         
-        if(error != nil){
-            print("geocoder error",error?.localizedDescription)
+        if let error = error {
+            print("geocoder error", error)
             self.state = .timeoutError
             return
         }
@@ -178,26 +178,25 @@ class Locator : NSObject, CLLocationManagerDelegate{
         
     }
     
-    //CLLocatonManager Delegate methods
-    
-    
-    //if locationamanger fails
-    func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
-        print("locationmanager error")
-        print(error.localizedDescription)
-        manager.stopUpdatingLocation()
-        state = .timeoutError
-    }
-    
-    //if locationamanager succeeds
-    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        print("updated location, stopping cllocation updates")
-        //stop after 1 hit
-        manager.stopUpdatingLocation()
-    
-        coder.reverseGeocodeLocation(locations.first!, completionHandler: reverseGeocodeCompletion(_:_:))
-        print("started coder")
-        
-    }
-    
+}
+
+extension Locator : CLLocationManagerDelegate {
+  
+  //CLLocatonManager Delegate methods
+
+  //if locationamanger fails
+  func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
+      print("locationmanager error")
+      print(error.localizedDescription)
+      state = .timeoutError
+  }
+  
+  //if locationamanager succeeds
+  func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+  
+      coder.reverseGeocodeLocation(locations.first!, completionHandler: reverseGeocodeCompletion(_:_:))
+      print("started coder")
+      
+  }
+  
 }

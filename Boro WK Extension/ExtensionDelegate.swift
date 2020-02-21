@@ -31,10 +31,10 @@ class ExtensionDelegate: NSObject, WKExtensionDelegate,LocatorProtocol {
             }
         }
         
-        DispatchQueue.main.sync {
+        //DispatchQueue.main.sync {
             self.locator = Locator()
             self.locator.delegate = self
-        }
+        //z}
 
     }
     

@@ -14,7 +14,7 @@ class ComplicationController: NSObject, CLKComplicationDataSource {
     
     // MARK: - Timeline Configuration
     
-    let delegate:ExtensionDelegate! = WKExtension.shared().delegate as! ExtensionDelegate
+    let delegate:ExtensionDelegate! = WKExtension.shared().delegate as? ExtensionDelegate
     
     func getSupportedTimeTravelDirections(for complication: CLKComplication, withHandler handler: @escaping (CLKComplicationTimeTravelDirections) -> Void) {
         handler([.forward,.backward])
