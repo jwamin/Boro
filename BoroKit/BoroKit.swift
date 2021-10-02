@@ -30,7 +30,8 @@ public enum Boro: String {
         self = cityBoro
         return
       } else {
-        fallthrough
+        self = .out
+        return
       }
     case "NJ":
       self = .six
