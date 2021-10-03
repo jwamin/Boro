@@ -115,6 +115,7 @@
 		5718141E2708E58E00513DA8 /* BoroKitTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BoroKitTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		571814252708E58E00513DA8 /* BoroKitTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoroKitTests.swift; sourceTree = "<group>"; };
 		571814332708E5C500513DA8 /* BoroKit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoroKit.swift; sourceTree = "<group>"; };
+		57CE009A270A024400D496F3 /* Boro-WatchKit-App-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "Boro-WatchKit-App-Info.plist"; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -170,6 +171,7 @@
 		571813EB2708E4EA00513DA8 /* Boro WatchKit App */ = {
 			isa = PBXGroup;
 			children = (
+				57CE009A270A024400D496F3 /* Boro-WatchKit-App-Info.plist */,
 				571813EC2708E4EB00513DA8 /* Assets.xcassets */,
 			);
 			path = "Boro WatchKit App";
@@ -594,8 +596,9 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Boro WatchKit Extension/Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = "Boro WatchKit Extension";
-				INFOPLIST_KEY_CLKComplicationPrincipalClass = "$(PRODUCT_MODULE_NAME).ComplicationController";
-				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				INFOPLIST_KEY_CLKComplicationPrincipalClass = Boro_WatchKit_Extension.ComplicationController;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "This is a location aware app, and we need access to device location to proceed.";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = hello;
 				INFOPLIST_KEY_WKWatchOnly = YES;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -626,8 +629,9 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Boro WatchKit Extension/Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = "Boro WatchKit Extension";
-				INFOPLIST_KEY_CLKComplicationPrincipalClass = "$(PRODUCT_MODULE_NAME).ComplicationController";
-				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				INFOPLIST_KEY_CLKComplicationPrincipalClass = Boro_WatchKit_Extension.ComplicationController;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "This is a location aware app, and we need access to device location to proceed.";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = hello;
 				INFOPLIST_KEY_WKWatchOnly = YES;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -657,7 +661,10 @@
 				DEVELOPMENT_TEAM = 3C42F7N9CQ;
 				GENERATE_INFOPLIST_FILE = YES;
 				IBSC_MODULE = Boro_WatchKit_Extension;
+				INFOPLIST_FILE = "Boro-WatchKit-App-Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = "Boro WatchKit App";
+				INFOPLIST_KEY_LSApplicationCategoryType = "";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "This is a location aware app, and we need access to device location to proceed.";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = co.jossy.Boro.watchkitapp;
@@ -682,7 +689,10 @@
 				DEVELOPMENT_TEAM = 3C42F7N9CQ;
 				GENERATE_INFOPLIST_FILE = YES;
 				IBSC_MODULE = Boro_WatchKit_Extension;
+				INFOPLIST_FILE = "Boro-WatchKit-App-Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = "Boro WatchKit App";
+				INFOPLIST_KEY_LSApplicationCategoryType = "";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "This is a location aware app, and we need access to device location to proceed.";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = co.jossy.Boro.watchkitapp;

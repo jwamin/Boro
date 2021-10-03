@@ -6,8 +6,17 @@
 //
 
 import SwiftUI
+import CoreLocation
+class LocationFinder {
+  init(){
+    CLLocationManager().requestWhenInUseAuthorization()
+  }
+}
 
 struct ContentView: View {
+  
+  var locationOwner = LocationFinder()
+  
     var body: some View {
         Text("Hello, World!")
             .padding()
