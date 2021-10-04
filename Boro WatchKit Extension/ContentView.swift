@@ -6,25 +6,23 @@
 //
 
 import SwiftUI
-import CoreLocation
-class LocationFinder {
-  init(){
-    CLLocationManager().requestWhenInUseAuthorization()
-  }
-}
+import BoroKit
 
 struct ContentView: View {
   
-  var locationOwner = LocationFinder()
+  var current: Boro
   
     var body: some View {
-        Text("Hello, World!")
+      Text(current.rawValue)
             .padding()
     }
 }
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView()
+      Group{
+        ContentView(current: .manhattan)
+        ContentView(current: .bronx)
+      }
     }
 }

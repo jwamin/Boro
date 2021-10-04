@@ -17,11 +17,13 @@
 		571814012708E4ED00513DA8 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 571814002708E4ED00513DA8 /* Preview Assets.xcassets */; };
 		571814192708E58D00513DA8 /* BoroKit.docc in Sources */ = {isa = PBXBuildFile; fileRef = 571814182708E58D00513DA8 /* BoroKit.docc */; };
 		5718141F2708E58E00513DA8 /* BoroKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 571814152708E58D00513DA8 /* BoroKit.framework */; };
-		571814262708E58E00513DA8 /* BoroKitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 571814252708E58E00513DA8 /* BoroKitTests.swift */; };
+		571814262708E58E00513DA8 /* BoroTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 571814252708E58E00513DA8 /* BoroTests.swift */; };
 		571814272708E58E00513DA8 /* BoroKit.h in Headers */ = {isa = PBXBuildFile; fileRef = 571814172708E58D00513DA8 /* BoroKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		5718142A2708E58E00513DA8 /* BoroKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 571814152708E58D00513DA8 /* BoroKit.framework */; };
 		5718142B2708E58E00513DA8 /* BoroKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 571814152708E58D00513DA8 /* BoroKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		571814342708E5C500513DA8 /* BoroKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 571814332708E5C500513DA8 /* BoroKit.swift */; };
+		57CE009C270B335D00D496F3 /* ExtensionDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57CE009B270B335D00D496F3 /* ExtensionDelegate.swift */; };
+		57CE009E270B4A3600D496F3 /* BoroKitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57CE009D270B4A3600D496F3 /* BoroKitTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -113,9 +115,11 @@
 		571814172708E58D00513DA8 /* BoroKit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BoroKit.h; sourceTree = "<group>"; };
 		571814182708E58D00513DA8 /* BoroKit.docc */ = {isa = PBXFileReference; lastKnownFileType = folder.documentationcatalog; path = BoroKit.docc; sourceTree = "<group>"; };
 		5718141E2708E58E00513DA8 /* BoroKitTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BoroKitTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		571814252708E58E00513DA8 /* BoroKitTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoroKitTests.swift; sourceTree = "<group>"; };
+		571814252708E58E00513DA8 /* BoroTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoroTests.swift; sourceTree = "<group>"; };
 		571814332708E5C500513DA8 /* BoroKit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoroKit.swift; sourceTree = "<group>"; };
 		57CE009A270A024400D496F3 /* Boro-WatchKit-App-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "Boro-WatchKit-App-Info.plist"; sourceTree = SOURCE_ROOT; };
+		57CE009B270B335D00D496F3 /* ExtensionDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionDelegate.swift; sourceTree = "<group>"; };
+		57CE009D270B4A3600D496F3 /* BoroKitTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoroKitTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -182,6 +186,7 @@
 			children = (
 				571813F72708E4EC00513DA8 /* ContentView.swift */,
 				571813F92708E4EC00513DA8 /* BoroApp.swift */,
+				57CE009B270B335D00D496F3 /* ExtensionDelegate.swift */,
 				571813FB2708E4EC00513DA8 /* ComplicationController.swift */,
 				571813FD2708E4ED00513DA8 /* Assets.xcassets */,
 				571814022708E4ED00513DA8 /* Info.plist */,
@@ -211,7 +216,8 @@
 		571814242708E58E00513DA8 /* BoroKitTests */ = {
 			isa = PBXGroup;
 			children = (
-				571814252708E58E00513DA8 /* BoroKitTests.swift */,
+				571814252708E58E00513DA8 /* BoroTests.swift */,
+				57CE009D270B4A3600D496F3 /* BoroKitTests.swift */,
 			);
 			path = BoroKitTests;
 			sourceTree = "<group>";
@@ -418,6 +424,7 @@
 			files = (
 				571813F82708E4EC00513DA8 /* ContentView.swift in Sources */,
 				571813FA2708E4EC00513DA8 /* BoroApp.swift in Sources */,
+				57CE009C270B335D00D496F3 /* ExtensionDelegate.swift in Sources */,
 				571813FC2708E4EC00513DA8 /* ComplicationController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -435,7 +442,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				571814262708E58E00513DA8 /* BoroKitTests.swift in Sources */,
+				57CE009E270B4A3600D496F3 /* BoroKitTests.swift in Sources */,
+				571814262708E58E00513DA8 /* BoroTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

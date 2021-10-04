@@ -5,6 +5,7 @@
 //  Created by Joss Manger on 10/2/21.
 //
 
+import WatchKit
 import ClockKit
 import CoreLocation
 import BoroKit
@@ -13,18 +14,6 @@ import BoroKit
 class ComplicationController: NSObject, CLKComplicationDataSource {
   
   // MARK: - Complication Configuration
-  
-  private let coder = CLGeocoder()
-  private let location = CLLocationManager()
-  private let queue = DispatchQueue(label: "com.jossy.clockkit.background", attributes: .concurrent)
-  private let dispatchGroup = DispatchGroup()
-  
-  
-  override init() {
-    super.init()
-    location.delegate = self
-    location.requestWhenInUseAuthorization()
-  }
   
   func getComplicationDescriptors(handler: @escaping ([CLKComplicationDescriptor]) -> Void) {
     let descriptors = [
@@ -56,41 +45,21 @@ class ComplicationController: NSObject, CLKComplicationDataSource {
   
   func getCurrentTimelineEntry(for complication: CLKComplication, withHandler handler: @escaping (CLKComplicationTimelineEntry?) -> Void) {
     // Call the handler with the current timeline entry
- 
-  
+
+    let wkExtension = WKExtension.shared().delegate as! ExtensionDelegate
     
-    queue.async { [weak self] in
-      self?.location.requestLocation()
-    }
- 
+    let current = wkExtension.boroManager.current
     
-    dispatchGroup.enter()
-    dispatchGroup.notify(queue: DispatchQueue.main) { [weak self] in
-      
-      if let location = self?.location.location {
-       
-        self?.coder.reverseGeocodeLocation(location) { placemarks, error in
+    let appText = CLKTextProvider(format: "Boro")
+    let text = CLKTextProvider(format: current.rawValue)
+    let template = CLKComplicationTemplateGraphicCornerStackText(innerTextProvider: text, outerTextProvider: appText)
+    let complicationTimelineEntry = CLKComplicationTimelineEntry(date: Date(), complicationTemplate: template)
+    handler(complicationTimelineEntry)
+    return
           
-          if error != nil {
-            handler(nil)
-          }
-          
-          if let current = Boro(placemark: placemarks!.first!) {
-            let text = CLKTextProvider(format: current.rawValue)
-            let template = CLKComplicationTemplateGraphicCornerStackText(innerTextProvider: text, outerTextProvider: text)
-            let complicationTimelineEntry = CLKComplicationTimelineEntry(date: Date(), complicationTemplate: template)
-            handler(complicationTimelineEntry)
-            return
-          }
-          
-        }
-        
-      } else {
-        handler(nil)
-      }
-    }
     
-    dispatchGroup.wait()
+    
+    
     
     }
   
@@ -118,18 +87,3 @@ class ComplicationController: NSObject, CLKComplicationDataSource {
 }
 
 
-extension ComplicationController: CLLocationManagerDelegate {
-  
-  func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-    DispatchQueue.main.async { [weak self] in
-      self?.dispatchGroup.leave()
-    }
-  }
-  
-  func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
-    DispatchQueue.main.async { [weak self] in
-      self?.dispatchGroup.leave()
-    }
-  }
-  
-}

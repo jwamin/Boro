@@ -6,13 +6,21 @@
 //
 
 import SwiftUI
+import BoroKit
 
 @main
 struct BoroApp: App {
+  
+  @WKExtensionDelegateAdaptor var extensionDelegate: ExtensionDelegate
+  
+  @State var current: Boro = .system
+  
     var body: some Scene {
         WindowGroup {
             NavigationView {
-                ContentView()
+              ContentView(current: current)
+            }.onReceive(extensionDelegate.boroManager.$current) { output in
+              current = output
             }
         }
     }
