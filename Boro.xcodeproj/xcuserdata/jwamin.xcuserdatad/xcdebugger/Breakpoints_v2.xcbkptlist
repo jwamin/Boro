@@ -60,89 +60,9 @@
             filePath = "Boro WatchKit Extension/ComplicationController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "57"
-            endingLineNumber = "57"
+            startingLineNumber = "55"
+            endingLineNumber = "55"
             landmarkName = "getCurrentTimelineEntry(for:withHandler:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "E4B9ABC6-128A-4C54-A21B-58649FF75BB2"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Boro WatchKit Extension/ComplicationController.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "62"
-            endingLineNumber = "62"
-            landmarkName = "getCurrentTimelineEntry(for:withHandler:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "27F2E2B6-22DC-42D5-AFD8-5F5229F8679F"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "BoroKit/BoroKit.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "106"
-            endingLineNumber = "106"
-            landmarkName = "getCurrent(_:)"
-            landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "27F2E2B6-22DC-42D5-AFD8-5F5229F8679F - da72318b7b71687e"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #1 (Swift.Optional&lt;Swift.Array&lt;__C.CLPlacemark&gt;&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in closure #1 () -&gt; () in BoroKit.BoroManager.getCurrent((BoroKit.Boro) -&gt; ()) -&gt; ()"
-                  moduleName = "BoroKit"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/jwamin/sandbox.nosync/github/watchOS/Boro/BoroKit/BoroKit.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "93"
-                  endingLineNumber = "93"
-                  offsetFromSymbolStart = "2006">
-               </Location>
-               <Location
-                  uuid = "27F2E2B6-22DC-42D5-AFD8-5F5229F8679F - 9ffd0ce296ad4446"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "BoroKit.BoroManager.getCurrent((BoroKit.Boro) -&gt; ()) -&gt; ()"
-                  moduleName = "BoroKit"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/jwamin/sandbox.nosync/github/watchOS/Boro/BoroKit/BoroKit.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "106"
-                  endingLineNumber = "106"
-                  offsetFromSymbolStart = "837">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "9835308F-8694-48F6-9F84-1682BAB3965C"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "BoroKit/BoroKit.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "155"
-            endingLineNumber = "155"
-            landmarkName = "locationManager(_:didUpdateLocations:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -156,8 +76,8 @@
             filePath = "BoroKit/BoroKit.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "159"
-            endingLineNumber = "159"
+            startingLineNumber = "123"
+            endingLineNumber = "123"
             landmarkName = "locationManager(_:didFailWithError:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -165,16 +85,16 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "D1F50CF7-B3A0-444A-A228-85D843BDCF39"
+            uuid = "D5556A20-1E11-48DE-ACAC-941902B26A60"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Boro WatchKit Extension/ExtensionDelegate.swift"
+            filePath = "Boro WatchKit Extension/ComplicationController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "19"
-            endingLineNumber = "19"
-            landmarkName = "applicationDidFinishLaunching()"
+            startingLineNumber = "25"
+            endingLineNumber = "25"
+            landmarkName = "getComplicationDescriptors(handler:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

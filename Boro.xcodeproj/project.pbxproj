@@ -24,6 +24,8 @@
 		571814342708E5C500513DA8 /* BoroKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 571814332708E5C500513DA8 /* BoroKit.swift */; };
 		57CE009C270B335D00D496F3 /* ExtensionDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57CE009B270B335D00D496F3 /* ExtensionDelegate.swift */; };
 		57CE009E270B4A3600D496F3 /* BoroKitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57CE009D270B4A3600D496F3 /* BoroKitTests.swift */; };
+		57CE00A0270B50E000D496F3 /* Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57CE009F270B50E000D496F3 /* Helpers.swift */; };
+		57CE00A2270B510D00D496F3 /* BoroModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57CE00A1270B510D00D496F3 /* BoroModels.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -120,6 +122,8 @@
 		57CE009A270A024400D496F3 /* Boro-WatchKit-App-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "Boro-WatchKit-App-Info.plist"; sourceTree = SOURCE_ROOT; };
 		57CE009B270B335D00D496F3 /* ExtensionDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionDelegate.swift; sourceTree = "<group>"; };
 		57CE009D270B4A3600D496F3 /* BoroKitTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoroKitTests.swift; sourceTree = "<group>"; };
+		57CE009F270B50E000D496F3 /* Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Helpers.swift; sourceTree = "<group>"; };
+		57CE00A1270B510D00D496F3 /* BoroModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoroModels.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -209,6 +213,8 @@
 				571814172708E58D00513DA8 /* BoroKit.h */,
 				571814182708E58D00513DA8 /* BoroKit.docc */,
 				571814332708E5C500513DA8 /* BoroKit.swift */,
+				57CE00A1270B510D00D496F3 /* BoroModels.swift */,
+				57CE009F270B50E000D496F3 /* Helpers.swift */,
 			);
 			path = BoroKit;
 			sourceTree = "<group>";
@@ -434,6 +440,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				571814342708E5C500513DA8 /* BoroKit.swift in Sources */,
+				57CE00A2270B510D00D496F3 /* BoroModels.swift in Sources */,
+				57CE00A0270B50E000D496F3 /* Helpers.swift in Sources */,
 				571814192708E58D00513DA8 /* BoroKit.docc in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

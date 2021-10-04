@@ -9,43 +9,6 @@ import Foundation
 import CoreLocation
 import OSLog
 
-public enum Boro: String, Codable {
-  case system = ""
-  case brooklyn = "Brooklyn"
-  case manhattan = "Manhattan"
-  case queens = "Queens"
-  case bronx = "The Bronx"
-  case statenIsland = "Staten Island"
-  case six
-  case out
-  
-  public init?(placemark: CLPlacemark){
-    
-    guard let adminArea = placemark.administrativeArea, let subLocality = placemark.subLocality else {
-      self.init(rawValue: "out")
-      return
-    }
-    
-    switch adminArea {
-    case "NY":
-      if let cityBoro = Boro(rawValue: subLocality) {
-        self = cityBoro
-        return
-      } else {
-        self = .out
-        return
-      }
-    case "NJ":
-      self = .six
-    default:
-      self = .out
-    }
-  }
-  
-}
-
-
-
 public final class BoroManager: NSObject {
   
   struct Callback: Hashable {
@@ -66,8 +29,6 @@ public final class BoroManager: NSObject {
   private let coder = CLGeocoder()
   private let location: CLLocationManager
   private let queue = DispatchQueue(label: "com.jossy.borokit.background")
-  private let dispatchGroup = DispatchGroup()
-  private let semaphore = DispatchSemaphore(value: 0)
   
   private(set) var callbackSet = Set<Callback>() {
     didSet{
@@ -76,6 +37,8 @@ public final class BoroManager: NSObject {
   }
   
   @Published public private(set) var current: Boro = .system
+  
+  @UserDefault(key: .kCachedBorough, defaultValue: .system) public private(set) static var cached: Boro
   
   public override init(){
     
@@ -88,19 +51,19 @@ public final class BoroManager: NSObject {
     location.requestWhenInUseAuthorization()
     
     print("hello from boro command")
-    //    getCurrent { current in
-    //      self.current = current
-    //      print("manager received \(current)")
-    //    }
     
   }
   
-  public func getCurrent(_ completion: @escaping (Boro) -> Void) {
+  public func getCurrent(_ completion: ((Boro) -> Void)? = nil) {
     
-    let structCallback = Callback(task: completion)
-    
-    queue.async(flags:.barrier){ [weak self] in
-      self?.callbackSet.insert(structCallback)
+    if let completion = completion {
+      
+      let structCallback = Callback(task: completion)
+      
+      queue.async(flags:.barrier){ [weak self] in
+        self?.callbackSet.insert(structCallback)
+      }
+      
     }
     
     location.requestLocation()
@@ -121,6 +84,7 @@ public final class BoroManager: NSObject {
         if let placemark = placemarks?.first, let current = Boro(placemark: placemark), let callbackSet = self?.callbackSet {
           
           self?.current = current
+          BoroManager.cached = current
           
           for item in callbackSet {
             
