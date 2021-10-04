@@ -60,8 +60,8 @@
             filePath = "Boro WatchKit Extension/ComplicationController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "55"
-            endingLineNumber = "55"
+            startingLineNumber = "56"
+            endingLineNumber = "56"
             landmarkName = "getCurrentTimelineEntry(for:withHandler:)"
             landmarkType = "7">
          </BreakpointContent>

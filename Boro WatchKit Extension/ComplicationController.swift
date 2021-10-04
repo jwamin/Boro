@@ -45,21 +45,15 @@ class ComplicationController: NSObject, CLKComplicationDataSource {
   
   func getCurrentTimelineEntry(for complication: CLKComplication, withHandler handler: @escaping (CLKComplicationTimelineEntry?) -> Void) {
     // Call the handler with the current timeline entry
-
-    let wkExtension = WKExtension.shared().delegate as! ExtensionDelegate
     
-    let current = wkExtension.boroManager.current
+    //Get the cached location from the manager static property
+    let current = BoroManager.cached
     
     let appText = CLKTextProvider(format: "Boro")
     let text = CLKTextProvider(format: current.rawValue)
     let template = CLKComplicationTemplateGraphicCornerStackText(innerTextProvider: text, outerTextProvider: appText)
     let complicationTimelineEntry = CLKComplicationTimelineEntry(date: Date(), complicationTemplate: template)
     handler(complicationTimelineEntry)
-    return
-          
-    
-    
-    
     
     }
   
