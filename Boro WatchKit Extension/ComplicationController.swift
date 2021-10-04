@@ -5,13 +5,14 @@
 //  Created by Joss Manger on 10/2/21.
 //
 
-import WatchKit
 import ClockKit
-import CoreLocation
 import BoroKit
 
-
 class ComplicationController: NSObject, CLKComplicationDataSource {
+  
+  static var textProvider:(Boro) -> CLKSimpleTextProvider = { boro in
+    return CLKSimpleTextProvider(text: boro.rawValue, shortText: boro.shortText())
+  }
   
   // MARK: - Complication Configuration
   
@@ -54,7 +55,7 @@ class ComplicationController: NSObject, CLKComplicationDataSource {
     let current = BoroManager.cached
     
     let appText = CLKTextProvider(format: "Boro")
-    let text = CLKTextProvider(format: current.rawValue)
+    let text = Self.textProvider(current)
     
     var complicationForCurrentTime: CLKComplicationTimelineEntry? = nil
     
