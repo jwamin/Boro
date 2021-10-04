@@ -14,8 +14,8 @@ public enum Boro: String, Codable {
   case queens = "Queens"
   case bronx = "The Bronx"
   case statenIsland = "Staten Island"
-  case six
-  case out
+  case six = "The Sixth Borough"
+  case out = "Out of NYC"
   
   public init?(placemark: CLPlacemark){
     

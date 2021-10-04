@@ -23,6 +23,18 @@ class ExtensionDelegate: NSObject, WKExtensionDelegate {
     #endif
   }
   
+  func applicationDidBecomeActive() {
+    requestUpdate()
+  }
+  
+  func requestUpdate(callback: ((Boro) -> Void)? = nil) {
+    boroManager.getCurrent { [weak self] newBoro in
+      print("background Task got new Boro: \(newBoro)")
+      self?.updateComplications()
+      callback?(newBoro)
+    }
+  }
+  
   func scheduleUpdate(at date:Date? = nil){
     let wkExtension = WKExtension.shared()
     let date = date ?? Date().addingTimeInterval(60 * 15)
@@ -36,19 +48,24 @@ class ExtensionDelegate: NSObject, WKExtensionDelegate {
     }
   }
   
+  func updateComplications(){
+    let compServer = CLKComplicationServer.sharedInstance()
+    if let activeComplications = compServer.activeComplications {
+      for comp in activeComplications{
+        compServer.reloadTimeline(for: comp)
+      }
+    }
+  }
+  
   func handle(_ backgroundTasks: Set<WKRefreshBackgroundTask>) {
     for task in backgroundTasks{
-      boroManager.getCurrent { newBoro in
-        print("background Task got new Boro: \(newBoro)")
-        let compServer = CLKComplicationServer.sharedInstance()
-        if let activeComplications = compServer.activeComplications {
-          for comp in activeComplications{
-            compServer.reloadTimeline(for: comp)
-          }
-        }
+      requestUpdate { _ in
         task.setTaskCompletedWithSnapshot(true)
       }
     }
     scheduleUpdate()
   }
+  
+
+  
 }

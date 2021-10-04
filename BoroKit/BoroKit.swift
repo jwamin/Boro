@@ -43,7 +43,7 @@ public final class BoroManager: NSObject {
   public override init(){
     
     location = CLLocationManager()
-    location.desiredAccuracy = kCLLocationAccuracyReduced
+    location.desiredAccuracy = kCLLocationAccuracyHundredMeters
     
     super.init()
     
@@ -70,9 +70,9 @@ public final class BoroManager: NSObject {
     
   }
   
-  func processUpdatedLocation() {
+  func processUpdatedLocation(location: CLLocation?) {
     
-    if let location = location.location {
+    if let location = location {
       
       coder.reverseGeocodeLocation(location) { [weak self] placemarks, error in
         
@@ -82,6 +82,10 @@ public final class BoroManager: NSObject {
         }
         
         if let placemark = placemarks?.first, let current = Boro(placemark: placemark), let callbackSet = self?.callbackSet {
+          
+          #if DEBUG
+          print("current first placemark: \(placemark)")
+          #endif
           
           self?.current = current
           BoroManager.cached = current
@@ -109,17 +113,26 @@ public final class BoroManager: NSObject {
 extension BoroManager: CLLocationManagerDelegate {
   
   public func locationManagerDidChangeAuthorization(_ manager: CLLocationManager) {
-    print("location authorization changed")
+    print("location authorization changed now: \(manager.authorizationStatus.rawValue)")
+    
+    switch manager.authorizationStatus {
+    case .denied, .notDetermined, .restricted:
+      return
+    default:
+      break
+    }
+    
     getCurrent { boro in
       print("updated location following authorization change")
     }
   }
   
   public func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-    processUpdatedLocation()
+    processUpdatedLocation(location: locations.first)
   }
   
   public func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
+    print(error)
     logger.log("Error")
   }
   
