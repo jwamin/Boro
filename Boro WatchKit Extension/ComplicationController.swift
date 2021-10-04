@@ -17,7 +17,11 @@ class ComplicationController: NSObject, CLKComplicationDataSource {
   
   func getComplicationDescriptors(handler: @escaping ([CLKComplicationDescriptor]) -> Void) {
     let descriptors = [
-      CLKComplicationDescriptor(identifier: "complication", displayName: "Boro", supportedFamilies: [CLKComplicationFamily.graphicCorner])
+      CLKComplicationDescriptor(identifier: "complication", displayName: "Boro", supportedFamilies: [
+        CLKComplicationFamily.utilitarianSmall,
+        CLKComplicationFamily.extraLarge,
+        CLKComplicationFamily.graphicCorner
+      ])
       // Multiple complication support can be added here with more descriptors
     ]
     
@@ -51,9 +55,24 @@ class ComplicationController: NSObject, CLKComplicationDataSource {
     
     let appText = CLKTextProvider(format: "Boro")
     let text = CLKTextProvider(format: current.rawValue)
-    let template = CLKComplicationTemplateGraphicCornerStackText(innerTextProvider: text, outerTextProvider: appText)
-    let complicationTimelineEntry = CLKComplicationTimelineEntry(date: Date(), complicationTemplate: template)
-    handler(complicationTimelineEntry)
+    
+    var complicationForCurrentTime: CLKComplicationTimelineEntry? = nil
+    
+    switch complication.family {
+    case .utilitarianSmall:
+      let template = CLKComplicationTemplateUtilitarianSmallFlat(textProvider: text)
+      complicationForCurrentTime = CLKComplicationTimelineEntry(date: Date(), complicationTemplate: template)
+    case .graphicCorner:
+      let template = CLKComplicationTemplateGraphicCornerStackText(innerTextProvider: text, outerTextProvider: appText)
+      complicationForCurrentTime = CLKComplicationTimelineEntry(date: Date(), complicationTemplate: template)
+    case .extraLarge:
+      let template = CLKComplicationTemplateExtraLargeSimpleText(textProvider: text)
+      complicationForCurrentTime = CLKComplicationTimelineEntry(date: Date(), complicationTemplate: template)
+    default:
+      break
+    }
+    
+    handler(complicationForCurrentTime)
     
     }
   
@@ -69,10 +88,15 @@ class ComplicationController: NSObject, CLKComplicationDataSource {
     var template: CLKComplicationTemplate? = nil
     
     let textProvider = CLKTextProvider(format: "Boro")
+    let emptyTextProvider = CLKTextProvider(format: "")
     
     switch (complication.family) {
     case .graphicCorner:
-      template = CLKComplicationTemplateGraphicCornerStackText(innerTextProvider: textProvider, outerTextProvider: textProvider)
+      template = CLKComplicationTemplateGraphicCornerStackText(innerTextProvider: emptyTextProvider, outerTextProvider: textProvider)
+    case .extraLarge:
+      template = CLKComplicationTemplateExtraLargeSimpleText(textProvider: textProvider)
+    case .utilitarianSmall:
+      template = CLKComplicationTemplateUtilitarianSmallFlat(textProvider: textProvider)
     default:
       break
     }
