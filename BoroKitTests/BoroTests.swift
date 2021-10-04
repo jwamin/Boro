@@ -41,7 +41,7 @@ class BoroTests: XCTestCase {
       
     })
     
-    wait(for: [expectation], timeout: 2)
+    wait(for: [expectation], timeout: 5)
     
     XCTAssert(borough! == matching)
     
@@ -103,14 +103,12 @@ class BoroTests: XCTestCase {
   
   func testUpstateExample() throws {
     //41.72332° N, 74.30040° W // upstate, catskills
-    
+
     let upstateLat = CLLocationDegrees(41.72332)
     let upstateLng = CLLocationDegrees(-74.30040)
     let upstateLocation = CLLocation(latitude: upstateLat, longitude: upstateLng)
     performLocationMatchCheck(location: upstateLocation, matching: .out)
   }
-  
-  //41.72332° N, 74.30040° W
   
   func testOutExample() throws {
     //51.54223° N, 0.93630° W

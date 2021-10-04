@@ -41,7 +41,7 @@ public enum Boro: String, Codable {
   public init?(placemark: CLPlacemark){
     
     guard let adminArea = placemark.administrativeArea, let subLocality = placemark.subLocality else {
-      self.init(rawValue: "out")
+      self = .out
       return
     }
     
