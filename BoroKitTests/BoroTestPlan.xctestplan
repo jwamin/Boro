@@ -1,0 +1,25 @@
+{
+  "configurations" : [
+    {
+      "id" : "EA72883C-A9B5-4AFB-B885-FAC27E350960",
+      "name" : "Configuration 1",
+      "options" : {
+
+      }
+    }
+  ],
+  "defaultOptions" : {
+    "testExecutionOrdering" : "random",
+    "testTimeoutsEnabled" : true
+  },
+  "testTargets" : [
+    {
+      "target" : {
+        "containerPath" : "container:Boro.xcodeproj",
+        "identifier" : "5718141D2708E58E00513DA8",
+        "name" : "BoroKitTests"
+      }
+    }
+  ],
+  "version" : 1
+}

@@ -25,12 +25,19 @@ public final class BoroManager: NSObject {
     
   }
   
+  public enum LocationRequestType: Hashable {
+    case ui
+    case complication
+    case lifecycle
+    case other(id:UUID)
+  }
+  
   private let logger = Logger(.default)
   private let coder = CLGeocoder()
   private let location: CLLocationManager
-  private let queue = DispatchQueue(label: "com.jossy.borokit.background")
+  private let queue = DispatchQueue(label: "com.jossy.borokit.background", attributes: .concurrent)
   
-  private(set) var callbackSet = Set<Callback>() {
+  private(set) var callbackSet = Dictionary<LocationRequestType,Callback>() {
     didSet{
       print("now at size: \(callbackSet.count)")
     }
@@ -54,14 +61,14 @@ public final class BoroManager: NSObject {
     
   }
   
-  public func getCurrent(_ completion: ((Boro) -> Void)? = nil) {
+  public func getCurrent(origin: LocationRequestType = .other(id: UUID()),_ completion: ((Boro) -> Void)? = nil) {
     
     if let completion = completion {
       
       let structCallback = Callback(task: completion)
       
       queue.async(flags:.barrier){ [weak self] in
-        self?.callbackSet.insert(structCallback)
+        self?.callbackSet[origin] = structCallback
       }
       
     }
@@ -90,11 +97,11 @@ public final class BoroManager: NSObject {
           self?.current = current
           BoroManager.cached = current
           
-          for item in callbackSet {
+          for (key,item) in callbackSet {
             
             self?.queue.async(flags:.barrier){ [weak self] in
+              self?.callbackSet.removeValue(forKey: key)
               item.task(current)
-              self?.callbackSet.remove(item)
             }
             
           }
@@ -122,7 +129,7 @@ extension BoroManager: CLLocationManagerDelegate {
       break
     }
     
-    getCurrent { boro in
+    getCurrent(origin:.lifecycle){ boro in
       print("updated location following authorization change")
     }
   }

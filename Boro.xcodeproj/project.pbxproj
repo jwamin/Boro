@@ -126,6 +126,7 @@
 		57CE009D270B4A3600D496F3 /* BoroKitTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoroKitTests.swift; sourceTree = "<group>"; };
 		57CE009F270B50E000D496F3 /* Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Helpers.swift; sourceTree = "<group>"; };
 		57CE00A1270B510D00D496F3 /* BoroModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoroModels.swift; sourceTree = "<group>"; };
+		57D4400F270BAC6A004E6CC3 /* BoroTestPlan.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; path = BoroTestPlan.xctestplan; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -227,6 +228,7 @@
 			children = (
 				571814252708E58E00513DA8 /* BoroTests.swift */,
 				57CE009D270B4A3600D496F3 /* BoroKitTests.swift */,
+				57D4400F270BAC6A004E6CC3 /* BoroTestPlan.xctestplan */,
 			);
 			path = BoroKitTests;
 			sourceTree = "<group>";

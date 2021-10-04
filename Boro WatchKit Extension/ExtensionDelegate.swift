@@ -17,6 +17,7 @@ class ExtensionDelegate: NSObject, WKExtensionDelegate {
     print("we loaded")
 
     #if DEBUG
+    //while testing locally
     scheduleUpdate(at: Date().addingTimeInterval(10))
     #else
     scheduleUpdate()
@@ -24,11 +25,11 @@ class ExtensionDelegate: NSObject, WKExtensionDelegate {
   }
   
   func applicationDidBecomeActive() {
-    requestUpdate()
+    requestUpdate(lifecycle:.ui)
   }
   
-  func requestUpdate(callback: ((Boro) -> Void)? = nil) {
-    boroManager.getCurrent { [weak self] newBoro in
+  func requestUpdate(lifecycle: BoroManager.LocationRequestType = .lifecycle, callback: ((Boro) -> Void)? = nil) {
+    boroManager.getCurrent(origin:lifecycle){ [weak self] newBoro in
       print("background Task got new Boro: \(newBoro)")
       self?.updateComplications()
       callback?(newBoro)
@@ -59,7 +60,7 @@ class ExtensionDelegate: NSObject, WKExtensionDelegate {
   
   func handle(_ backgroundTasks: Set<WKRefreshBackgroundTask>) {
     for task in backgroundTasks{
-      requestUpdate { _ in
+      requestUpdate(lifecycle: .complication){ _ in
         task.setTaskCompletedWithSnapshot(true)
       }
     }
