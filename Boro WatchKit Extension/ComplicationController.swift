@@ -59,16 +59,18 @@ class ComplicationController: NSObject, CLKComplicationDataSource {
     
     var complicationForCurrentTime: CLKComplicationTimelineEntry? = nil
     
+    let now = Date()
+    
     switch complication.family {
     case .utilitarianSmall:
       let template = CLKComplicationTemplateUtilitarianSmallFlat(textProvider: text)
-      complicationForCurrentTime = CLKComplicationTimelineEntry(date: Date(), complicationTemplate: template)
+      complicationForCurrentTime = CLKComplicationTimelineEntry(date: now, complicationTemplate: template)
     case .graphicCorner:
       let template = CLKComplicationTemplateGraphicCornerStackText(innerTextProvider: text, outerTextProvider: appText)
-      complicationForCurrentTime = CLKComplicationTimelineEntry(date: Date(), complicationTemplate: template)
+      complicationForCurrentTime = CLKComplicationTimelineEntry(date: now, complicationTemplate: template)
     case .extraLarge:
       let template = CLKComplicationTemplateExtraLargeSimpleText(textProvider: text)
-      complicationForCurrentTime = CLKComplicationTimelineEntry(date: Date(), complicationTemplate: template)
+      complicationForCurrentTime = CLKComplicationTimelineEntry(date: now, complicationTemplate: template)
     default:
       break
     }
