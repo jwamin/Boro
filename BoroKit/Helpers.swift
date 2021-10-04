@@ -31,7 +31,7 @@ public struct UserDefault<T: RawRepresentable> {
       let obj = store.object(forKey: key.rawValue)
       guard let tRaw = obj as? T.RawValue, let returnValue = T(rawValue: tRaw) else {
         #if DEBUG
-        print("returning defaultValue:\(obj)")
+        print("returning defaultValue:\(defaultValue)")
         #endif
         return defaultValue
       }
