@@ -7,7 +7,12 @@
 
 import CoreLocation
 
-public enum Boro: String, Codable {
+public enum Boro: String, Codable, CaseIterable, Identifiable {
+  
+  public var id: String {
+    self.rawValue
+  }
+  
   case system = ""
   case brooklyn = "Brooklyn"
   case manhattan = "Manhattan"

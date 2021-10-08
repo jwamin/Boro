@@ -17,11 +17,11 @@ struct BoroApp: App {
   
     var body: some Scene {
         WindowGroup {
-            NavigationView {
-              ContentView(current: current)
-            }.onReceive(extensionDelegate.boroManager.$current) { output in
+            BoroIcon(boro: current)
+            .onReceive(extensionDelegate.boroManager.$current) { output in
               current = output
             }
         }
     }
+  
 }
