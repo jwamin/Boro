@@ -12,6 +12,13 @@ import ClockKit
 class ExtensionDelegate: NSObject, WKExtensionDelegate {
   
   private(set) var boroManager: BoroManager = BoroManager()
+  private let compServer = CLKComplicationServer.sharedInstance()
+  
+  var hasActiveComplications: Bool {
+    !(compServer.activeComplications ?? []).isEmpty
+  }
+  
+  private let wkExtension = WKExtension.shared()
   
   func applicationDidFinishLaunching() {
     print("we loaded")
@@ -37,22 +44,43 @@ class ExtensionDelegate: NSObject, WKExtensionDelegate {
   }
   
   func scheduleUpdate(at date:Date? = nil){
-    let wkExtension = WKExtension.shared()
-    let date = date ?? Date().addingTimeInterval(60 * 15)
-    wkExtension.scheduleBackgroundRefresh(withPreferredDate: date, userInfo: nil) { error in
-      if let error = error {
-        print("there was an error \(error) for scheduled task at \(date)")
+    
+    var updateDate: Date = Date()
+    
+    //Allow for override date
+    if let overrideDate = date {
+      updateDate = overrideDate
+    } else {
+    
+      if hasActiveComplications {
+        // if we have complications, schedule updates "more often"
+        updateDate.addTimeInterval(60 * 5)
+      } else if wkExtension.isApplicationRunningInDock {
+        // if we're only running in the dock, schedule snapshot updates once per hour
+        updateDate.addTimeInterval(60 * 60)
+      } else {
+        //we are not running on the clock or the dock, do not schedule an update
+        return
       }
       
-      print("there was a successful background refresh registration for scheduled task at \(date)")
+    }
+   
+    //schedule an update with the system at time.
+    wkExtension.scheduleBackgroundRefresh(withPreferredDate: updateDate, userInfo: nil) { error in
+      if let error = error {
+        print("there was an error \(error) for scheduled task at \(updateDate)")
+      }
+      
+      print("there was a successful background refresh registration for scheduled task at \(updateDate)")
       
     }
+    
   }
   
   func updateComplications(){
-    let compServer = CLKComplicationServer.sharedInstance()
+    
     if let activeComplications = compServer.activeComplications {
-      for comp in activeComplications{
+      for comp in activeComplications {
         compServer.reloadTimeline(for: comp)
       }
     }

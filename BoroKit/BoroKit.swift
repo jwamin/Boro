@@ -39,7 +39,7 @@ public final class BoroManager: NSObject {
   
   private(set) var callbackSet = Dictionary<LocationRequestType,Callback>() {
     didSet{
-      print("now at size: \(callbackSet.count)")
+      print("now at size: \(callbackSet.count): \(callbackSet)")
     }
   }
   
@@ -84,14 +84,16 @@ public final class BoroManager: NSObject {
       coder.reverseGeocodeLocation(location) { [weak self] placemarks, error in
         
         if error != nil {
-          self?.logger.log("we got an error")
+          self?.logger.log("reverse geocoding error")
           return
         }
         
-        if let placemark = placemarks?.first, let current = Boro(placemark: placemark), let callbackSet = self?.callbackSet {
+        if let placemark = placemarks?.first,
+            let current = Boro(placemark: placemark),
+            let callbackSet = self?.callbackSet {
           
           #if DEBUG
-          print("current first placemark: \(placemark)")
+          self?.logger.log("current first placemark: \(placemark)")
           #endif
           
           self?.current = current

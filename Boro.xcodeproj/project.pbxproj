@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		571813E82708E4EA00513DA8 /* Boro WatchKit App.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = 571813E72708E4EA00513DA8 /* Boro WatchKit App.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		571813ED2708E4EB00513DA8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 571813EC2708E4EB00513DA8 /* Assets.xcassets */; };
 		571813F32708E4EC00513DA8 /* Boro WatchKit Extension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 571813F22708E4EC00513DA8 /* Boro WatchKit Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		571813F82708E4EC00513DA8 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 571813F72708E4EC00513DA8 /* ContentView.swift */; };
@@ -22,7 +21,6 @@
 		5718142A2708E58E00513DA8 /* BoroKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 571814152708E58D00513DA8 /* BoroKit.framework */; };
 		5718142B2708E58E00513DA8 /* BoroKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 571814152708E58D00513DA8 /* BoroKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		571814342708E5C500513DA8 /* BoroKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 571814332708E5C500513DA8 /* BoroKit.swift */; };
-		5790D7B6270B5F9300A143A3 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 5790D7B5270B5F9300A143A3 /* README.md */; };
 		57CE009C270B335D00D496F3 /* ExtensionDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57CE009B270B335D00D496F3 /* ExtensionDelegate.swift */; };
 		57CE009E270B4A3600D496F3 /* BoroKitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57CE009D270B4A3600D496F3 /* BoroKitTests.swift */; };
 		57CE00A0270B50E000D496F3 /* Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57CE009F270B50E000D496F3 /* Helpers.swift */; };
@@ -30,13 +28,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		571813E92708E4EA00513DA8 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 571813DD2708E4E900513DA8 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 571813E62708E4EA00513DA8;
-			remoteInfo = "Boro WatchKit App";
-		};
 		571813F42708E4EC00513DA8 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 571813DD2708E4E900513DA8 /* Project object */;
@@ -79,17 +70,6 @@
 			name = "Embed App Extensions";
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		5718140C2708E4ED00513DA8 /* Embed Watch Content */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = "$(CONTENTS_FOLDER_PATH)/Watch";
-			dstSubfolderSpec = 16;
-			files = (
-				571813E82708E4EA00513DA8 /* Boro WatchKit App.app in Embed Watch Content */,
-			);
-			name = "Embed Watch Content";
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		5718142F2708E58E00513DA8 /* Embed Frameworks */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
@@ -104,7 +84,6 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		571813E32708E4E900513DA8 /* Boro.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Boro.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		571813E72708E4EA00513DA8 /* Boro WatchKit App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Boro WatchKit App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		571813EC2708E4EB00513DA8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		571813F22708E4EC00513DA8 /* Boro WatchKit Extension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "Boro WatchKit Extension.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -171,7 +150,6 @@
 		571813E42708E4E900513DA8 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				571813E32708E4E900513DA8 /* Boro.app */,
 				571813E72708E4EA00513DA8 /* Boro WatchKit App.app */,
 				571813F22708E4EC00513DA8 /* Boro WatchKit Extension.appex */,
 				571814152708E58D00513DA8 /* BoroKit.framework */,
@@ -247,23 +225,6 @@
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
-		571813E22708E4E900513DA8 /* Boro */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 5718140D2708E4ED00513DA8 /* Build configuration list for PBXNativeTarget "Boro" */;
-			buildPhases = (
-				571813E12708E4E900513DA8 /* Resources */,
-				5718140C2708E4ED00513DA8 /* Embed Watch Content */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				571813EA2708E4EA00513DA8 /* PBXTargetDependency */,
-			);
-			name = Boro;
-			productName = Boro;
-			productReference = 571813E32708E4E900513DA8 /* Boro.app */;
-			productType = "com.apple.product-type.application.watchapp2-container";
-		};
 		571813E62708E4EA00513DA8 /* Boro WatchKit App */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 571814092708E4ED00513DA8 /* Build configuration list for PBXNativeTarget "Boro WatchKit App" */;
@@ -347,9 +308,6 @@
 				LastSwiftUpdateCheck = 1300;
 				LastUpgradeCheck = 1300;
 				TargetAttributes = {
-					571813E22708E4E900513DA8 = {
-						CreatedOnToolsVersion = 13.0;
-					};
 					571813E62708E4EA00513DA8 = {
 						CreatedOnToolsVersion = 13.0;
 					};
@@ -378,7 +336,6 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				571813E22708E4E900513DA8 /* Boro */,
 				571813E62708E4EA00513DA8 /* Boro WatchKit App */,
 				571813F12708E4EC00513DA8 /* Boro WatchKit Extension */,
 				571814142708E58D00513DA8 /* BoroKit */,
@@ -388,14 +345,6 @@
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		571813E12708E4E900513DA8 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				5790D7B6270B5F9300A143A3 /* README.md in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		571813E52708E4EA00513DA8 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -464,11 +413,6 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		571813EA2708E4EA00513DA8 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 571813E62708E4EA00513DA8 /* Boro WatchKit App */;
-			targetProxy = 571813E92708E4EA00513DA8 /* PBXContainerItemProxy */;
-		};
 		571813F52708E4EC00513DA8 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 571813F12708E4EC00513DA8 /* Boro WatchKit Extension */;
@@ -686,7 +630,7 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				IBSC_MODULE = Boro_WatchKit_Extension;
 				INFOPLIST_FILE = "Boro-WatchKit-App-Info.plist";
-				INFOPLIST_KEY_CFBundleDisplayName = "Boro WatchKit App";
+				INFOPLIST_KEY_CFBundleDisplayName = Boro;
 				INFOPLIST_KEY_LSApplicationCategoryType = "";
 				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "This is a location aware app, for the best possible experience, we need access to accurate device location to proceed. Your location is never shared";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
@@ -714,7 +658,7 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				IBSC_MODULE = Boro_WatchKit_Extension;
 				INFOPLIST_FILE = "Boro-WatchKit-App-Info.plist";
-				INFOPLIST_KEY_CFBundleDisplayName = "Boro WatchKit App";
+				INFOPLIST_KEY_CFBundleDisplayName = Boro;
 				INFOPLIST_KEY_LSApplicationCategoryType = "";
 				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "This is a location aware app, for the best possible experience, we need access to accurate device location to proceed. Your location is never shared";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
@@ -727,32 +671,6 @@
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 4;
 				WATCHOS_DEPLOYMENT_TARGET = 8.0;
-			};
-			name = Release;
-		};
-		5718140E2708E4ED00513DA8 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 3C42F7N9CQ;
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = co.jossy.Boro;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 5.0;
-			};
-			name = Debug;
-		};
-		5718140F2708E4ED00513DA8 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 3C42F7N9CQ;
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = co.jossy.Boro;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 5.0;
 			};
 			name = Release;
 		};
@@ -898,15 +816,6 @@
 			buildConfigurations = (
 				5718140A2708E4ED00513DA8 /* Debug */,
 				5718140B2708E4ED00513DA8 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		5718140D2708E4ED00513DA8 /* Build configuration list for PBXNativeTarget "Boro" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				5718140E2708E4ED00513DA8 /* Debug */,
-				5718140F2708E4ED00513DA8 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
