@@ -78,7 +78,7 @@
       <RemoteRunnable
          runnableDebuggingMode = "2"
          BundleIdentifier = "com.apple.Carousel"
-         RemotePath = "/Boro WatchKit App">
+         RemotePath = "/Boro">
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "571813E62708E4EA00513DA8"
@@ -97,7 +97,7 @@
       <RemoteRunnable
          runnableDebuggingMode = "2"
          BundleIdentifier = "com.apple.Carousel"
-         RemotePath = "/Boro WatchKit App">
+         RemotePath = "/Boro">
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "571813E62708E4EA00513DA8"

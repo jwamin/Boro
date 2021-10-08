@@ -21,18 +21,18 @@ class ExtensionDelegate: NSObject, WKExtensionDelegate {
   private let wkExtension = WKExtension.shared()
   
   func applicationDidFinishLaunching() {
-    print("we loaded")
-
-    #if DEBUG
-    //while testing locally
-    scheduleUpdate(at: Date().addingTimeInterval(10))
-    #else
-    scheduleUpdate()
-    #endif
+    print("application loaded")
   }
   
   func applicationDidBecomeActive() {
+    print("application became active")
     requestUpdate(lifecycle:.ui)
+    scheduleUpdate()
+  }
+  
+  func applicationDidEnterBackground() {
+    print("application entered background")
+    scheduleUpdate()
   }
   
   func requestUpdate(lifecycle: BoroManager.LocationRequestType = .lifecycle, callback: ((Boro) -> Void)? = nil) {
@@ -54,24 +54,29 @@ class ExtensionDelegate: NSObject, WKExtensionDelegate {
     
       if hasActiveComplications {
         // if we have complications, schedule updates "more often"
+        print("we have active complications - schedule for the future")
         updateDate.addTimeInterval(60 * 5)
-      } else if wkExtension.isApplicationRunningInDock {
+      } /*else if wkExtension.isApplicationRunningInDock {
         // if we're only running in the dock, schedule snapshot updates once per hour
-        updateDate.addTimeInterval(60 * 60)
-      } else {
+        //this does not appear to work correctly
+      } */ else {
+        
         //we are not running on the clock or the dock, do not schedule an update
-        return
+        print("we do not have any active complications - schedule for the future")
+        updateDate.addTimeInterval(60 * 60)
+        
       }
       
     }
    
     //schedule an update with the system at time.
-    wkExtension.scheduleBackgroundRefresh(withPreferredDate: updateDate, userInfo: nil) { error in
+    wkExtension.scheduleBackgroundRefresh(withPreferredDate: updateDate, userInfo: nil) { [hasActiveComplications, unowned wkExtension] error in
       if let error = error {
         print("there was an error \(error) for scheduled task at \(updateDate)")
+        return
       }
       
-      print("there was a successful background refresh registration for scheduled task at \(updateDate)")
+      print("there was a successful background refresh registration for scheduled task at \(updateDate) has complications: \(hasActiveComplications) is on dock: \(wkExtension.isApplicationRunningInDock)")
       
     }
     
