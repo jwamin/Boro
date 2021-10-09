@@ -85,6 +85,10 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		571547592711DFDB00EF0BDF /* xlarge.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = xlarge.png; sourceTree = "<group>"; };
+		5715475A2711DFDB00EF0BDF /* graphic-corner.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "graphic-corner.png"; sourceTree = "<group>"; };
+		5715475B2711DFDB00EF0BDF /* usmall.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = usmall.png; sourceTree = "<group>"; };
+		5715475C2711DFDB00EF0BDF /* graphic-circular.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "graphic-circular.png"; sourceTree = "<group>"; };
 		571813E72708E4EA00513DA8 /* Boro WatchKit App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Boro WatchKit App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		571813EC2708E4EB00513DA8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		571813F22708E4EC00513DA8 /* Boro WatchKit Extension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "Boro WatchKit Extension.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -137,9 +141,21 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		571547582711DF9C00EF0BDF /* readme-assets */ = {
+			isa = PBXGroup;
+			children = (
+				5715475C2711DFDB00EF0BDF /* graphic-circular.png */,
+				571547592711DFDB00EF0BDF /* xlarge.png */,
+				5715475A2711DFDB00EF0BDF /* graphic-corner.png */,
+				5715475B2711DFDB00EF0BDF /* usmall.png */,
+			);
+			path = "readme-assets";
+			sourceTree = "<group>";
+		};
 		571813DC2708E4E900513DA8 = {
 			isa = PBXGroup;
 			children = (
+				571547582711DF9C00EF0BDF /* readme-assets */,
 				5790D7B5270B5F9300A143A3 /* README.md */,
 				571813EB2708E4EA00513DA8 /* Boro WatchKit App */,
 				571813F62708E4EC00513DA8 /* Boro WatchKit Extension */,
