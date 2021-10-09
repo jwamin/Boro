@@ -28,7 +28,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "571813E22708E4E900513DA8"
+               BlueprintIdentifier = "5715475E2711E63000EF0BDF"
                BuildableName = "Boro.app"
                BlueprintName = "Boro"
                ReferencedContainer = "container:Boro.xcodeproj">
