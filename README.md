@@ -19,6 +19,8 @@ Supported `CLKComplication` Families:
 * `CLKComplicationFamily.graphicCorner`
 * `CLKComplicationFamily.graphicCircular`
 
+* SwiftUI complication for `.graphicCircular` family.
+
 ### The Framework
 
 * `Boro` enum type accepts a `CLPlacemark` and 
