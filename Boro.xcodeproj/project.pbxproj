@@ -109,7 +109,7 @@
 		5715475B2711DFDB00EF0BDF /* usmall.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = usmall.png; sourceTree = "<group>"; };
 		5715475C2711DFDB00EF0BDF /* graphic-circular.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "graphic-circular.png"; sourceTree = "<group>"; };
 		5715475F2711E63000EF0BDF /* Boro.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Boro.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		571547C02711FA1300EF0BDF /* Standalone-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Standalone-Info.plist"; sourceTree = "<group>"; };
+		571547C02711FA1300EF0BDF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		571547C32711FFD500EF0BDF /* Boro-WatchKit-App-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "Boro-WatchKit-App-Info.plist"; sourceTree = SOURCE_ROOT; };
 		571813E72708E4EA00513DA8 /* Boro WatchKit App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Boro WatchKit App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		571813EC2708E4EB00513DA8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -176,7 +176,7 @@
 		571813DC2708E4E900513DA8 = {
 			isa = PBXGroup;
 			children = (
-				571547C02711FA1300EF0BDF /* Standalone-Info.plist */,
+				571547C02711FA1300EF0BDF /* Info.plist */,
 				571547582711DF9C00EF0BDF /* readme-assets */,
 				5790D7B5270B5F9300A143A3 /* README.md */,
 				571813EB2708E4EA00513DA8 /* Boro WatchKit App */,

@@ -11,5 +11,7 @@
   <dict>
     <key>NSLocationWhenInUseUsageDescription</key>
     <string>This is a location aware app, for the best experience, we need access to accurate device location to proceed. Your location is never shared.</string>
+    <key>ITSAppUsesNonExemptEncryption</key>
+    <false/>
   </dict>
 </plist>
