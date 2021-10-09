@@ -14,6 +14,7 @@ public enum Boro: String, Codable, CaseIterable, Identifiable {
   }
   
   case system = ""
+  case template = "NYC"
   case brooklyn = "Brooklyn"
   case manhattan = "Manhattan"
   case queens = "Queens"
@@ -28,7 +29,7 @@ public enum Boro: String, Codable, CaseIterable, Identifiable {
     case .brooklyn:
       shortText = "Br"
     case .manhattan:
-      shortText = "NY"
+      shortText = "NYC"
     case .bronx:
       shortText = "Bx"
     case .queens:
@@ -37,6 +38,10 @@ public enum Boro: String, Codable, CaseIterable, Identifiable {
       shortText = "SI"
     case .six:
       shortText = "6th"
+    case .template:
+      shortText = "NYC"
+    case .out:
+      shortText = "Out"
     default:
       return ""
     }

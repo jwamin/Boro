@@ -23,6 +23,8 @@ struct BoroIcon: View {
   
   var bgColor: Color {
     switch(boro){
+    case .template:
+      return .orange
     case .manhattan:
       return .red
     case .brooklyn:
@@ -40,17 +42,24 @@ struct BoroIcon: View {
     }
   }
   
+  @ScaledMetric(relativeTo: .largeTitle) var scaledSize: CGFloat = 100
+  @ScaledMetric(relativeTo: .largeTitle) var scaledPadding: CGFloat = 10
+  
     var body: some View {
-      GeometryReader { reader in
-        ZStack {
           Circle()
-            .fill(bgColor)
-            .frame(width: reader.size.width, height: reader.size.height, alignment: .center)
+          .fill(bgColor).overlay(
           Text(boro.shortText())
+            .font(Font.custom("Helvetica", size: scaledSize))
+            .fontWeight(.bold)
             .foregroundColor(foregroundColor)
-            .font(Font.custom("Helvetica", size: reader.size.height > reader.size.width ? reader.size.width * 0.6: reader.size.height * 0.6))
-        }.aspectRatio(1.0, contentMode: .fit)
-      }
+            .lineLimit(1)
+            .allowsTightening(true)
+            .minimumScaleFactor(0.005)
+            .truncationMode(.tail)
+            .padding([.leading,.trailing], scaledPadding)
+          )
+        .aspectRatio(1.0, contentMode: .fit)
+     
     }
 }
 
@@ -60,6 +69,7 @@ struct BoroIcon_Previews: PreviewProvider {
         ForEach(Boro.allCases) { boro in
           BoroIcon(boro: boro)
         }
+        //BoroIcon(boro: .template).previewLayout(.fixed(width: 1024, height: 1024))
       }
     }
 }

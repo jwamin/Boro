@@ -6,6 +6,7 @@
 //
 
 import ClockKit
+import SwiftUI
 import BoroKit
 
 class ComplicationController: NSObject, CLKComplicationDataSource {
@@ -21,7 +22,8 @@ class ComplicationController: NSObject, CLKComplicationDataSource {
       CLKComplicationDescriptor(identifier: "complication", displayName: "Boro", supportedFamilies: [
         CLKComplicationFamily.utilitarianSmall,
         CLKComplicationFamily.extraLarge,
-        CLKComplicationFamily.graphicCorner
+        CLKComplicationFamily.graphicCorner,
+        CLKComplicationFamily.graphicCircular
       ])
       // Multiple complication support can be added here with more descriptors
     ]
@@ -71,6 +73,9 @@ class ComplicationController: NSObject, CLKComplicationDataSource {
     case .extraLarge:
       let template = CLKComplicationTemplateExtraLargeSimpleText(textProvider: text)
       complicationForCurrentTime = CLKComplicationTimelineEntry(date: now, complicationTemplate: template)
+    case .graphicCircular:
+      let template = CLKComplicationTemplateGraphicCircularView(BoroIcon(boro: current))
+      complicationForCurrentTime = CLKComplicationTimelineEntry(date: now, complicationTemplate: template)
     default:
       break
     }
@@ -100,6 +105,8 @@ class ComplicationController: NSObject, CLKComplicationDataSource {
       template = CLKComplicationTemplateExtraLargeSimpleText(textProvider: textProvider)
     case .utilitarianSmall:
       template = CLKComplicationTemplateUtilitarianSmallFlat(textProvider: textProvider)
+    case .graphicCircular:
+      template = CLKComplicationTemplateGraphicCircularView<BoroIcon>(BoroIcon(boro: .template))
     default:
       break
     }
