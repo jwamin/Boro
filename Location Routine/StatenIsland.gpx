@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<gpx version="1.1" creator="Xcode">
+    
+    <wpt lat="40.64060" lon="-74.08014">
+        <name>Staten Island</name>
+        
+        <!--
+         Optionally provide a time element for each waypoint. Xcode will interpolate movement
+         at a rate of speed based on the time elapsed between each waypoint. If you do not provide
+         a time element, then Xcode will use a fixed rate of speed.
+         
+         Waypoints must be sorted by time in ascending order.
+         -->
+        <!--<time>021-09-10T08:06:30Z</time>-->
+    </wpt>
+    
+</gpx>

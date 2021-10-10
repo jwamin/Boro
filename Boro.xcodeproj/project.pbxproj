@@ -104,6 +104,9 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		57145858271311DE00505D79 /* Brooklyn.gpx */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = Brooklyn.gpx; sourceTree = "<group>"; };
+		571458592713121B00505D79 /* StatenIsland.gpx */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = StatenIsland.gpx; sourceTree = "<group>"; };
+		5714585A2713123300505D79 /* Bronx.gpx */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = Bronx.gpx; sourceTree = "<group>"; };
 		571547592711DFDB00EF0BDF /* xlarge.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = xlarge.png; sourceTree = "<group>"; };
 		5715475A2711DFDB00EF0BDF /* graphic-corner.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "graphic-corner.png"; sourceTree = "<group>"; };
 		5715475B2711DFDB00EF0BDF /* usmall.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = usmall.png; sourceTree = "<group>"; };
@@ -127,6 +130,7 @@
 		571814252708E58E00513DA8 /* BoroTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoroTests.swift; sourceTree = "<group>"; };
 		571814332708E5C500513DA8 /* BoroKit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoroKit.swift; sourceTree = "<group>"; };
 		5741DC6D2710DABB006BCF3F /* BoroIcon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoroIcon.swift; sourceTree = "<group>"; };
+		5742473127130A7300B2AC2F /* Queens.gpx */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = Queens.gpx; sourceTree = "<group>"; };
 		5790D7B5270B5F9300A143A3 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		57CE009B270B335D00D496F3 /* ExtensionDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionDelegate.swift; sourceTree = "<group>"; };
 		57CE009D270B4A3600D496F3 /* BoroKitTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoroKitTests.swift; sourceTree = "<group>"; };
@@ -183,6 +187,7 @@
 				571813F62708E4EC00513DA8 /* Boro WatchKit Extension */,
 				571814162708E58D00513DA8 /* BoroKit */,
 				571814242708E58E00513DA8 /* BoroKitTests */,
+				5742473027130A0500B2AC2F /* Location Routine */,
 				571813E42708E4E900513DA8 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -251,6 +256,17 @@
 				57D4400F270BAC6A004E6CC3 /* BoroTestPlan.xctestplan */,
 			);
 			path = BoroKitTests;
+			sourceTree = "<group>";
+		};
+		5742473027130A0500B2AC2F /* Location Routine */ = {
+			isa = PBXGroup;
+			children = (
+				5742473127130A7300B2AC2F /* Queens.gpx */,
+				57145858271311DE00505D79 /* Brooklyn.gpx */,
+				571458592713121B00505D79 /* StatenIsland.gpx */,
+				5714585A2713123300505D79 /* Bronx.gpx */,
+			);
+			path = "Location Routine";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -518,7 +534,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 3C42F7N9CQ;
-				INFOPLIST_FILE = "Standalone-Info.plist";
+				INFOPLIST_FILE = Info.plist;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = co.jossy.Boro;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -533,7 +549,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 3C42F7N9CQ;
-				INFOPLIST_FILE = "Standalone-Info.plist";
+				INFOPLIST_FILE = Info.plist;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = co.jossy.Boro;
 				PRODUCT_NAME = "$(TARGET_NAME)";
