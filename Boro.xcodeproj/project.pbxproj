@@ -23,6 +23,7 @@
 		5718142B2708E58E00513DA8 /* BoroKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 571814152708E58D00513DA8 /* BoroKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		571814342708E5C500513DA8 /* BoroKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 571814332708E5C500513DA8 /* BoroKit.swift */; };
 		5741DC6E2710DABB006BCF3F /* BoroIcon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5741DC6D2710DABB006BCF3F /* BoroIcon.swift */; };
+		577AB9932713468000E06253 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 571813EC2708E4EB00513DA8 /* Assets.xcassets */; };
 		57CE009C270B335D00D496F3 /* ExtensionDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57CE009B270B335D00D496F3 /* ExtensionDelegate.swift */; };
 		57CE009E270B4A3600D496F3 /* BoroKitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57CE009D270B4A3600D496F3 /* BoroKitTests.swift */; };
 		57CE00A0270B50E000D496F3 /* Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57CE009F270B50E000D496F3 /* Helpers.swift */; };
@@ -428,6 +429,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				577AB9932713468000E06253 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -535,6 +537,8 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 3C42F7N9CQ;
 				INFOPLIST_FILE = Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = NYCBoro;
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "This is a location aware app, for the best experience, we need access to accurate device location to proceed. Your location is never shared.";
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = co.jossy.Boro;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -550,6 +554,8 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 3C42F7N9CQ;
 				INFOPLIST_FILE = Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = NYCBoro;
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "This is a location aware app, for the best experience, we need access to accurate device location to proceed. Your location is never shared.";
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = co.jossy.Boro;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -751,7 +757,7 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				IBSC_MODULE = Boro_WatchKit_Extension;
 				INFOPLIST_FILE = "Boro-WatchKit-App-Info.plist";
-				INFOPLIST_KEY_CFBundleDisplayName = Boro;
+				INFOPLIST_KEY_CFBundleDisplayName = NYCBoro;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				MARKETING_VERSION = 1.0;
@@ -779,7 +785,7 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				IBSC_MODULE = Boro_WatchKit_Extension;
 				INFOPLIST_FILE = "Boro-WatchKit-App-Info.plist";
-				INFOPLIST_KEY_CFBundleDisplayName = Boro;
+				INFOPLIST_KEY_CFBundleDisplayName = NYCBoro;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				MARKETING_VERSION = 1.0;

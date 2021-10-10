@@ -1,17 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
-<!--
-   Standalone-Info.plist
-   Boro
-
-   Created by Joss Manger on 10/9/21.
-   Copyright (c) 2021 Jossy. All rights reserved.
--->
 <plist version="1.0">
-  <dict>
-    <key>NSLocationWhenInUseUsageDescription</key>
-    <string>This is a location aware app, for the best experience, we need access to accurate device location to proceed. Your location is never shared.</string>
-    <key>ITSAppUsesNonExemptEncryption</key>
-    <false/>
-  </dict>
+<dict>
+	<key>ITSAppUsesNonExemptEncryption</key>
+	<false/>
+</dict>
 </plist>
