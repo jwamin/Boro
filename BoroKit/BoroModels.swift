@@ -27,7 +27,7 @@ public enum Boro: String, Codable, CaseIterable, Identifiable {
     let shortText: String
     switch self {
     case .brooklyn:
-      shortText = "Br"
+      shortText = "Bk"
     case .manhattan:
       shortText = "NYC"
     case .bronx:

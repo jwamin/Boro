@@ -47,19 +47,20 @@ struct BoroIcon: View {
   
     var body: some View {
           Circle()
-          .fill(bgColor).overlay(
+          .fill(bgColor)
+          .overlay(
           Text(boro.shortText())
             .font(Font.custom("Helvetica", size: scaledSize))
             .fontWeight(.bold)
             .foregroundColor(foregroundColor)
             .lineLimit(1)
             .allowsTightening(true)
-            .minimumScaleFactor(0.005)
+            .minimumScaleFactor(0.01)
             .truncationMode(.tail)
             .padding([.leading,.trailing], scaledPadding)
           )
         .aspectRatio(1.0, contentMode: .fit)
-     
+        .edgesIgnoringSafeArea(.all)
     }
 }
 
