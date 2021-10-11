@@ -60,7 +60,6 @@ struct BoroIcon: View {
             .padding([.leading,.trailing], scaledPadding)
           )
         .aspectRatio(1.0, contentMode: .fit)
-        .edgesIgnoringSafeArea(.all)
     }
 }
 
