@@ -67,7 +67,7 @@ public final class BoroManager: NSObject {
       
       let structCallback = Callback(task: completion)
       
-      queue.async(flags:.barrier){ [weak self] in
+      queue.async { [weak self] in
         self?.callbackSet[origin] = structCallback
       }
       

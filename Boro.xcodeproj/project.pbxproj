@@ -113,7 +113,7 @@
 		5715475C2711DFDB00EF0BDF /* graphic-circular.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "graphic-circular.png"; sourceTree = "<group>"; };
 		5715475F2711E63000EF0BDF /* Boro.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Boro.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		571547C02711FA1300EF0BDF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		571547C32711FFD500EF0BDF /* Boro-WatchKit-App-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "Boro-WatchKit-App-Info.plist"; sourceTree = SOURCE_ROOT; };
+		571547C32711FFD500EF0BDF /* Boro-WatchKit-App-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "Boro-WatchKit-App-Info.plist"; path = "Boro WatchKit App/Boro-WatchKit-App-Info.plist"; sourceTree = SOURCE_ROOT; };
 		571813E72708E4EA00513DA8 /* Boro WatchKit App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Boro WatchKit App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		571813EC2708E4EB00513DA8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		571813F22708E4EC00513DA8 /* Boro WatchKit Extension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "Boro WatchKit Extension.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -754,7 +754,7 @@
 				DEVELOPMENT_TEAM = 3C42F7N9CQ;
 				GENERATE_INFOPLIST_FILE = YES;
 				IBSC_MODULE = Boro_WatchKit_Extension;
-				INFOPLIST_FILE = "Boro-WatchKit-App-Info.plist";
+				INFOPLIST_FILE = "Boro WatchKit App/Boro-WatchKit-App-Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = NYCBoro;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
@@ -782,7 +782,7 @@
 				DEVELOPMENT_TEAM = 3C42F7N9CQ;
 				GENERATE_INFOPLIST_FILE = YES;
 				IBSC_MODULE = Boro_WatchKit_Extension;
-				INFOPLIST_FILE = "Boro-WatchKit-App-Info.plist";
+				INFOPLIST_FILE = "Boro WatchKit App/Boro-WatchKit-App-Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = NYCBoro;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";

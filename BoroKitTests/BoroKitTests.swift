@@ -15,7 +15,7 @@ class BoroKitTests: XCTestCase {
     // Use XCTAssert and related functions to verify your tests produce the correct results.
     let bm = BoroManager()
     var unfairExpectations = [XCTestExpectation]()
-    for i in 0...1000 {
+    for i in 0...100 {
       let expectation = XCTestExpectation(description: "expectation for \(i)")
       bm.getCurrent { newboro in
         print("test for \(i) succeeded")
@@ -24,7 +24,7 @@ class BoroKitTests: XCTestCase {
       unfairExpectations.append(expectation)
     }
     
-    wait(for: unfairExpectations, timeout: 2)
+    wait(for: unfairExpectations, timeout: 10)
     
   }
   
@@ -56,7 +56,7 @@ class BoroKitTests: XCTestCase {
       
     }
     
-    wait(for: expectations, timeout: 2)
+    wait(for: expectations, timeout: 5)
     
     XCTAssert(bm.callbackSet.isEmpty, "callback set is not empty \(bm.callbackSet)")
     
