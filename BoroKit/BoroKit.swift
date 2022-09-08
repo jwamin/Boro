@@ -8,6 +8,11 @@
 import Foundation
 import CoreLocation
 import OSLog
+import Combine
+
+protocol LocationManagerProtocol {
+    
+}
 
 public final class BoroManager: NSObject {
     
@@ -45,7 +50,10 @@ public final class BoroManager: NSObject {
     
     @Published public private(set) var current: Boro = .system
     
+    private var defaultsSubscriber: AnyCancellable?
     @UserDefault(key: .kCachedBorough, defaultValue: .system) public private(set) static var cached: Boro
+    
+    private var requestLocationAuthorizationCallback: ((CLAuthorizationStatus) -> Void)?
     
     public override init(){
         
@@ -55,11 +63,34 @@ public final class BoroManager: NSObject {
         super.init()
         
         location.delegate = self
-        location.requestWhenInUseAuthorization()
+        
+       requestLocationAuthorization()
+       
+        defaultsSubscriber = $current.sink(receiveValue: {
+            BoroManager.cached = $0
+        })
         
         print("hello from boro command")
         
     }
+    
+    func requestLocationAuthorization(){
+        let authorizationStatus = location.authorizationStatus
+        
+        guard authorizationStatus == .notDetermined else {
+            return
+        }
+        
+        self.requestLocationAuthorizationCallback = { status in
+            if status == .authorizedWhenInUse {
+                self.location.requestAlwaysAuthorization()
+            }
+        }
+        
+        self.location.requestWhenInUseAuthorization()
+        
+    }
+    
     
     public func getCurrent(origin: LocationRequestType = .other(id: UUID()),_ completion: ((Boro) -> Void)? = nil) {
         
@@ -77,9 +108,24 @@ public final class BoroManager: NSObject {
         
     }
     
+    private func updateAndClearWaitingRequests(current: Boro? = nil){
+        
+        let current = current ?? self.current
+        
+        for (key,item) in callbackSet {
+            
+            self.queue.async(flags:.barrier){ [weak self] in
+                self?.callbackSet.removeValue(forKey: key)
+                item.task(current)
+            }
+            
+        }
+    }
+    
     private func processUpdatedLocation(location: CLLocation?) {
         
         guard let location = location else {
+            updateAndClearWaitingRequests()
             return
         }
         
@@ -91,24 +137,17 @@ public final class BoroManager: NSObject {
             }
             
             if let placemark = placemarks?.first,
-               let current = Boro(placemark: placemark),
-               let callbackSet = self?.callbackSet {
+               let current = Boro(placemark: placemark) {
+               
                 
                 #if DEBUG
                 self?.logger.log("current first placemark: \(placemark)")
                 #endif
                 
+                //why do i need both?
                 self?.current = current
-                BoroManager.cached = current
                 
-                for (key,item) in callbackSet {
-                    
-                    self?.queue.async(flags:.barrier){ [weak self] in
-                        self?.callbackSet.removeValue(forKey: key)
-                        item.task(current)
-                    }
-                    
-                }
+                self?.updateAndClearWaitingRequests()
                 
             }
             
@@ -124,8 +163,17 @@ extension BoroManager: CLLocationManagerDelegate {
     public func locationManagerDidChangeAuthorization(_ manager: CLLocationManager) {
         print("location authorization changed now: \(manager.authorizationStatus.rawValue)")
         
-        switch manager.authorizationStatus {
+        let status = manager.authorizationStatus
+        
+        if let callback = requestLocationAuthorizationCallback {
+            callback(status)
+            requestLocationAuthorizationCallback = nil
+        }
+        
+        switch status {
         case .denied, .notDetermined, .restricted:
+            current = .system
+            updateAndClearWaitingRequests()
             return
         default:
             break
@@ -141,8 +189,8 @@ extension BoroManager: CLLocationManagerDelegate {
     }
     
     public func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
-        print(error)
-        logger.log("Error")
+        //handle error?
+        logger.log("Error \(error.localizedDescription)")
     }
     
 }

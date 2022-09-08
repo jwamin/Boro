@@ -4,6 +4,8 @@
 <dict>
 	<key>NSLocationWhenInUseUsageDescription</key>
 	<string>This is a location aware app, for the best experience, we need access to device location within 100m. Your location is never shared.</string>
+	<key>NSLocationAlwaysUsageDescription</key>
+	<string>This is a location aware app, for the best experience, we need access to device location within 100m. Your location is never shared.</string>
 	<key>ITSAppUsesNonExemptEncryption</key>
 	<false/>
 	<key>NSExtension</key>
