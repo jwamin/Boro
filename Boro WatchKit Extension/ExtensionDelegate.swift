@@ -9,7 +9,7 @@ import WatchKit
 import BoroKit
 import ClockKit
 
-class ExtensionDelegate: NSObject, WKExtensionDelegate {
+class ExtensionDelegate: NSObject, WKApplicationDelegate {
   
   private(set) var boroManager: BoroManager = BoroManager()
   private let compServer = CLKComplicationServer.sharedInstance()
@@ -18,7 +18,7 @@ class ExtensionDelegate: NSObject, WKExtensionDelegate {
     !(compServer.activeComplications ?? []).isEmpty
   }
   
-  private let wkExtension = WKExtension.shared()
+  private let wkExtension = WKApplication.shared()
   
   func applicationDidFinishLaunching() {
     print("application loaded")
