@@ -11,7 +11,7 @@ import BoroKit
 @main
 struct BoroApp: App {
   
-  @WKExtensionDelegateAdaptor var extensionDelegate: ExtensionDelegate
+  @WKApplicationDelegateAdaptor var extensionDelegate: ExtensionDelegate
   
   @State var current: Boro = .system
   
