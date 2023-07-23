@@ -24,8 +24,17 @@
 		57536EFA2A6DABEE00BD4ECA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 57536EF92A6DABEE00BD4ECA /* Assets.xcassets */; };
 		57536EFE2A6DABEE00BD4ECA /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 57536EFD2A6DABEE00BD4ECA /* Preview Assets.xcassets */; };
 		57536F032A6DAC3200BD4ECA /* BoroKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 571814152708E58D00513DA8 /* BoroKit.framework */; };
-		57536F042A6DAC3200BD4ECA /* BoroKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 571814152708E58D00513DA8 /* BoroKit.framework */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		57536F042A6DAC3200BD4ECA /* BoroKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 571814152708E58D00513DA8 /* BoroKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		57536F082A6DAC8E00BD4ECA /* BoroIcon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5741DC6D2710DABB006BCF3F /* BoroIcon.swift */; };
+		57536F342A6DB78B00BD4ECA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 57536F332A6DB78B00BD4ECA /* Assets.xcassets */; };
+		57536F372A6DB78B00BD4ECA /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 57536F362A6DB78B00BD4ECA /* Preview Assets.xcassets */; };
+		57536F3A2A6DB78B00BD4ECA /* Boro WK Companion Watch App.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = 57536F2D2A6DB78A00BD4ECA /* Boro WK Companion Watch App.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		57536F3F2A6DB7B500BD4ECA /* ComplicationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 571813FB2708E4EC00513DA8 /* ComplicationController.swift */; };
+		57536F402A6DB7B500BD4ECA /* ExtensionDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57CE009B270B335D00D496F3 /* ExtensionDelegate.swift */; };
+		57536F412A6DB7B500BD4ECA /* BoroApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 571813F92708E4EC00513DA8 /* BoroApp.swift */; };
+		57536F422A6DB7D400BD4ECA /* BoroKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 571814152708E58D00513DA8 /* BoroKit.framework */; };
+		57536F432A6DB7D400BD4ECA /* BoroKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 571814152708E58D00513DA8 /* BoroKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		57536F472A6DB7E900BD4ECA /* BoroIcon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5741DC6D2710DABB006BCF3F /* BoroIcon.swift */; };
 		57CE009C270B335D00D496F3 /* ExtensionDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57CE009B270B335D00D496F3 /* ExtensionDelegate.swift */; };
 		57CE009E270B4A3600D496F3 /* BoroKitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57CE009D270B4A3600D496F3 /* BoroKitTests.swift */; };
 		57CE00A0270B50E000D496F3 /* Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57CE009F270B50E000D496F3 /* Helpers.swift */; };
@@ -41,6 +50,20 @@
 			remoteInfo = BoroKit;
 		};
 		57536F052A6DAC3200BD4ECA /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 571813DD2708E4E900513DA8 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 571814142708E58D00513DA8;
+			remoteInfo = BoroKit;
+		};
+		57536F382A6DB78B00BD4ECA /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 571813DD2708E4E900513DA8 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 57536F2C2A6DB78A00BD4ECA;
+			remoteInfo = "Boro WK Companion Watch App";
+		};
+		57536F442A6DB7D400BD4ECA /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 571813DD2708E4E900513DA8 /* Project object */;
 			proxyType = 1;
@@ -86,6 +109,28 @@
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		57536F3B2A6DB78B00BD4ECA /* Embed Watch Content */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "$(CONTENTS_FOLDER_PATH)/Watch";
+			dstSubfolderSpec = 16;
+			files = (
+				57536F3A2A6DB78B00BD4ECA /* Boro WK Companion Watch App.app in Embed Watch Content */,
+			);
+			name = "Embed Watch Content";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		57536F462A6DB7D400BD4ECA /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				57536F432A6DB7D400BD4ECA /* BoroKit.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
@@ -119,6 +164,9 @@
 		57536EFB2A6DABEE00BD4ECA /* Boro.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Boro.entitlements; sourceTree = "<group>"; };
 		57536EFD2A6DABEE00BD4ECA /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		57536F092A6DB5F300BD4ECA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		57536F2D2A6DB78A00BD4ECA /* Boro WK Companion Watch App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Boro WK Companion Watch App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		57536F332A6DB78B00BD4ECA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		57536F362A6DB78B00BD4ECA /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		5790D7B5270B5F9300A143A3 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		57CE009B270B335D00D496F3 /* ExtensionDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionDelegate.swift; sourceTree = "<group>"; };
 		57CE009D270B4A3600D496F3 /* BoroKitTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoroKitTests.swift; sourceTree = "<group>"; };
@@ -159,6 +207,14 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		57536F2A2A6DB78A00BD4ECA /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				57536F422A6DB7D400BD4ECA /* BoroKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -186,6 +242,7 @@
 				571814162708E58D00513DA8 /* BoroKit */,
 				571814242708E58E00513DA8 /* BoroKitTests */,
 				5742473027130A0500B2AC2F /* Location Routine */,
+				57536F2E2A6DB78A00BD4ECA /* Boro WK Companion Watch App */,
 				571813E42708E4E900513DA8 /* Products */,
 				57536F022A6DAC3200BD4ECA /* Frameworks */,
 			);
@@ -198,6 +255,7 @@
 				571814152708E58D00513DA8 /* BoroKit.framework */,
 				5718141E2708E58E00513DA8 /* BoroKitTests.xctest */,
 				57536EF32A6DABEC00BD4ECA /* Boro.app */,
+				57536F2D2A6DB78A00BD4ECA /* Boro WK Companion Watch App.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -292,6 +350,23 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		57536F2E2A6DB78A00BD4ECA /* Boro WK Companion Watch App */ = {
+			isa = PBXGroup;
+			children = (
+				57536F332A6DB78B00BD4ECA /* Assets.xcassets */,
+				57536F352A6DB78B00BD4ECA /* Preview Content */,
+			);
+			path = "Boro WK Companion Watch App";
+			sourceTree = "<group>";
+		};
+		57536F352A6DB78B00BD4ECA /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				57536F362A6DB78B00BD4ECA /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
@@ -370,15 +445,36 @@
 				57536EF02A6DABEC00BD4ECA /* Frameworks */,
 				57536EF12A6DABEC00BD4ECA /* Resources */,
 				57536F072A6DAC3200BD4ECA /* Embed Frameworks */,
+				57536F3B2A6DB78B00BD4ECA /* Embed Watch Content */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 				57536F062A6DAC3200BD4ECA /* PBXTargetDependency */,
+				57536F392A6DB78B00BD4ECA /* PBXTargetDependency */,
 			);
 			name = Boro;
 			productName = Boro;
 			productReference = 57536EF32A6DABEC00BD4ECA /* Boro.app */;
+			productType = "com.apple.product-type.application";
+		};
+		57536F2C2A6DB78A00BD4ECA /* Boro WK Companion Watch App */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 57536F3E2A6DB78B00BD4ECA /* Build configuration list for PBXNativeTarget "Boro WK Companion Watch App" */;
+			buildPhases = (
+				57536F292A6DB78A00BD4ECA /* Sources */,
+				57536F2A2A6DB78A00BD4ECA /* Frameworks */,
+				57536F2B2A6DB78A00BD4ECA /* Resources */,
+				57536F462A6DB7D400BD4ECA /* Embed Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				57536F452A6DB7D400BD4ECA /* PBXTargetDependency */,
+			);
+			name = "Boro WK Companion Watch App";
+			productName = "Boro WK Companion Watch App";
+			productReference = 57536F2D2A6DB78A00BD4ECA /* Boro WK Companion Watch App.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -389,7 +485,7 @@
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
 				LastSwiftUpdateCheck = 1430;
-				LastUpgradeCheck = 1410;
+				LastUpgradeCheck = 1430;
 				TargetAttributes = {
 					571813E62708E4EA00513DA8 = {
 						CreatedOnToolsVersion = 13.0;
@@ -402,6 +498,9 @@
 						TestTargetID = 571813E62708E4EA00513DA8;
 					};
 					57536EF22A6DABEC00BD4ECA = {
+						CreatedOnToolsVersion = 14.3;
+					};
+					57536F2C2A6DB78A00BD4ECA = {
 						CreatedOnToolsVersion = 14.3;
 					};
 				};
@@ -423,6 +522,7 @@
 				571813E62708E4EA00513DA8 /* Boro Standalone WatchKit App */,
 				571814142708E58D00513DA8 /* BoroKit */,
 				5718141D2708E58E00513DA8 /* BoroKitTests */,
+				57536F2C2A6DB78A00BD4ECA /* Boro WK Companion Watch App */,
 			);
 		};
 /* End PBXProject section */
@@ -458,6 +558,15 @@
 			files = (
 				57536EFE2A6DABEE00BD4ECA /* Preview Assets.xcassets in Resources */,
 				57536EFA2A6DABEE00BD4ECA /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		57536F2B2A6DB78A00BD4ECA /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				57536F372A6DB78B00BD4ECA /* Preview Assets.xcassets in Resources */,
+				57536F342A6DB78B00BD4ECA /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -504,6 +613,17 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		57536F292A6DB78A00BD4ECA /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				57536F472A6DB7E900BD4ECA /* BoroIcon.swift in Sources */,
+				57536F402A6DB7B500BD4ECA /* ExtensionDelegate.swift in Sources */,
+				57536F412A6DB7B500BD4ECA /* BoroApp.swift in Sources */,
+				57536F3F2A6DB7B500BD4ECA /* ComplicationController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -516,6 +636,16 @@
 			isa = PBXTargetDependency;
 			target = 571814142708E58D00513DA8 /* BoroKit */;
 			targetProxy = 57536F052A6DAC3200BD4ECA /* PBXContainerItemProxy */;
+		};
+		57536F392A6DB78B00BD4ECA /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 57536F2C2A6DB78A00BD4ECA /* Boro WK Companion Watch App */;
+			targetProxy = 57536F382A6DB78B00BD4ECA /* PBXContainerItemProxy */;
+		};
+		57536F452A6DB7D400BD4ECA /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 571814142708E58D00513DA8 /* BoroKit */;
+			targetProxy = 57536F442A6DB7D400BD4ECA /* PBXContainerItemProxy */;
 		};
 		5770EB6029D0EBD9003C2A3D /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
@@ -680,7 +810,7 @@
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 4;
-				WATCHOS_DEPLOYMENT_TARGET = 8.0;
+				WATCHOS_DEPLOYMENT_TARGET = 9.4;
 			};
 			name = Debug;
 		};
@@ -721,7 +851,7 @@
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 4;
-				WATCHOS_DEPLOYMENT_TARGET = 8.0;
+				WATCHOS_DEPLOYMENT_TARGET = 9.4;
 			};
 			name = Release;
 		};
@@ -729,6 +859,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				APPLICATION_EXTENSION_API_ONLY = YES;
+				CODE_SIGN_IDENTITY = "";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEFINES_MODULE = YES;
@@ -736,6 +867,7 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_MODULE_VERIFIER = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
@@ -745,6 +877,9 @@
 					"@loader_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
+				MODULE_VERIFIER_SUPPORTED_LANGUAGES = "objective-c objective-c++";
+				MODULE_VERIFIER_SUPPORTED_LANGUAGE_STANDARDS = "gnu11 gnu++17";
+				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = co.jossy.BoroKit;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SDKROOT = watchos;
@@ -757,7 +892,7 @@
 				TARGETED_DEVICE_FAMILY = "1,2,3,4";
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
-				WATCHOS_DEPLOYMENT_TARGET = 8.0;
+				WATCHOS_DEPLOYMENT_TARGET = 9.4;
 			};
 			name = Debug;
 		};
@@ -774,6 +909,7 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_MODULE_VERIFIER = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
@@ -783,6 +919,9 @@
 					"@loader_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
+				MODULE_VERIFIER_SUPPORTED_LANGUAGES = "objective-c objective-c++";
+				MODULE_VERIFIER_SUPPORTED_LANGUAGE_STANDARDS = "gnu11 gnu++17";
+				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = co.jossy.BoroKit;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -796,7 +935,7 @@
 				TARGETED_DEVICE_FAMILY = "1,2,3,4";
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
-				WATCHOS_DEPLOYMENT_TARGET = 8.0;
+				WATCHOS_DEPLOYMENT_TARGET = 9.4;
 			};
 			name = Release;
 		};
@@ -853,12 +992,14 @@
 		57536F002A6DABEE00BD4ECA /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
 				CODE_SIGN_ENTITLEMENTS = Boro/Boro.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_ASSET_PATHS = "\"Boro/Preview Content\"";
 				DEVELOPMENT_TEAM = 3C42F7N9CQ;
 				ENABLE_HARDENED_RUNTIME = YES;
@@ -895,12 +1036,14 @@
 		57536F012A6DABEE00BD4ECA /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
 				CODE_SIGN_ENTITLEMENTS = Boro/Boro.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_ASSET_PATHS = "\"Boro/Preview Content\"";
 				DEVELOPMENT_TEAM = 3C42F7N9CQ;
 				ENABLE_HARDENED_RUNTIME = YES;
@@ -931,6 +1074,68 @@
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		57536F3C2A6DB78B00BD4ECA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"Boro WK Companion Watch App/Preview Content\"";
+				DEVELOPMENT_TEAM = 3C42F7N9CQ;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = "Boro WK Companion";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				INFOPLIST_KEY_WKCompanionAppBundleIdentifier = com.jossy.Boro;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.jossy.Boro.watchkitapp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 9.4;
+			};
+			name = Debug;
+		};
+		57536F3D2A6DB78B00BD4ECA /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"Boro WK Companion Watch App/Preview Content\"";
+				DEVELOPMENT_TEAM = 3C42F7N9CQ;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = "Boro WK Companion";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				INFOPLIST_KEY_WKCompanionAppBundleIdentifier = com.jossy.Boro;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.jossy.Boro.watchkitapp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 9.4;
 			};
 			name = Release;
 		};
@@ -978,6 +1183,15 @@
 			buildConfigurations = (
 				57536F002A6DABEE00BD4ECA /* Debug */,
 				57536F012A6DABEE00BD4ECA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		57536F3E2A6DB78B00BD4ECA /* Build configuration list for PBXNativeTarget "Boro WK Companion Watch App" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				57536F3C2A6DB78B00BD4ECA /* Debug */,
+				57536F3D2A6DB78B00BD4ECA /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
