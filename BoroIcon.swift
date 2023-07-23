@@ -91,7 +91,7 @@ struct AddCircleText: ViewModifier {
                 .foregroundColor(fgcolor)
                 .lineLimit(1)
                 .allowsTightening(true)
-                .minimumScaleFactor(0.01)
+                .minimumScaleFactor(1)
                 .truncationMode(.tail)
                 .padding([.leading,.trailing], scaledPadding)
         )

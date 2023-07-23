@@ -14,6 +14,20 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
+               BlueprintIdentifier = "571814142708E58D00513DA8"
+               BuildableName = "BoroKit.framework"
+               BlueprintName = "BoroKit"
+               ReferencedContainer = "container:Boro.xcodeproj">
+            </BuildableReference>
+         </BuildActionEntry>
+         <BuildActionEntry
+            buildForTesting = "YES"
+            buildForRunning = "YES"
+            buildForProfiling = "YES"
+            buildForArchiving = "YES"
+            buildForAnalyzing = "YES">
+            <BuildableReference
+               BuildableIdentifier = "primary"
                BlueprintIdentifier = "57536F2C2A6DB78A00BD4ECA"
                BuildableName = "Boro WK Companion Watch App.app"
                BlueprintName = "Boro WK Companion Watch App"

@@ -14,6 +14,20 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
+               BlueprintIdentifier = "571814142708E58D00513DA8"
+               BuildableName = "BoroKit.framework"
+               BlueprintName = "BoroKit"
+               ReferencedContainer = "container:Boro.xcodeproj">
+            </BuildableReference>
+         </BuildActionEntry>
+         <BuildActionEntry
+            buildForTesting = "YES"
+            buildForRunning = "YES"
+            buildForProfiling = "YES"
+            buildForArchiving = "YES"
+            buildForAnalyzing = "YES">
+            <BuildableReference
+               BuildableIdentifier = "primary"
                BlueprintIdentifier = "57536EF22A6DABEC00BD4ECA"
                BuildableName = "Boro.app"
                BlueprintName = "Boro"

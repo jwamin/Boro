@@ -84,7 +84,7 @@ public final class BoroManager: NSObject, ObservableObject {
       coder.reverseGeocodeLocation(location) { [weak self] placemarks, error in
         
         if error != nil {
-          self?.logger.log("reverse geocoding error")
+          self?.logger.log("reverse geocoding error \(error)")
           return
         }
         
