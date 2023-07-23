@@ -15,8 +15,8 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "571813E62708E4EA00513DA8"
-               BuildableName = "Boro WatchKit App.app"
-               BlueprintName = "Boro WatchKit App"
+               BuildableName = "Boro Standalone WatchKit App.app"
+               BlueprintName = "Boro Standalone WatchKit App"
                ReferencedContainer = "container:Boro.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -29,8 +29,8 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "5715475E2711E63000EF0BDF"
-               BuildableName = "Boro.app"
-               BlueprintName = "Boro"
+               BuildableName = "Boro-Watch-Standalone.app"
+               BlueprintName = "Boro-Watch-Standalone"
                ReferencedContainer = "container:Boro.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -60,8 +60,8 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "571813E62708E4EA00513DA8"
-            BuildableName = "Boro WatchKit App.app"
-            BlueprintName = "Boro WatchKit App"
+            BuildableName = "Boro Standalone WatchKit App.app"
+            BlueprintName = "Boro Standalone WatchKit App"
             ReferencedContainer = "container:Boro.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
@@ -78,8 +78,8 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "571813E62708E4EA00513DA8"
-            BuildableName = "Boro WatchKit App.app"
-            BlueprintName = "Boro WatchKit App"
+            BuildableName = "Boro Standalone WatchKit App.app"
+            BlueprintName = "Boro Standalone WatchKit App"
             ReferencedContainer = "container:Boro.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>

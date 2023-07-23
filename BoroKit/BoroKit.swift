@@ -9,7 +9,7 @@ import Foundation
 import CoreLocation
 import OSLog
 
-public final class BoroManager: NSObject {
+public final class BoroManager: NSObject, ObservableObject {
   
   struct Callback: Hashable {
     let uuid = UUID()

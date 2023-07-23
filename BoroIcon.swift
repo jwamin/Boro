@@ -8,11 +8,22 @@
 import SwiftUI
 import BoroKit
 
+struct BoroRootView: View {
+    
+    @ObservedObject var manager: BoroManager
+    
+    var body: some View {
+        BoroIcon(boro: manager.current)
+    }
+}
+
+
 struct BoroIcon: View {
     
-    let boro: Boro
+    var boro: Boro
     
-    @Environment(\.colorScheme) var colorScheme: ColorScheme
+    //@Environment(\.colorScheme) var colorScheme: ColorScheme
+    var colorScheme: ColorScheme = .light
     
     var foregroundColor: Color{
         

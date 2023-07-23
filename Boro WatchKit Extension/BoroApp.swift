@@ -12,15 +12,10 @@ import BoroKit
 struct BoroApp: App {
   
   @WKApplicationDelegateAdaptor var extensionDelegate: ExtensionDelegate
-  
-  @State var current: Boro = .system
-  
+    
     var body: some Scene {
         WindowGroup {
-            BoroIcon(boro: current)
-            .onReceive(extensionDelegate.boroManager.$current) { output in
-              current = output
-            }
+            BoroRootView(manager: extensionDelegate.boroManager)
         }
     }
   
