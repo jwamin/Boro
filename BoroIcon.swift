@@ -60,7 +60,7 @@ struct BoroIcon: View {
         }
     }
     
-
+    
     
     var body: some View {
         if colorScheme == .dark {
@@ -68,7 +68,7 @@ struct BoroIcon: View {
         } else {
             Circle().fill(bgColor).addCircleText(boro: boro, fgColor: foregroundColor, bgcolor: bgColor)
         }
-            
+        
     }
 }
 
@@ -80,29 +80,34 @@ extension View {
 
 struct AddCircleText: ViewModifier {
     
-    @ScaledMetric(relativeTo: .largeTitle) var scaledSize: CGFloat = 100
-    @ScaledMetric(relativeTo: .largeTitle) var scaledPadding: CGFloat = 10
+    private let scaleMultiplier = 0.45
     
     func body(content: Content) -> some View {
+        
         content.overlay(
-            Text(boro.shortText())
-                .font(Font.custom("Helvetica", size: scaledSize))
-                .fontWeight(.bold)
-                .foregroundColor(fgcolor)
-                .lineLimit(1)
-                .allowsTightening(true)
-                .minimumScaleFactor(1)
-                .truncationMode(.tail)
-                .padding([.leading,.trailing], scaledPadding)
+            GeometryReader{ proxy in
+                VStack(alignment: .center,spacing: 0){
+                    Text(boro.shortText())
+                        .font(Font.custom("Helvetica",size: proxy.size.height * scaleMultiplier))
+                    
+                        .fontWeight(.bold)
+                        .foregroundColor(fgcolor)
+                        .lineLimit(1)
+                        .allowsTightening(true)
+                    
+                }.frame(width: proxy.size.width,height: proxy.size.height,alignment: .center)
+            }
         )
+        
         .aspectRatio(1.0, contentMode: .fit)
+        
     }
     
     let boro: Boro
     
     let fgcolor: Color
     let bgcolor: Color
-   
+    
     
 }
 
@@ -112,7 +117,7 @@ struct BoroIcon_Previews: PreviewProvider {
             ForEach(Boro.allCases) { boro in
                 BoroIcon(boro: boro)
             }
-
+            
         }
     }
 }

@@ -18,9 +18,10 @@ struct BoroApp: App {
             BoroRootView(manager: manager)
                 .aspectRatio(1, contentMode: .fit)
                 .padding()
-                .frame(minWidth: 250,minHeight: 250)
+                .frame(minWidth: 150,minHeight: 150)
         }
         #if os(macOS)
+        .windowStyle(.hiddenTitleBar)
         .windowResizability(.contentSize)
         #endif
     }
