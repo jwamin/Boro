@@ -29,7 +29,7 @@
 		57536F032A6DAC3200BD4ECA /* BoroKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 571814152708E58D00513DA8 /* BoroKit.framework */; };
 		57536F042A6DAC3200BD4ECA /* BoroKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 571814152708E58D00513DA8 /* BoroKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		57536F082A6DAC8E00BD4ECA /* BoroIcon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5741DC6D2710DABB006BCF3F /* BoroIcon.swift */; };
-		57536F3A2A6DB78B00BD4ECA /* Boro WK Companion Watch App.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = 57536F2D2A6DB78A00BD4ECA /* Boro WK Companion Watch App.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		57536F3A2A6DB78B00BD4ECA /* Boro WK Companion Watch App.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = 57536F2D2A6DB78A00BD4ECA /* Boro WK Companion Watch App.app */; platformFilter = ios; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		57536F3F2A6DB7B500BD4ECA /* ComplicationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 571813FB2708E4EC00513DA8 /* ComplicationController.swift */; };
 		57536F402A6DB7B500BD4ECA /* ExtensionDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57CE009B270B335D00D496F3 /* ExtensionDelegate.swift */; };
 		57536F412A6DB7B500BD4ECA /* BoroApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 571813F92708E4EC00513DA8 /* BoroApp.swift */; };
@@ -631,6 +631,7 @@
 		};
 		57536F392A6DB78B00BD4ECA /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
+			platformFilter = ios;
 			target = 57536F2C2A6DB78A00BD4ECA /* Boro WK Companion Watch App */;
 			targetProxy = 57536F382A6DB78B00BD4ECA /* PBXContainerItemProxy */;
 		};
