@@ -45,6 +45,8 @@ public final class BoroManager: NSObject, ObservableObject {
   
   @Published public private(set) var current: Boro = .system
   
+    @Published public private(set) var refreshing: Bool = true
+    
   @UserDefault(key: .kCachedBorough, defaultValue: .system) public private(set) static var cached: Boro
   
   public override init(){
@@ -72,7 +74,12 @@ public final class BoroManager: NSObject, ObservableObject {
       }
       
     }
-    
+      
+      if refreshing{
+          false
+      }
+      
+    refreshing = true
     location.requestLocation()
     
   }
@@ -85,6 +92,7 @@ public final class BoroManager: NSObject, ObservableObject {
         
         if error != nil {
           self?.logger.log("reverse geocoding error \(error)")
+            self?.refreshing = false
           return
         }
         
@@ -105,7 +113,7 @@ public final class BoroManager: NSObject, ObservableObject {
               self?.callbackSet.removeValue(forKey: key)
               item.task(current)
             }
-            
+              self?.refreshing = false
           }
           
         }

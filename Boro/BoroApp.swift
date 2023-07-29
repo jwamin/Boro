@@ -19,6 +19,11 @@ struct BoroApp: App {
                 .aspectRatio(1, contentMode: .fit)
                 .padding()
                 .frame(minWidth: 150,minHeight: 150)
+                .onTapGesture {
+                    manager.getCurrent(origin: .ui){
+                        print("done from ui \($0)")
+                    }
+                }
         }
         #if os(macOS)
         .windowStyle(.hiddenTitleBar)

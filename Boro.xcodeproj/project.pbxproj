@@ -1086,7 +1086,7 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Boro-WK-Companion-Watch-App-Info.plist";
-				INFOPLIST_KEY_CFBundleDisplayName = "Boro WK Companion";
+				INFOPLIST_KEY_CFBundleDisplayName = Boro2;
 				INFOPLIST_KEY_CLKComplicationPrincipalClass = Boro_WK_Companion_Watch_App.ComplicationController;
 				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "This is a location aware app, for the best experience, we need access to device location within 100m. Your location is never shared.";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
@@ -1121,7 +1121,7 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Boro-WK-Companion-Watch-App-Info.plist";
-				INFOPLIST_KEY_CFBundleDisplayName = "Boro WK Companion";
+				INFOPLIST_KEY_CFBundleDisplayName = Boro2;
 				INFOPLIST_KEY_CLKComplicationPrincipalClass = Boro_WK_Companion_Watch_App.ComplicationController;
 				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "This is a location aware app, for the best experience, we need access to device location within 100m. Your location is never shared.";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
