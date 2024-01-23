@@ -11,12 +11,13 @@ import BoroKit
 struct BoroIcon: View {
     
     let boro: Boro
+    let darkMode = false
     
     @Environment(\.colorScheme) var colorScheme: ColorScheme
     
     var foregroundColor: Color{
         
-        if colorScheme == .dark {
+        if colorScheme == .dark && darkMode {
             return .white
         }
         
@@ -52,7 +53,7 @@ struct BoroIcon: View {
 
     
     var body: some View {
-        if colorScheme == .dark {
+        if colorScheme == .dark && darkMode {
             Circle().stroke(bgColor).addCircleText(boro: boro, fgColor: foregroundColor, bgcolor: bgColor)
         } else {
             Circle().fill(bgColor).addCircleText(boro: boro, fgColor: foregroundColor, bgcolor: bgColor)
