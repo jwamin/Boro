@@ -1,0 +1,65 @@
+# This file contains the fastlane.tools configuration
+# You can find the documentation at https://docs.fastlane.tools
+#
+# For a list of all available actions, check out
+#
+#     https://docs.fastlane.tools/actions
+#
+# For a list of all available plugins, check out
+#
+#     https://docs.fastlane.tools/plugins/available-plugins
+#
+
+# Uncomment the line if you want fastlane to automatically update itself
+# update_fastlane
+import "creds.rb"
+
+default_platform(:ios)
+
+platform :ios do
+
+  def get_key()
+    return app_store_connect_api_key(
+        key_id: Creds.key_id,
+        issuer_id: Creds.issuer_id,
+        key_filepath: Creds.key_filepath,
+        duration: 1200, # optional (maximum 1200)
+        in_house: false # optional but may be required if using match/sigh
+    )
+  end
+
+  desc "Get Certificates and Provisioning"
+  lane :certs do |options|
+    puts options
+    is_adhoc = options[:adhoc] || false
+    puts is_adhoc
+    get_certificates # invokes cert
+    get_provisioning_profile(app_identifier:"co.jossy.Boro.watchkitapp", adhoc: is_adhoc, readonly:true)   # invokes sigh
+    get_provisioning_profile(app_identifier:"co.jossy.Boro", adhoc: is_adhoc, readonly:true)
+  end
+
+  desc "Build For Testflight"
+  lane :beta do
+    certs
+    increment_build_number(xcodeproj: "Boro.xcodeproj")
+    build_app(scheme: "Boro WatchKit App",destination:"generic/platform=watchOS", configuration:"Release")
+    get_provisioning_profile
+    beta_push
+  end
+
+  desc "Push an existing beta build to TestFlight"
+  lane :beta_push do
+    api_key = get_key()
+    certs
+    upload_to_testflight(app_identifier:"co.jossy.Boro", skip_waiting_for_build_processing:true, api_key: api_key, skip_submission: true)
+  end
+
+  desc "Build For Adhoc"
+  lane :adhoc do
+    certs({"adhoc":true})
+    increment_build_number(xcodeproj: "Boro.xcodeproj")
+    build_app(scheme: "Boro WatchKit App",destination:"generic/platform=watchOS", configuration:"Release")
+    
+  end
+
+end

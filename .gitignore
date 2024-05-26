@@ -3,3 +3,16 @@ xcuserdata/
 
 #auto generated
 Boro-WatchKit-App-Info.plist
+
+Appfile
+*.p8
+*.cer
+*.mobileprovision
+
+
+*.zip
+*.ipa
+
+report.xml
+
+creds.rb
