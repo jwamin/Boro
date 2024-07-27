@@ -8,6 +8,7 @@
 import ClockKit
 import SwiftUI
 import BoroKit
+import BoroKitUI
 
 class ComplicationController: NSObject, CLKComplicationDataSource {
   

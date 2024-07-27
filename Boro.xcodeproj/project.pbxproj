@@ -21,7 +21,12 @@
 		5718142A2708E58E00513DA8 /* BoroKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 571814152708E58D00513DA8 /* BoroKit.framework */; };
 		5718142B2708E58E00513DA8 /* BoroKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 571814152708E58D00513DA8 /* BoroKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		571814342708E5C500513DA8 /* BoroKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 571814332708E5C500513DA8 /* BoroKit.swift */; };
-		5741DC6E2710DABB006BCF3F /* BoroIcon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5741DC6D2710DABB006BCF3F /* BoroIcon.swift */; };
+		5726F9362C55757300714AB5 /* BoroKitUI.h in Headers */ = {isa = PBXBuildFile; fileRef = 5726F9352C55757300714AB5 /* BoroKitUI.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		5726F93B2C5575BD00714AB5 /* BoroKitViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5726F93A2C5575BD00714AB5 /* BoroKitViews.swift */; };
+		5726F93D2C55761100714AB5 /* BoroKitUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5726F9332C55757300714AB5 /* BoroKitUI.framework */; };
+		5726F93E2C55761100714AB5 /* BoroKitUI.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 5726F9332C55757300714AB5 /* BoroKitUI.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		5726F9472C55764B00714AB5 /* BoroKitStyles.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5726F9462C55764B00714AB5 /* BoroKitStyles.swift */; };
+		5726F9482C55855400714AB5 /* BoroKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 571814152708E58D00513DA8 /* BoroKit.framework */; };
 		57CE009C270B335D00D496F3 /* ExtensionDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57CE009B270B335D00D496F3 /* ExtensionDelegate.swift */; };
 		57CE009E270B4A3600D496F3 /* BoroKitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57CE009D270B4A3600D496F3 /* BoroKitTests.swift */; };
 		57CE00A0270B50E000D496F3 /* Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57CE009F270B50E000D496F3 /* Helpers.swift */; };
@@ -37,6 +42,20 @@
 			remoteInfo = "Boro WatchKit App";
 		};
 		571814202708E58E00513DA8 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 571813DD2708E4E900513DA8 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 571814142708E58D00513DA8;
+			remoteInfo = BoroKit;
+		};
+		5726F93F2C55761100714AB5 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 571813DD2708E4E900513DA8 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 5726F9322C55757300714AB5;
+			remoteInfo = BoroKitUI;
+		};
+		5726F94A2C55855400714AB5 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 571813DD2708E4E900513DA8 /* Project object */;
 			proxyType = 1;
@@ -78,6 +97,7 @@
 			dstSubfolderSpec = 10;
 			files = (
 				5718142B2708E58E00513DA8 /* BoroKit.framework in Embed Frameworks */,
+				5726F93E2C55761100714AB5 /* BoroKitUI.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -109,7 +129,10 @@
 		5718141E2708E58E00513DA8 /* BoroKitTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BoroKitTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		571814252708E58E00513DA8 /* BoroTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoroTests.swift; sourceTree = "<group>"; };
 		571814332708E5C500513DA8 /* BoroKit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoroKit.swift; sourceTree = "<group>"; };
-		5741DC6D2710DABB006BCF3F /* BoroIcon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoroIcon.swift; sourceTree = "<group>"; };
+		5726F9332C55757300714AB5 /* BoroKitUI.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = BoroKitUI.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		5726F9352C55757300714AB5 /* BoroKitUI.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BoroKitUI.h; sourceTree = "<group>"; };
+		5726F93A2C5575BD00714AB5 /* BoroKitViews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoroKitViews.swift; sourceTree = "<group>"; };
+		5726F9462C55764B00714AB5 /* BoroKitStyles.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoroKitStyles.swift; sourceTree = "<group>"; };
 		5742473127130A7300B2AC2F /* Queens.gpx */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = Queens.gpx; sourceTree = "<group>"; };
 		5790D7B5270B5F9300A143A3 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		57CE009B270B335D00D496F3 /* ExtensionDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionDelegate.swift; sourceTree = "<group>"; };
@@ -125,6 +148,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				5718142A2708E58E00513DA8 /* BoroKit.framework in Frameworks */,
+				5726F93D2C55761100714AB5 /* BoroKitUI.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -140,6 +164,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				5718141F2708E58E00513DA8 /* BoroKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5726F9302C55757300714AB5 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5726F9482C55855400714AB5 /* BoroKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -168,7 +200,9 @@
 				571814162708E58D00513DA8 /* BoroKit */,
 				571814242708E58E00513DA8 /* BoroKitTests */,
 				5742473027130A0500B2AC2F /* Location Routine */,
+				5726F9342C55757300714AB5 /* BoroKitUI */,
 				571813E42708E4E900513DA8 /* Products */,
+				5726F93C2C55761100714AB5 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -179,6 +213,7 @@
 				571814152708E58D00513DA8 /* BoroKit.framework */,
 				5718141E2708E58E00513DA8 /* BoroKitTests.xctest */,
 				5715475F2711E63000EF0BDF /* Boro.app */,
+				5726F9332C55757300714AB5 /* BoroKitUI.framework */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -196,7 +231,6 @@
 			isa = PBXGroup;
 			children = (
 				571813F72708E4EC00513DA8 /* BoroView.swift */,
-				5741DC6D2710DABB006BCF3F /* BoroIcon.swift */,
 				571813F92708E4EC00513DA8 /* BoroApp.swift */,
 				57CE009B270B335D00D496F3 /* ExtensionDelegate.swift */,
 				571813FB2708E4EC00513DA8 /* ComplicationController.swift */,
@@ -237,6 +271,23 @@
 			path = BoroKitTests;
 			sourceTree = "<group>";
 		};
+		5726F9342C55757300714AB5 /* BoroKitUI */ = {
+			isa = PBXGroup;
+			children = (
+				5726F9352C55757300714AB5 /* BoroKitUI.h */,
+				5726F93A2C5575BD00714AB5 /* BoroKitViews.swift */,
+				5726F9462C55764B00714AB5 /* BoroKitStyles.swift */,
+			);
+			path = BoroKitUI;
+			sourceTree = "<group>";
+		};
+		5726F93C2C55761100714AB5 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		5742473027130A0500B2AC2F /* Location Routine */ = {
 			isa = PBXGroup;
 			children = (
@@ -256,6 +307,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				571814272708E58E00513DA8 /* BoroKit.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5726F92E2C55757300714AB5 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5726F9362C55757300714AB5 /* BoroKitUI.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -292,6 +351,7 @@
 			);
 			dependencies = (
 				5770EB6029D0EBD9003C2A3D /* PBXTargetDependency */,
+				5726F9402C55761100714AB5 /* PBXTargetDependency */,
 			);
 			name = "Boro WatchKit App";
 			productName = "Boro WatchKit App";
@@ -335,6 +395,25 @@
 			productReference = 5718141E2708E58E00513DA8 /* BoroKitTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
+		5726F9322C55757300714AB5 /* BoroKitUI */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 5726F9392C55757300714AB5 /* Build configuration list for PBXNativeTarget "BoroKitUI" */;
+			buildPhases = (
+				5726F92E2C55757300714AB5 /* Headers */,
+				5726F92F2C55757300714AB5 /* Sources */,
+				5726F9302C55757300714AB5 /* Frameworks */,
+				5726F9312C55757300714AB5 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				5726F94B2C55855400714AB5 /* PBXTargetDependency */,
+			);
+			name = BoroKitUI;
+			productName = BoroKitUI;
+			productReference = 5726F9332C55757300714AB5 /* BoroKitUI.framework */;
+			productType = "com.apple.product-type.framework";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -358,6 +437,10 @@
 						CreatedOnToolsVersion = 13.0;
 						TestTargetID = 571813E62708E4EA00513DA8;
 					};
+					5726F9322C55757300714AB5 = {
+						CreatedOnToolsVersion = 15.2;
+						LastSwiftMigration = 1520;
+					};
 				};
 			};
 			buildConfigurationList = 571813E02708E4E900513DA8 /* Build configuration list for PBXProject "Boro" */;
@@ -377,6 +460,7 @@
 				571813E62708E4EA00513DA8 /* Boro WatchKit App */,
 				571814142708E58D00513DA8 /* BoroKit */,
 				5718141D2708E58E00513DA8 /* BoroKitTests */,
+				5726F9322C55757300714AB5 /* BoroKitUI */,
 			);
 		};
 /* End PBXProject section */
@@ -413,6 +497,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		5726F9312C55757300714AB5 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -422,7 +513,6 @@
 			files = (
 				571813F82708E4EC00513DA8 /* BoroView.swift in Sources */,
 				571813FA2708E4EC00513DA8 /* BoroApp.swift in Sources */,
-				5741DC6E2710DABB006BCF3F /* BoroIcon.swift in Sources */,
 				57CE009C270B335D00D496F3 /* ExtensionDelegate.swift in Sources */,
 				571813FC2708E4EC00513DA8 /* ComplicationController.swift in Sources */,
 			);
@@ -448,6 +538,15 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		5726F92F2C55757300714AB5 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5726F9472C55764B00714AB5 /* BoroKitStyles.swift in Sources */,
+				5726F93B2C5575BD00714AB5 /* BoroKitViews.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -460,6 +559,16 @@
 			isa = PBXTargetDependency;
 			target = 571814142708E58D00513DA8 /* BoroKit */;
 			targetProxy = 571814202708E58E00513DA8 /* PBXContainerItemProxy */;
+		};
+		5726F9402C55761100714AB5 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 5726F9322C55757300714AB5 /* BoroKitUI */;
+			targetProxy = 5726F93F2C55761100714AB5 /* PBXContainerItemProxy */;
+		};
+		5726F94B2C55855400714AB5 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 571814142708E58D00513DA8 /* BoroKit */;
+			targetProxy = 5726F94A2C55855400714AB5 /* PBXContainerItemProxy */;
 		};
 		5770EB6029D0EBD9003C2A3D /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
@@ -479,7 +588,7 @@
 			buildSettings = {
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 8;
+				CURRENT_PROJECT_VERSION = 4;
 				DEVELOPMENT_TEAM = "";
 				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = 3C42F7N9CQ;
 				INFOPLIST_FILE = Info.plist;
@@ -501,7 +610,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 8;
+				CURRENT_PROJECT_VERSION = 4;
 				DEVELOPMENT_TEAM = "";
 				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = 3C42F7N9CQ;
 				INFOPLIST_FILE = Info.plist;
@@ -641,7 +750,7 @@
 				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
 				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "iPhone Distribution";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 8;
+				CURRENT_PROJECT_VERSION = 4;
 				DEVELOPMENT_TEAM = "";
 				"DEVELOPMENT_TEAM[sdk=watchos*]" = 3C42F7N9CQ;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -682,7 +791,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "iPhone Distribution";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 8;
+				CURRENT_PROJECT_VERSION = 4;
 				DEVELOPMENT_TEAM = "";
 				"DEVELOPMENT_TEAM[sdk=watchos*]" = 3C42F7N9CQ;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -717,11 +826,11 @@
 			buildSettings = {
 				APPLICATION_EXTENSION_API_ONLY = YES;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 8;
+				CURRENT_PROJECT_VERSION = 4;
 				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = 3C42F7N9CQ;
 				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 8;
+				DYLIB_CURRENT_VERSION = 4;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
@@ -751,12 +860,12 @@
 				APPLICATION_EXTENSION_API_ONLY = YES;
 				CODE_SIGN_IDENTITY = "";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 8;
+				CURRENT_PROJECT_VERSION = 4;
 				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = "";
 				"DEVELOPMENT_TEAM[sdk=watchos*]" = 3C42F7N9CQ;
 				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 8;
+				DYLIB_CURRENT_VERSION = 4;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
@@ -786,7 +895,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 8;
+				CURRENT_PROJECT_VERSION = 4;
 				DEVELOPMENT_TEAM = 3C42F7N9CQ;
 				GENERATE_INFOPLIST_FILE = YES;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -811,7 +920,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 8;
+				CURRENT_PROJECT_VERSION = 4;
 				DEVELOPMENT_TEAM = 3C42F7N9CQ;
 				GENERATE_INFOPLIST_FILE = YES;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -827,6 +936,90 @@
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 4;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Boro WatchKit App.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Boro WatchKit App";
+				WATCHOS_DEPLOYMENT_TARGET = 8.0;
+			};
+			name = Release;
+		};
+		5726F9372C55757300714AB5 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 4;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = 3C42F7N9CQ;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 4;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_MODULE_VERIFIER = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MARKETING_VERSION = 1.0;
+				MODULE_VERIFIER_SUPPORTED_LANGUAGES = "objective-c objective-c++";
+				MODULE_VERIFIER_SUPPORTED_LANGUAGE_STANDARDS = "gnu17 gnu++20";
+				PRODUCT_BUNDLE_IDENTIFIER = com.jossy.BoroKitUI;
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+				WATCHOS_DEPLOYMENT_TARGET = 8.0;
+			};
+			name = Debug;
+		};
+		5726F9382C55757300714AB5 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 4;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = 3C42F7N9CQ;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 4;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_MODULE_VERIFIER = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MARKETING_VERSION = 1.0;
+				MODULE_VERIFIER_SUPPORTED_LANGUAGES = "objective-c objective-c++";
+				MODULE_VERIFIER_SUPPORTED_LANGUAGE_STANDARDS = "gnu17 gnu++20";
+				PRODUCT_BUNDLE_IDENTIFIER = com.jossy.BoroKitUI;
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
 				WATCHOS_DEPLOYMENT_TARGET = 8.0;
 			};
 			name = Release;
@@ -875,6 +1068,15 @@
 			buildConfigurations = (
 				571814312708E58E00513DA8 /* Debug */,
 				571814322708E58E00513DA8 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		5726F9392C55757300714AB5 /* Build configuration list for PBXNativeTarget "BoroKitUI" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5726F9372C55757300714AB5 /* Debug */,
+				5726F9382C55757300714AB5 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
