@@ -7,6 +7,9 @@
 
 import BoroKit
 import SwiftUI
+import UIKit
+
+
 
 public struct BoroIcon: View {
     
@@ -25,6 +28,7 @@ public struct BoroIcon: View {
         Circle()
             .fill(scheme.backgroundColor)
             .addCircleText(boro: boro, scheme: scheme)
+            .transition(.scale)
     }
 }
 
@@ -43,22 +47,54 @@ struct AddCircleText: ViewModifier {
     
     let scheme: InitializesWithBoro & ForegroundAndBackgroundColorProviding
     
+    let repeatingAnimation: Animation = {
+            Animation
+                .linear(duration: 5) //.easeIn, .easyOut, .linear, etc...
+                .repeatForever(autoreverses: false)
+        }()
+    
+    @State var rotation: Angle = .zero
+    
     func body(content: Content) -> some View {
         content.overlay(
-            Text(boro.shortText())
-                .font(Font.custom("Helvetica", size: scaledSize))
-                .fontWeight(.bold)
-                .foregroundColor(scheme.foregroundColor)
-                .lineLimit(1)
-                .allowsTightening(true)
-                .minimumScaleFactor(0.01)
-                .truncationMode(.tail)
-                .padding([.leading,.trailing], scaledPadding)
+            ZStack(alignment: .center){
+                Text(boro.shortText())
+                    .font(Font.custom("Helvetica", size: scaledSize))
+                    .fontWeight(.bold)
+                    .foregroundColor(scheme.foregroundColor)
+                    .lineLimit(1)
+                    .allowsTightening(true)
+                    .minimumScaleFactor(0.01)
+                    .truncationMode(.tail)
+                    .padding([.leading,.trailing], scaledPadding)
+                if boro == .system {
+                    Image(systemName: "arrow.triangle.2.circlepath")
+                        .resizable()
+                        .aspectRatio(contentMode: .fit)
+                        .frame(width: scaledSize,height: scaledSize)
+                        .foregroundColor(scheme.foregroundColor)
+                        .rotationEffect(rotation)
+                        .onAppear(perform: {
+                            withAnimation(repeatingAnimation,{
+                                rotation = .degrees(360.0)
+                            })
+                        })
+                }
+            }
         )
         .aspectRatio(1.0, contentMode: .fit)
     }
-    
 
-   
-    
+}
+
+
+
+struct BoroIcon_Previews: PreviewProvider {
+    static var previews: some View {
+        Group {
+            ForEach(Boro.allCases) { boro in
+                BoroIcon(boro: boro)
+            }
+        }
+    }
 }

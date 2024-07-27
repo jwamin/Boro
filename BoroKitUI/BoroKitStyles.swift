@@ -26,13 +26,6 @@ public struct BoroColorScheme: InitializesWithBoro & ForegroundAndBackgroundColo
     }
     
     public var foregroundColor: Color {
-        
-        @Environment(\.colorScheme) var colorScheme: ColorScheme
-        
-        if colorScheme == .dark /*&& darkMode*/ {
-            return .white
-        }
-        
         switch(boro){
         case .brooklyn:
             return .black
