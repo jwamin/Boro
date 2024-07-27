@@ -21,9 +21,6 @@ struct BoroView: View {
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-      Group{
         BoroView(current: .manhattan)
-        BoroView(current: .bronx)
-      }
     }
 }

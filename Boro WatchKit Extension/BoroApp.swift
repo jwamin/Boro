@@ -7,6 +7,7 @@
 
 import SwiftUI
 import BoroKit
+import BoroKitUI
 
 @main
 struct BoroApp: App {
