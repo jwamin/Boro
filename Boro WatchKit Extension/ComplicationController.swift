@@ -92,7 +92,7 @@ class ComplicationController: NSObject, CLKComplicationDataSource, CLKComplicati
             let template = CLKComplicationTemplateExtraLargeSimpleText(textProvider: text)
             complicationForCurrentTime = CLKComplicationTimelineEntry(date: now, complicationTemplate: template)
         case .graphicCircular:
-            let template = CLKComplicationTemplateGraphicCircularView(BoroIcon(boro: current))
+            let template = CLKComplicationTemplateGraphicCircularView(BoroIconRound(boro: current))
             complicationForCurrentTime = CLKComplicationTimelineEntry(date: now, complicationTemplate: template)
         case .modularSmall:
             let template = CLKComplicationTemplateModularSmallSimpleText(textProvider: text)
@@ -132,7 +132,7 @@ class ComplicationController: NSObject, CLKComplicationDataSource, CLKComplicati
         case .utilitarianSmall:
             template = CLKComplicationTemplateUtilitarianSmallFlat(textProvider: appText)
         case .graphicCircular:
-            template = CLKComplicationTemplateGraphicCircularView<BoroIcon>(BoroIcon(boro: .template))
+            template = CLKComplicationTemplateGraphicCircularView<BoroIconRound>(BoroIconRound(boro: .template))
         case .modularSmall:
             template = CLKComplicationTemplateModularSmallSimpleText(textProvider: appText)
         case .modularLarge:

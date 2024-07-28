@@ -7,10 +7,17 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		570DD1652C56BFA90056B8AA /* Boro_MultiplatformApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 570DD1642C56BFA90056B8AA /* Boro_MultiplatformApp.swift */; };
+		570DD1692C56BFAB0056B8AA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 570DD1682C56BFAB0056B8AA /* Assets.xcassets */; };
+		570DD16D2C56BFAB0056B8AA /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 570DD16C2C56BFAB0056B8AA /* Preview Assets.xcassets */; };
+		570DD1712C56BFC70056B8AA /* BoroKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 571814152708E58D00513DA8 /* BoroKit.framework */; };
+		570DD1722C56BFC70056B8AA /* BoroKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 571814152708E58D00513DA8 /* BoroKit.framework */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		570DD1762C56BFCC0056B8AA /* BoroKitUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5726F9332C55757300714AB5 /* BoroKitUI.framework */; };
+		570DD1772C56BFCC0056B8AA /* BoroKitUI.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 5726F9332C55757300714AB5 /* BoroKitUI.framework */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		570DD17C2C56C5730056B8AA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 570DD17B2C56C5730056B8AA /* AppDelegate.swift */; };
+		570DD17E2C56CEB40056B8AA /* Boro_MultiplatformApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 570DD1642C56BFA90056B8AA /* Boro_MultiplatformApp.swift */; };
 		571547BF2711EBAC00EF0BDF /* Boro WatchKit App.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = 571813E72708E4EA00513DA8 /* Boro WatchKit App.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		571813ED2708E4EB00513DA8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 571813EC2708E4EB00513DA8 /* Assets.xcassets */; };
-		571813F82708E4EC00513DA8 /* BoroView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 571813F72708E4EC00513DA8 /* BoroView.swift */; };
-		571813FA2708E4EC00513DA8 /* BoroApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 571813F92708E4EC00513DA8 /* BoroApp.swift */; };
 		571813FC2708E4EC00513DA8 /* ComplicationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 571813FB2708E4EC00513DA8 /* ComplicationController.swift */; };
 		571813FE2708E4ED00513DA8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 571813FD2708E4ED00513DA8 /* Assets.xcassets */; };
 		571814012708E4ED00513DA8 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 571814002708E4ED00513DA8 /* Preview Assets.xcassets */; };
@@ -34,6 +41,20 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		570DD1732C56BFC70056B8AA /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 571813DD2708E4E900513DA8 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 571814142708E58D00513DA8;
+			remoteInfo = BoroKit;
+		};
+		570DD1782C56BFCC0056B8AA /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 571813DD2708E4E900513DA8 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 5726F9322C55757300714AB5;
+			remoteInfo = BoroKitUI;
+		};
 		571547BD2711EB9400EF0BDF /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 571813DD2708E4E900513DA8 /* Project object */;
@@ -79,6 +100,18 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
+		570DD1752C56BFC70056B8AA /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				570DD1722C56BFC70056B8AA /* BoroKit.framework in Embed Frameworks */,
+				570DD1772C56BFCC0056B8AA /* BoroKitUI.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		571547852711E63400EF0BDF /* Embed Watch Content */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
@@ -105,6 +138,14 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		570DD1622C56BFA90056B8AA /* Boro-Multiplatform.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Boro-Multiplatform.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		570DD1642C56BFA90056B8AA /* Boro_MultiplatformApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Boro_MultiplatformApp.swift; sourceTree = "<group>"; };
+		570DD1682C56BFAB0056B8AA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		570DD16A2C56BFAB0056B8AA /* Boro_Multiplatform.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Boro_Multiplatform.entitlements; sourceTree = "<group>"; };
+		570DD16C2C56BFAB0056B8AA /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		570DD17A2C56C16E0056B8AA /* Boro-MultiplatformDebug.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Boro-MultiplatformDebug.entitlements"; sourceTree = "<group>"; };
+		570DD17B2C56C5730056B8AA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		570DD17D2C56C62D0056B8AA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		57145858271311DE00505D79 /* Brooklyn.gpx */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = Brooklyn.gpx; sourceTree = "<group>"; };
 		571458592713121B00505D79 /* StatenIsland.gpx */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = StatenIsland.gpx; sourceTree = "<group>"; };
 		5714585A2713123300505D79 /* Bronx.gpx */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = Bronx.gpx; sourceTree = "<group>"; };
@@ -117,8 +158,6 @@
 		571547C32711FFD500EF0BDF /* Boro-WatchKit-App-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "Boro-WatchKit-App-Info.plist"; path = "Boro WatchKit App/Boro-WatchKit-App-Info.plist"; sourceTree = SOURCE_ROOT; };
 		571813E72708E4EA00513DA8 /* Boro WatchKit App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Boro WatchKit App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		571813EC2708E4EB00513DA8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		571813F72708E4EC00513DA8 /* BoroView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoroView.swift; sourceTree = "<group>"; };
-		571813F92708E4EC00513DA8 /* BoroApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoroApp.swift; sourceTree = "<group>"; };
 		571813FB2708E4EC00513DA8 /* ComplicationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComplicationController.swift; sourceTree = "<group>"; };
 		571813FD2708E4ED00513DA8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		571814002708E4ED00513DA8 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
@@ -143,6 +182,15 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		570DD15F2C56BFA90056B8AA /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				570DD1712C56BFC70056B8AA /* BoroKit.framework in Frameworks */,
+				570DD1762C56BFCC0056B8AA /* BoroKitUI.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		571813EF2708E4EC00513DA8 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -178,6 +226,28 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		570DD1632C56BFA90056B8AA /* Boro-Multiplatform */ = {
+			isa = PBXGroup;
+			children = (
+				570DD17D2C56C62D0056B8AA /* Info.plist */,
+				570DD17A2C56C16E0056B8AA /* Boro-MultiplatformDebug.entitlements */,
+				570DD16A2C56BFAB0056B8AA /* Boro_Multiplatform.entitlements */,
+				570DD1642C56BFA90056B8AA /* Boro_MultiplatformApp.swift */,
+				570DD1682C56BFAB0056B8AA /* Assets.xcassets */,
+				570DD16B2C56BFAB0056B8AA /* Preview Content */,
+				570DD17B2C56C5730056B8AA /* AppDelegate.swift */,
+			);
+			path = "Boro-Multiplatform";
+			sourceTree = "<group>";
+		};
+		570DD16B2C56BFAB0056B8AA /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				570DD16C2C56BFAB0056B8AA /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
 		571547582711DF9C00EF0BDF /* readme-assets */ = {
 			isa = PBXGroup;
 			children = (
@@ -201,6 +271,7 @@
 				571814242708E58E00513DA8 /* BoroKitTests */,
 				5742473027130A0500B2AC2F /* Location Routine */,
 				5726F9342C55757300714AB5 /* BoroKitUI */,
+				570DD1632C56BFA90056B8AA /* Boro-Multiplatform */,
 				571813E42708E4E900513DA8 /* Products */,
 				5726F93C2C55761100714AB5 /* Frameworks */,
 			);
@@ -214,6 +285,7 @@
 				5718141E2708E58E00513DA8 /* BoroKitTests.xctest */,
 				5715475F2711E63000EF0BDF /* Boro.app */,
 				5726F9332C55757300714AB5 /* BoroKitUI.framework */,
+				570DD1622C56BFA90056B8AA /* Boro-Multiplatform.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -230,8 +302,6 @@
 		571813F62708E4EC00513DA8 /* Boro WatchKit Extension */ = {
 			isa = PBXGroup;
 			children = (
-				571813F72708E4EC00513DA8 /* BoroView.swift */,
-				571813F92708E4EC00513DA8 /* BoroApp.swift */,
 				57CE009B270B335D00D496F3 /* ExtensionDelegate.swift */,
 				571813FB2708E4EC00513DA8 /* ComplicationController.swift */,
 				571813FD2708E4ED00513DA8 /* Assets.xcassets */,
@@ -321,6 +391,26 @@
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
+		570DD1612C56BFA90056B8AA /* Boro-Multiplatform */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 570DD1702C56BFAB0056B8AA /* Build configuration list for PBXNativeTarget "Boro-Multiplatform" */;
+			buildPhases = (
+				570DD15E2C56BFA90056B8AA /* Sources */,
+				570DD15F2C56BFA90056B8AA /* Frameworks */,
+				570DD1602C56BFA90056B8AA /* Resources */,
+				570DD1752C56BFC70056B8AA /* Embed Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				570DD1742C56BFC70056B8AA /* PBXTargetDependency */,
+				570DD1792C56BFCC0056B8AA /* PBXTargetDependency */,
+			);
+			name = "Boro-Multiplatform";
+			productName = "Boro-Multiplatform";
+			productReference = 570DD1622C56BFA90056B8AA /* Boro-Multiplatform.app */;
+			productType = "com.apple.product-type.application";
+		};
 		5715475E2711E63000EF0BDF /* Boro */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 571547862711E63400EF0BDF /* Build configuration list for PBXNativeTarget "Boro" */;
@@ -421,9 +511,12 @@
 			isa = PBXProject;
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
-				LastSwiftUpdateCheck = 1300;
+				LastSwiftUpdateCheck = 1520;
 				LastUpgradeCheck = 1520;
 				TargetAttributes = {
+					570DD1612C56BFA90056B8AA = {
+						CreatedOnToolsVersion = 15.2;
+					};
 					5715475E2711E63000EF0BDF = {
 						CreatedOnToolsVersion = 13.0;
 					};
@@ -461,11 +554,21 @@
 				571814142708E58D00513DA8 /* BoroKit */,
 				5718141D2708E58E00513DA8 /* BoroKitTests */,
 				5726F9322C55757300714AB5 /* BoroKitUI */,
+				570DD1612C56BFA90056B8AA /* Boro-Multiplatform */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		570DD1602C56BFA90056B8AA /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				570DD16D2C56BFAB0056B8AA /* Preview Assets.xcassets in Resources */,
+				570DD1692C56BFAB0056B8AA /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		5715475D2711E63000EF0BDF /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -507,12 +610,20 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		570DD15E2C56BFA90056B8AA /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				570DD17C2C56C5730056B8AA /* AppDelegate.swift in Sources */,
+				570DD1652C56BFA90056B8AA /* Boro_MultiplatformApp.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		571813EE2708E4EC00513DA8 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				571813F82708E4EC00513DA8 /* BoroView.swift in Sources */,
-				571813FA2708E4EC00513DA8 /* BoroApp.swift in Sources */,
+				570DD17E2C56CEB40056B8AA /* Boro_MultiplatformApp.swift in Sources */,
 				57CE009C270B335D00D496F3 /* ExtensionDelegate.swift in Sources */,
 				571813FC2708E4EC00513DA8 /* ComplicationController.swift in Sources */,
 			);
@@ -550,6 +661,16 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		570DD1742C56BFC70056B8AA /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 571814142708E58D00513DA8 /* BoroKit */;
+			targetProxy = 570DD1732C56BFC70056B8AA /* PBXContainerItemProxy */;
+		};
+		570DD1792C56BFCC0056B8AA /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 5726F9322C55757300714AB5 /* BoroKitUI */;
+			targetProxy = 570DD1782C56BFCC0056B8AA /* PBXContainerItemProxy */;
+		};
 		571547BE2711EB9400EF0BDF /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 571813E62708E4EA00513DA8 /* Boro WatchKit App */;
@@ -583,6 +704,106 @@
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
+		570DD16E2C56BFAB0056B8AA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CODE_SIGN_ENTITLEMENTS = "Boro-Multiplatform/Boro-MultiplatformDebug.entitlements";
+				CODE_SIGN_STYLE = Manual;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"Boro-Multiplatform/Preview Content\"";
+				DEVELOPMENT_TEAM = 3C42F7N9CQ;
+				ENABLE_HARDENED_RUNTIME = YES;
+				"ENABLE_HARDENED_RUNTIME[sdk=macosx*]" = YES;
+				ENABLE_PREVIEWS = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "Boro-Multiplatform/Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = Boro;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.travel";
+				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "We need access to device location when using this app. Your location is never shared.";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "We need access to device location when using this app. Your location is never shared.";
+				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
+				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
+				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;
+				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphonesimulator*]" = YES;
+				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphoneos*]" = YES;
+				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphonesimulator*]" = YES;
+				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphoneos*]" = UIStatusBarStyleDefault;
+				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphonesimulator*]" = UIStatusBarStyleDefault;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.2;
+				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
+				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MACOSX_DEPLOYMENT_TARGET = 14.2;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.jossy.Boro-Multiplatform";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SDKROOT = auto;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		570DD16F2C56BFAB0056B8AA /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CODE_SIGN_ENTITLEMENTS = "Boro-Multiplatform/Boro_Multiplatform.entitlements";
+				CODE_SIGN_STYLE = Manual;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"Boro-Multiplatform/Preview Content\"";
+				DEVELOPMENT_TEAM = 3C42F7N9CQ;
+				ENABLE_HARDENED_RUNTIME = YES;
+				ENABLE_PREVIEWS = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "Boro-Multiplatform/Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = Boro;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.travel";
+				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "We need access to device location when using this app. Your location is never shared.";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "We need access to device location when using this app. Your location is never shared.";
+				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
+				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
+				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;
+				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphonesimulator*]" = YES;
+				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphoneos*]" = YES;
+				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphonesimulator*]" = YES;
+				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphoneos*]" = UIStatusBarStyleDefault;
+				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphonesimulator*]" = UIStatusBarStyleDefault;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.2;
+				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
+				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MACOSX_DEPLOYMENT_TARGET = 14.2;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.jossy.Boro-Multiplatform";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SDKROOT = auto;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
 		571547872711E63400EF0BDF /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -840,13 +1061,15 @@
 					"@loader_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
+				ONLY_ACTIVE_ARCH = NO;
 				PRODUCT_BUNDLE_IDENTIFIER = co.jossy.BoroKit;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
-				SDKROOT = watchos;
+				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
+				SUPPORTED_PLATFORMS = "watchsimulator watchos iphoneos iphonesimulator macosx";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = 4;
+				TARGETED_DEVICE_FAMILY = 1;
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
 				WATCHOS_DEPLOYMENT_TARGET = 9.6;
@@ -878,11 +1101,12 @@
 				PRODUCT_BUNDLE_IDENTIFIER = co.jossy.BoroKit;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
-				SDKROOT = watchos;
+				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
+				SUPPORTED_PLATFORMS = "watchsimulator watchos iphoneos iphonesimulator macosx";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = 4;
+				TARGETED_DEVICE_FAMILY = 1;
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
 				WATCHOS_DEPLOYMENT_TARGET = 9.6;
@@ -969,13 +1193,15 @@
 				MODULE_VERIFIER_SUPPORTED_LANGUAGE_STANDARDS = "gnu17 gnu++20";
 				PRODUCT_BUNDLE_IDENTIFIER = com.jossy.BoroKitUI;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
-				SDKROOT = watchos;
+				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator watchos watchsimulator macosx";
+				SUPPORTS_MACCATALYST = YES;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = 4;
+				TARGETED_DEVICE_FAMILY = "1,4";
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
 				WATCHOS_DEPLOYMENT_TARGET = 9.6;
@@ -1012,11 +1238,13 @@
 				MODULE_VERIFIER_SUPPORTED_LANGUAGE_STANDARDS = "gnu17 gnu++20";
 				PRODUCT_BUNDLE_IDENTIFIER = com.jossy.BoroKitUI;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
-				SDKROOT = watchos;
+				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator watchos watchsimulator macosx";
+				SUPPORTS_MACCATALYST = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = 4;
+				TARGETED_DEVICE_FAMILY = "1,4";
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
 				WATCHOS_DEPLOYMENT_TARGET = 9.6;
@@ -1026,6 +1254,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		570DD1702C56BFAB0056B8AA /* Build configuration list for PBXNativeTarget "Boro-Multiplatform" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				570DD16E2C56BFAB0056B8AA /* Debug */,
+				570DD16F2C56BFAB0056B8AA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		571547862711E63400EF0BDF /* Build configuration list for PBXNativeTarget "Boro" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
