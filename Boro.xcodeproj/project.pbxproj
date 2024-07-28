@@ -18,15 +18,15 @@
 		5718141F2708E58E00513DA8 /* BoroKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 571814152708E58D00513DA8 /* BoroKit.framework */; };
 		571814262708E58E00513DA8 /* BoroTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 571814252708E58E00513DA8 /* BoroTests.swift */; };
 		571814272708E58E00513DA8 /* BoroKit.h in Headers */ = {isa = PBXBuildFile; fileRef = 571814172708E58D00513DA8 /* BoroKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		5718142A2708E58E00513DA8 /* BoroKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 571814152708E58D00513DA8 /* BoroKit.framework */; };
-		5718142B2708E58E00513DA8 /* BoroKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 571814152708E58D00513DA8 /* BoroKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		571814342708E5C500513DA8 /* BoroKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 571814332708E5C500513DA8 /* BoroKit.swift */; };
 		5726F9362C55757300714AB5 /* BoroKitUI.h in Headers */ = {isa = PBXBuildFile; fileRef = 5726F9352C55757300714AB5 /* BoroKitUI.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		5726F93B2C5575BD00714AB5 /* BoroKitViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5726F93A2C5575BD00714AB5 /* BoroKitViews.swift */; };
 		5726F93D2C55761100714AB5 /* BoroKitUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5726F9332C55757300714AB5 /* BoroKitUI.framework */; };
-		5726F93E2C55761100714AB5 /* BoroKitUI.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 5726F9332C55757300714AB5 /* BoroKitUI.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		5726F93E2C55761100714AB5 /* BoroKitUI.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 5726F9332C55757300714AB5 /* BoroKitUI.framework */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		5726F9472C55764B00714AB5 /* BoroKitStyles.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5726F9462C55764B00714AB5 /* BoroKitStyles.swift */; };
 		5726F9482C55855400714AB5 /* BoroKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 571814152708E58D00513DA8 /* BoroKit.framework */; };
+		57C65AAD2C565725008A84E3 /* BoroKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 571814152708E58D00513DA8 /* BoroKit.framework */; };
+		57C65AAE2C565725008A84E3 /* BoroKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 571814152708E58D00513DA8 /* BoroKit.framework */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		57CE009C270B335D00D496F3 /* ExtensionDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57CE009B270B335D00D496F3 /* ExtensionDelegate.swift */; };
 		57CE009E270B4A3600D496F3 /* BoroKitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57CE009D270B4A3600D496F3 /* BoroKitTests.swift */; };
 		57CE00A0270B50E000D496F3 /* Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57CE009F270B50E000D496F3 /* Helpers.swift */; };
@@ -96,8 +96,8 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				5718142B2708E58E00513DA8 /* BoroKit.framework in Embed Frameworks */,
 				5726F93E2C55761100714AB5 /* BoroKitUI.framework in Embed Frameworks */,
+				57C65AAE2C565725008A84E3 /* BoroKit.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -147,8 +147,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5718142A2708E58E00513DA8 /* BoroKit.framework in Frameworks */,
 				5726F93D2C55761100714AB5 /* BoroKitUI.framework in Frameworks */,
+				57C65AAD2C565725008A84E3 /* BoroKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -422,7 +422,7 @@
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
 				LastSwiftUpdateCheck = 1300;
-				LastUpgradeCheck = 1410;
+				LastUpgradeCheck = 1520;
 				TargetAttributes = {
 					5715475E2711E63000EF0BDF = {
 						CreatedOnToolsVersion = 13.0;
@@ -586,7 +586,7 @@
 		571547872711E63400EF0BDF /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 4;
 				DEVELOPMENT_TEAM = "";
@@ -598,7 +598,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = co.jossy.Boro;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
-				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = "match AppStore co.jossy.Boro";
+				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = "match Development co.jossy.Boro";
 				SDKROOT = iphoneos;
 				SWIFT_VERSION = 5.0;
 			};
@@ -748,18 +748,18 @@
 				ASSETCATALOG_COMPILER_COMPLICATION_NAME = Complication;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "iPhone Distribution";
+				CODE_SIGN_IDENTITY = "Apple Development: Joss Manger (5T3V32KA23)";
 				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 4;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = 3C42F7N9CQ;
 				"DEVELOPMENT_TEAM[sdk=watchos*]" = 3C42F7N9CQ;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Boro WatchKit App/Boro-WatchKit-App-Info.plist";
-				INFOPLIST_KEY_CFBundleDisplayName = NYCBoro;
+				INFOPLIST_KEY_CFBundleDisplayName = Boro;
 				INFOPLIST_KEY_CLKComplicationPrincipalClass = Boro_WatchKit_App.ComplicationController;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
 				INFOPLIST_KEY_NSHumanReadableCopyright = "&copy; Jossy";
-				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "This is a location aware app, for the best experience, we need access to device location within 100m. Your location is never shared.";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "We need access to device location when using this app. Your location is never shared.";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				INFOPLIST_KEY_WKWatchOnly = YES;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -770,13 +770,13 @@
 				PRODUCT_BUNDLE_IDENTIFIER = co.jossy.Boro.watchkitapp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
-				"PROVISIONING_PROFILE_SPECIFIER[sdk=watchos*]" = "match AppStore co.jossy.Boro.watchkitapp";
+				"PROVISIONING_PROFILE_SPECIFIER[sdk=watchos*]" = "match Development co.jossy.Boro.watchkitapp";
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 4;
-				WATCHOS_DEPLOYMENT_TARGET = 8.0;
+				WATCHOS_DEPLOYMENT_TARGET = 9.6;
 			};
 			name = Debug;
 		};
@@ -788,19 +788,18 @@
 				ASSETCATALOG_COMPILER_COMPLICATION_NAME = Complication;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
-				CODE_SIGN_IDENTITY = "Apple Development";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "iPhone Distribution";
+				CODE_SIGN_IDENTITY = "Apple Distribution: Joss Manger (3C42F7N9CQ)";
 				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 4;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = 3C42F7N9CQ;
 				"DEVELOPMENT_TEAM[sdk=watchos*]" = 3C42F7N9CQ;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Boro WatchKit App/Boro-WatchKit-App-Info.plist";
-				INFOPLIST_KEY_CFBundleDisplayName = NYCBoro;
+				INFOPLIST_KEY_CFBundleDisplayName = Boro;
 				INFOPLIST_KEY_CLKComplicationPrincipalClass = Boro_WatchKit_App.ComplicationController;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
 				INFOPLIST_KEY_NSHumanReadableCopyright = "&copy; Jossy";
-				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "This is a location aware app, for the best experience, we need access to device location within 100m. Your location is never shared.";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "We need access to device location when using this app. Your location is never shared.";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				INFOPLIST_KEY_WKWatchOnly = YES;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -817,7 +816,7 @@
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 4;
-				WATCHOS_DEPLOYMENT_TARGET = 8.0;
+				WATCHOS_DEPLOYMENT_TARGET = 9.6;
 			};
 			name = Release;
 		};
@@ -850,7 +849,7 @@
 				TARGETED_DEVICE_FAMILY = 4;
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
-				WATCHOS_DEPLOYMENT_TARGET = 8.0;
+				WATCHOS_DEPLOYMENT_TARGET = 9.6;
 			};
 			name = Debug;
 		};
@@ -886,7 +885,7 @@
 				TARGETED_DEVICE_FAMILY = 4;
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
-				WATCHOS_DEPLOYMENT_TARGET = 8.0;
+				WATCHOS_DEPLOYMENT_TARGET = 9.6;
 			};
 			name = Release;
 		};
@@ -911,7 +910,7 @@
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 4;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Boro WatchKit App.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Boro WatchKit App";
-				WATCHOS_DEPLOYMENT_TARGET = 8.0;
+				WATCHOS_DEPLOYMENT_TARGET = 9.6;
 			};
 			name = Debug;
 		};
@@ -936,7 +935,7 @@
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 4;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Boro WatchKit App.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Boro WatchKit App";
-				WATCHOS_DEPLOYMENT_TARGET = 8.0;
+				WATCHOS_DEPLOYMENT_TARGET = 9.6;
 			};
 			name = Release;
 		};
@@ -979,7 +978,7 @@
 				TARGETED_DEVICE_FAMILY = 4;
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
-				WATCHOS_DEPLOYMENT_TARGET = 8.0;
+				WATCHOS_DEPLOYMENT_TARGET = 9.6;
 			};
 			name = Debug;
 		};
@@ -1020,7 +1019,7 @@
 				TARGETED_DEVICE_FAMILY = 4;
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
-				WATCHOS_DEPLOYMENT_TARGET = 8.0;
+				WATCHOS_DEPLOYMENT_TARGET = 9.6;
 			};
 			name = Release;
 		};

@@ -14,6 +14,7 @@ public enum Boro: String, Codable, CaseIterable, Identifiable {
     }
     
     case system = ""
+    case out = "Out of NYC"
     case template = "NYC"
     case brooklyn = "Brooklyn"
     case manhattan = "Manhattan"
@@ -21,7 +22,6 @@ public enum Boro: String, Codable, CaseIterable, Identifiable {
     case bronx = "The Bronx"
     case statenIsland = "Staten Island"
     case six = "6th Borough"
-    case out = "Out of NYC"
     
     public func shortText() -> String {
         let shortText: String
@@ -46,6 +46,17 @@ public enum Boro: String, Codable, CaseIterable, Identifiable {
             return ""
         }
         return shortText
+    }
+    
+    public var float: Float {
+        let options = Boro.allCases.filter({ $0.isValid })
+        let selfIndex = options.firstIndex(of: self) ?? 0
+        let resultFloat:Float = Float(1.0) + (Float(1.0/Float(options.count)) * Float(selfIndex))
+        return resultFloat
+    }
+    
+    public var isValid: Bool {
+        [.system,.out,.template].contains(self) ? false : true
     }
     
     public init?(placemark: CLPlacemark){
